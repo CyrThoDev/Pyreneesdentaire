@@ -15,8 +15,20 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pyrenées Dentaires",
-  description: "Pyrénées Dentaire vous propose des solutions efficaces ainsi qu’un accompagnement sur-mesure pour la conception et la réalisation de votre cabinet dentaire. L’équipe de Pyrénées Dentaire vous accompagne et vous oriente dans le choix de vos équipements et instruments dentaires.",
+  description:
+    "Pyrénées Dentaire vous propose des solutions efficaces ainsi qu’un accompagnement sur-mesure pour la conception et la réalisation de votre cabinet dentaire.",
+  robots:
+    process.env.VERCEL_ENV !== "production"
+      ? {
+          index: false,
+          follow: false,
+        }
+      : {
+          index: true,
+          follow: true,
+        },
 };
+
 
 export default function RootLayout({
   children,
