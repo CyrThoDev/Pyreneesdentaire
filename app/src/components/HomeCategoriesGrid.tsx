@@ -121,22 +121,27 @@ function TileCard({ tile }: { tile: Tile }) {
             : "flex items-center justify-center",
         ].join(" ")}
       >
-        {tile.images.map((img) => (
-          <div
-            key={img.src}
-            className={img.className ?? "w-[70%] max-w-[520px]"}
-          >
-            <div className="relative aspect-4/3 w-full">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-contain"
-                sizes="(min-width: 1024px) 40vw, 90vw"
-              />
-            </div>
-          </div>
-        ))}
+        {tile.images.map((img, idx) => {
+  const srcKey = typeof img.src === "string" ? img.src : img.src.src;
+
+  return (
+    <div
+      key={`${srcKey}-${idx}`}
+      className={img.className ?? "w-[70%] max-w-[520px]"}
+    >
+      <div className="relative aspect-4/3 w-full">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          fill
+          className="object-contain"
+          sizes="(min-width: 1024px) 40vw, 90vw"
+        />
+      </div>
+    </div>
+  );
+})}
+
       </div>
     ) : (
       <div className="flex-1" />
@@ -144,7 +149,7 @@ function TileCard({ tile }: { tile: Tile }) {
   </div>
 </div>
 
-{/* Bouton — TOUJOURS VISIBLE */}
+
 <div className="absolute bottom-6 right-6 z-10">
   <Link
     href={tile.href}
