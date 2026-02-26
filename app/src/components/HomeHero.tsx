@@ -24,7 +24,7 @@ export function HomeHero() {
             <div className="relative flex w-full flex-col justify-center">
               {/* Left text block */}
               <div className="max-w-3xl">
-                <h1 className="text-white font-extrabold uppercase leading-[0.95] tracking-tight text-5xl md:text-6xl lg:text-7xl">
+                <h1 className="text-white font-oswald font-extrabold uppercase leading-[0.95] tracking-tight text-5xl md:text-6xl lg:text-7xl">
                   PYRÉNÉES DENTAIRE
                 </h1>
 
