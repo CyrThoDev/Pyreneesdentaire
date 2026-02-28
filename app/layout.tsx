@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed, Oswald } from "next/font/google";
 import "./globals.css";
 import { Header } from "./src/components/Header";
+import { Footer } from "./src/components/Footer";
+import RealisationsSectionFooter from "./src/components/RealisationSectionFooter";
 
 /* ===== Fonts ===== */
 
@@ -52,6 +54,8 @@ export default function RootLayout({
       <body >
         <Header />
         {children}
+        <RealisationsSectionFooter />
+        <Footer />
       </body>
     </html>
   );

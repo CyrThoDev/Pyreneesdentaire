@@ -75,7 +75,7 @@ function TileCard({ tile }: { tile: Tile }) {
 
   const bg =
     tile.theme === "red"
-      ? "bg-[#B30000]"
+      ? "bg-red"
       : tile.theme === "dark"
         ? "bg-black"
         : "bg-[#E9E9E9]";
@@ -127,7 +127,7 @@ function TileCard({ tile }: { tile: Tile }) {
   return (
     <div
       key={`${srcKey}-${idx}`}
-      className={img.className ?? "w-[70%] max-w-[520px]"}
+      className={img.className ?? "w-[70%] max-w-130"}
     >
       <div className="relative aspect-4/3 w-full">
         <Image
@@ -153,7 +153,7 @@ function TileCard({ tile }: { tile: Tile }) {
 <div className="absolute bottom-6 right-6 z-10">
   <Link
     href={tile.href}
-    className="inline-flex h-10 items-center justify-center px-8 text-xs font-semibold uppercase tracking-widest bg-white text-[#B30000] hover:brightness-95 transition"
+    className="inline-flex h-10 items-center justify-center px-8 text-xs font-semibold uppercase  bg-white text-red hover:brightness-95 transition"
   >
     EN SAVOIR PLUS
   </Link>

@@ -3,152 +3,138 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * ✅ Shape "Sanity-ready"
+ * - slug: Sanity a souvent { current: string }
+ * - image: on anticipe une ref Sanity (asset._ref) OU une url locale
+ * - pricing: champs optionnels
+ */
+type SanitySlug = { current: string };
+
+type ProductImage =
+  | { kind: "local"; src: string; alt: string }
+  | { kind: "sanity"; assetRef: string; alt: string }; // + tard: urlFor(assetRef)
+
+type ProductCardData = {
+  _id: string; // futur _id Sanity
+  title: string;
+  subtitle?: string;
+  slug: SanitySlug;
+  image: ProductImage;
+  pricing?: {
+    promoLabel?: string;
+    oldLabel?: string;
+  };
+};
+
+function hrefFromSlug(slug: SanitySlug) {
+  return `/offres/${slug.current}`;
+}
+
+function ProductCard({ product }: { product: ProductCardData }) {
+  const href = hrefFromSlug(product.slug);
+
+  // ✅ Pour l’instant : on ne supporte que l’image locale dans le rendu.
+  // Quand tu brancheras Sanity, tu remplaceras cette partie par urlFor(...)
+  const imageSrc =
+    product.image.kind === "local" ? product.image.src : "/images/placeholder.jpg";
+  const imageAlt = product.image.alt;
+
+  return (
+    <article className="w-full">
+      <div className="relative aspect-video w-full border border-neutral-300">
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </div>
+
+      <div className="mt-5">
+        <h3 className="truncate text-xl font-extrabold text-neutral-900">
+          {product.title}
+        </h3>
+
+        {product.subtitle ? (
+          <p className="mt-1 text-sm text-neutral-600">{product.subtitle}</p>
+        ) : null}
+
+        {(product.pricing?.promoLabel || product.pricing?.oldLabel) && (
+          <div className="mt-3 flex justify-end">
+            <div className="flex items-baseline gap-2 text-right">
+              {product.pricing?.promoLabel ? (
+                <span className="text-2xl font-extrabold text-red-700">
+                  {product.pricing.promoLabel}
+                </span>
+              ) : null}
+
+              {product.pricing?.oldLabel ? (
+                <span className="text-base text-neutral-800 line-through">
+                  {product.pricing.oldLabel}
+                </span>
+              ) : null}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="mt-3 flex justify-end">
+        <Link
+          href={href}
+          className="text-xs font-extrabold uppercase  text-red-700 underline underline-offset-4 hover:text-red-800"
+        >
+          En savoir plus
+        </Link>
+      </div>
+    </article>
+  );
+}
+
 export default function OffreProduitsSection() {
-  // ✅ Données gérées ici (tu remplaceras par ton fetch / CMS plus tard)
+  // ✅ Données locales, mais déjà au format que tu récupèreras depuis Sanity plus tard
   const title = "OFFRE PRODUITS";
 
-  const leftCard = {
-    title: "Produit 1",
-    subtitle: "Description courte",
-    imageSrc: "/images/p1.jpg",
-    imageAlt: "Produit 1",
-    promoPriceLabel: "PROMO 120€", // optionnel
-    oldPriceLabel: "340€", // optionnel
-    href: "/offres/produit-1",
-  };
-
-  const rightCard = {
-    title: "Post Graduate in implant",
-    subtitle: "Post Graduate in implant surgery and dental",
-    imageSrc: "/images/p2.jpg",
-    imageAlt: "Post Graduate in implant",
-    promoPriceLabel: "PROMO 120€",
-    oldPriceLabel: "340€",
-    href: "/offres/post-graduate-implant",
-  };
-
-  const ctaLabel = "VOIR LES OFFRES";
-  const ctaHref = "/offres";
+  const products: ProductCardData[] = [
+    {
+      _id: "p1",
+      title: "Produit 1",
+      subtitle: "Description courte",
+      slug: { current: "produit-1" },
+      image: { kind: "local", src: "/images/p1.jpg", alt: "Produit 1" },
+      pricing: { promoLabel: "PROMO 120€", oldLabel: "340€" },
+    },
+    {
+      _id: "p2",
+      title: "Post Graduate in implant",
+      subtitle: "Post Graduate in implant surgery and dental",
+      slug: { current: "post-graduate-implant" },
+      image: { kind: "local", src: "/images/p2.jpg", alt: "Post Graduate in implant" },
+      pricing: { promoLabel: "PROMO 120€", oldLabel: "340€" },
+    },
+  ];
 
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-7xl px-6 py-10">
-        {/* Title */}
         <h2 className="text-5xl tracking-tight">
-          <span className="font-light">OFFRE </span>
-          <span className="font-extrabold">PRODUITS</span>
+          <span className="font-light">{title.split(" ")[0]} </span>
+          <span className="font-extrabold">{title.split(" ").slice(1).join(" ")}</span>
         </h2>
 
-        {/* Grid */}
         <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* LEFT */}
-          <article className="w-full">
-            <div className="relative aspect-[16/9] w-full border border-neutral-300">
-              <Image
-                src={leftCard.imageSrc}
-                alt={leftCard.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-
-            <div className="mt-5 flex items-start justify-between gap-6">
-              <div className="min-w-0">
-                <h3 className="truncate text-xl font-extrabold text-neutral-900">
-                  {leftCard.title}
-                </h3>
-                {leftCard.subtitle ? (
-                  <p className="mt-1 text-sm text-neutral-600">
-                    {leftCard.subtitle}
-                  </p>
-                ) : null}
-              </div>
-
-              {(leftCard.promoPriceLabel || leftCard.oldPriceLabel) && (
-                <div className="shrink-0 text-right">
-                  {leftCard.promoPriceLabel ? (
-                    <div className="text-2xl font-extrabold text-red-700">
-                      {leftCard.promoPriceLabel}
-                    </div>
-                  ) : null}
-                  {leftCard.oldPriceLabel ? (
-                    <div className="mt-1 text-base text-neutral-800 line-through">
-                      {leftCard.oldPriceLabel}
-                    </div>
-                  ) : null}
-                </div>
-              )}
-            </div>
-
-            <div className="mt-3 flex justify-end">
-              <Link
-                href={leftCard.href}
-                className="text-xs font-extrabold uppercase tracking-widest text-red-700 underline underline-offset-4 hover:text-red-800"
-              >
-                En savoir plus
-              </Link>
-            </div>
-          </article>
-
-          {/* RIGHT */}
-          <article className="w-full">
-            <div className="relative aspect-[16/9] w-full border border-neutral-300">
-              <Image
-                src={rightCard.imageSrc}
-                alt={rightCard.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-
-            <div className="mt-5 flex items-start justify-between gap-6">
-              <div className="min-w-0">
-                <h3 className="truncate text-xl font-extrabold text-neutral-900">
-                  {rightCard.title}
-                </h3>
-                {rightCard.subtitle ? (
-                  <p className="mt-1 text-sm text-neutral-600">
-                    {rightCard.subtitle}
-                  </p>
-                ) : null}
-              </div>
-
-              {(rightCard.promoPriceLabel || rightCard.oldPriceLabel) && (
-                <div className="shrink-0 text-right">
-                  {rightCard.promoPriceLabel ? (
-                    <div className="text-2xl font-extrabold text-red-700">
-                      {rightCard.promoPriceLabel}
-                    </div>
-                  ) : null}
-                  {rightCard.oldPriceLabel ? (
-                    <div className="mt-1 text-base text-neutral-800 line-through">
-                      {rightCard.oldPriceLabel}
-                    </div>
-                  ) : null}
-                </div>
-              )}
-            </div>
-
-            <div className="mt-3 flex justify-end">
-              <Link
-                href={rightCard.href}
-                className="text-xs font-extrabold uppercase tracking-widest text-red-700 underline underline-offset-4 hover:text-red-800"
-              >
-                En savoir plus
-              </Link>
-            </div>
-          </article>
+          {products.map((p) => (
+            <ProductCard key={p._id} product={p} />
+          ))}
         </div>
 
-        {/* Bottom CTA */}
         <div className="mt-12 flex justify-end">
           <Link
-            href={ctaHref}
-            className="inline-flex items-center justify-center bg-red-700 px-10 py-4 text-sm font-extrabold uppercase tracking-wide text-white hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2"
+            href="/offres"
+            className="inline-flex items-center justify-center bg-red-700 px-10 py-4 text-sm font-extrabold uppercase tracking-wide text-white hover:bg-red-800"
           >
-            {ctaLabel}
+            VOIR LES OFFRES
           </Link>
         </div>
       </div>

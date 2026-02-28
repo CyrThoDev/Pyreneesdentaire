@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import Button from "./ui/Button";
 
 type NavItem =
   | { label: string; href: string; children?: never }
@@ -51,15 +52,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-black/10">
-      <div className="mx-auto max-w-6xl px-4">
-        <div className="flex h-16 items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-4 py-3">
+        <div className="flex h-16 items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
-              src="/images/logo-pyrenees-dentaires.png"
+              src="/images/logoPY.svg"
               alt="Pyrénées Dentaires"
-              width={44}
-              height={44}
+              width={60}
+              height={60}
               priority
             />
           </Link>
@@ -103,7 +104,7 @@ export function Header() {
       z-50
     "
   >
-    <div className="w-fit min-w-[320px] max-w-[520px] bg-white shadow-md pb-2">
+    <div className="w-fit min-w-[320px] max-w-130 bg-white shadow-md pb-2">
       
 
  
@@ -138,7 +139,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/catalogue"
-              className="hidden sm:inline-flex h-10 items-center justify-center rounded-none bg-red px-4 text-[12px] font-semibold tracking-widest text-white hover:brightness-95 transition"
+              className="hidden font-barlow font-bold sm:inline-flex h-10 items-center justify-center rounded-none bg-red px-4 py-6   text-white hover:brightness-95 transition"
             >
               CATALOGUE PRODUITS
             </Link>
@@ -172,7 +173,7 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="py-2 text-sm font-semibold tracking-widest text-black/80 hover:text-black"
+                      className="py-2 text-sm font-semibold  text-black/80 hover:text-black"
                     >
                       {item.label}
                     </Link>
@@ -186,7 +187,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
-                        className="py-2 text-sm font-semibold tracking-widest text-black/80 hover:text-black"
+                        className="py-2 text-sm font-semibold  text-black/80 hover:text-black"
                       >
                         {item.label}
                       </Link>
@@ -225,13 +226,14 @@ export function Header() {
                 );
               })}
 
-              <Link
-                href="/catalogue"
-                onClick={() => setOpen(false)}
-                className="mt-2 inline-flex h-10 items-center justify-center bg-[#B30000] px-4 text-[12px] font-semibold tracking-widest text-white"
-              >
-                CATALOGUE PRODUITS
-              </Link>
+  <Button
+  href="/catalogue"
+  onClick={() => setOpen(false)}
+  className="mt-2"
+  variant="red"
+>
+  CATALOGUE PRODUITS
+</Button>
             </div>
           </div>
         )}

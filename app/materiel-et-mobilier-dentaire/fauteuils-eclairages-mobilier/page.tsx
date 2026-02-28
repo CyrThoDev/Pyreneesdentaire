@@ -180,7 +180,7 @@ mobilier fonctionnel et esthétique, nous avons le matériel adapté à vos beso
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
           {/* Texte */}
           <div>
-            <p className="text-xs font-semibold tracking-widest text-black/60">
+            <p className="text-xs font-semibold  text-black/60">
               QUETIN DENTAIRE
             </p>
             <h3 className="mt-2 text-lg font-bold">UNIQ</h3>
@@ -198,7 +198,7 @@ mobilier fonctionnel et esthétique, nous avons le matériel adapté à vos beso
         </div>
 
         {/* Ligne “logos/labels” */}
-        <div className="mt-10 grid grid-cols-4 gap-6 text-center text-[11px] font-semibold tracking-widest text-black/60">
+        <div className="mt-10 grid grid-cols-4 gap-6 text-center text-[11px] font-semibold text-black/60">
           <div>ZENIUM</div>
           <div>ZENIUM</div>
           <div>BELMONT</div>
@@ -221,7 +221,7 @@ mobilier fonctionnel et esthétique, nous avons le matériel adapté à vos beso
       <SectionTitle title="Le mobilier" />
       <div className="mx-auto max-w-6xl px-6 pb-10">
         {/* “Labels” en haut (comme sur la capture) */}
-        <div className="grid grid-cols-4 gap-6 text-center text-[11px] font-semibold tracking-widest text-black/60">
+        <div className="grid grid-cols-4 gap-6 text-center text-[11px] font-semibold  text-black/60">
           <div>DENTAL ART</div>
           <div>ROSSI CAYS</div>
           <div>BELMONT</div>
@@ -284,7 +284,7 @@ function ProductRowItem({ item }: { item: ProductRow }) {
     <article className="grid gap-6 py-10 lg:grid-cols-[1.3fr_1fr] lg:items-center">
       {/* Texte */}
       <div>
-        <p className="text-xs font-semibold uppercase tracking-widest text-black/60">
+        <p className="text-xs font-semibold uppercase  text-black/60">
           {item.brand}
         </p>
         <h3 className="mt-2 text-lg font-bold">{item.model}</h3>
@@ -295,7 +295,7 @@ function ProductRowItem({ item }: { item: ProductRow }) {
         {item.specs?.length ? (
           <div className="mt-4">
             {item.specsTitle ? (
-              <p className="text-xs font-bold uppercase tracking-widest text-black/60">
+              <p className="text-xs font-bold uppercase  text-black/60">
                 {item.specsTitle}
               </p>
             ) : null}
@@ -310,7 +310,7 @@ function ProductRowItem({ item }: { item: ProductRow }) {
 
       {/* Image + bouton */}
       <div className="flex flex-col items-end gap-4">
-        <div className="relative h-[180px] w-full max-w-[360px]">
+        <div className="relative h-45 w-full max-w-90">
           <Image
             src={item.image}
             alt={`${item.brand} ${item.model}`}
@@ -326,7 +326,7 @@ function ProductRowItem({ item }: { item: ProductRow }) {
 
 function Thumb({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative aspect-[4/3] w-full bg-white">
+    <div className="relative aspect-4/3 w-full bg-white">
       <Image src={src} alt={alt} fill className="object-contain" />
     </div>
   );
@@ -335,7 +335,7 @@ function Thumb({ src, alt }: { src: string; alt: string }) {
 function LightingCardItem({ item }: { item: LightingCard }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-widest text-black/60">
+      <p className="text-xs font-semibold uppercase  text-black/60">
         {item.brand}
       </p>
       <h4 className="mt-2 text-sm font-bold">{item.title}</h4>
@@ -347,11 +347,11 @@ function LightingCardItem({ item }: { item: LightingCard }) {
 function FurnitureCardItem({ item }: { item: FurnitureCard }) {
   return (
     <article className="border border-black/10 bg-white">
-      <div className="relative aspect-[4/3] w-full bg-black/5">
+      <div className="relative aspect-4/3 w-full bg-black/5">
         <Image src={item.image} alt={item.title} fill className="object-cover" />
       </div>
       <div className="p-4">
-        <p className="text-xs font-semibold uppercase tracking-widest text-black/60">
+        <p className="text-xs font-semibold uppercase  text-black/60">
           {item.brand}
         </p>
         <h4 className="mt-2 text-sm font-bold">{item.title}</h4>
@@ -363,7 +363,7 @@ function FurnitureCardItem({ item }: { item: FurnitureCard }) {
 
 function RealisationImg({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="relative aspect-[4/3] w-full">
+    <div className="relative aspect-4/3 w-full">
       <Image src={src} alt={alt} fill className="object-cover opacity-90" />
     </div>
   );
@@ -379,7 +379,7 @@ function PrimaryButton({
   return (
     <a
       href={href}
-      className="inline-block bg-[#b1001a] px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white"
+      className="inline-block bg-[#b1001a] px-4 py-2 text-[11px] font-bold uppercase  text-white"
     >
       {children}
     </a>
