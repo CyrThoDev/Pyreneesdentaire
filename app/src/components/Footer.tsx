@@ -157,7 +157,7 @@ export function Footer() {
 
         {/* Bottom line */}
         <div className="mt-12 text-center text-xs  text-white/85">
-          PYRENNES DENTAIRE - 5 route de l’Oussère - 64320 Idron - 05 59 02 28 46
+          PYRENNEES DENTAIRE - 5 route de l’Oussère - 64320 Idron - 05 59 02 28 46
         </div>
       </div>
     </footer>

@@ -8,7 +8,7 @@ export default function RealisationsSectionFooter() {
     <section className="relative w-full overflow-hidden">
       {/* GRID IMAGES */}
       <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_2fr] ">
-        <div className="relative w-full h-96 md:h-96 group">
+        <div className="relative w-full h-105 md:h-[380px] group">
           <Image
             src="/images/real1.png"
             alt="Cabinet dentaire 1"

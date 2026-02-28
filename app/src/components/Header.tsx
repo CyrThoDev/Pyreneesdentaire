@@ -5,9 +5,15 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import Button from "./ui/Button";
 
-type NavItem =
-  | { label: string; href: string; children?: never }
-  | { label: string; href: string; children: { label: string; href: string }[] };
+type NavLink = { type: "link"; label: string; href: string };
+
+type NavMenu = {
+  type: "menu";
+  label: string;
+  children: { label: string; href: string }[];
+};
+
+type NavItem = NavLink | NavMenu;
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -15,10 +21,10 @@ export function Header() {
 
   const navItems: NavItem[] = useMemo(
     () => [
-      { label: "ACCUEIL", href: "/" },
+      { type: "link", label: "ACCUEIL", href: "/" },
       {
+        type: "menu",
         label: "MATÉRIEL ET MOBILIER DENTAIRE",
-        href: "/materiel-et-mobilier-dentaire",
         children: [
           {
             label: "Les fauteuils, l’éclairages et le mobilier",
@@ -38,16 +44,12 @@ export function Header() {
           },
         ],
       },
-      { label: "NOS FORMATIONS", href: "/formations" },
-      { label: "LA SOCIÉTÉ", href: "/societe" },
-      { label: "NOS RÉALISATIONS", href: "/realisations" },
-      { label: "CONTACT", href: "/contact" },
+      { type: "link", label: "NOS FORMATIONS", href: "/formations" },
+      { type: "link", label: "LA SOCIÉTÉ", href: "/societe" },
+      { type: "link", label: "NOS RÉALISATIONS", href: "/realisations" },
+      { type: "link", label: "CONTACT", href: "/contact" },
     ],
     []
-  );
-
-  const materielItem = navItems.find(
-    (i) => i.href === "/materiel-et-mobilier-dentaire"
   );
 
   return (
@@ -68,8 +70,8 @@ export function Header() {
           {/* Desktop nav */}
           <nav className="hidden font-barlow-condensed lg:flex items-center gap-6 text-xl font-bold text-black">
             {navItems.map((item) => {
-              // Item simple
-              if (!("children" in item)) {
+              // Lien simple
+              if (item.type === "link") {
                 return (
                   <Link
                     key={item.href}
@@ -81,56 +83,46 @@ export function Header() {
                 );
               }
 
-              // Item avec dropdown
+              // Menu dropdown (parent non cliquable)
               return (
-             <div key={item.href} className="relative group">
-  <Link
-    href={item.href}
-    className="inline-flex items-center gap-2  transition-colors"
-  >
-    {item.label}
-    <span className="text-base leading-none opacity-70">▾</span>
-  </Link>
+                <div key={item.label} className="relative group">
+                  <button
+                    type="button"
+                    className="inline-flex items-center gap-2 transition-colors"
+                    aria-haspopup="menu"
+                  >
+                    {item.label}
+                    <span className="text-base leading-none opacity-70">▾</span>
+                  </button>
 
-  {/* Dropdown */}
-  <div
-    className="
-      absolute left-0 top-full
-      pt-2
-      invisible opacity-0 translate-y-1
-      group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
-      group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0
-      transition
-      z-50
-    "
-  >
-    <div className="w-fit min-w-[320px] max-w-130 bg-white shadow-md pb-2">
-      
-
- 
-
-      {/* Sous catégories */}
-      {item.children?.map((child, index) => (
-<Link
-  key={child.href}
-  href={child.href}
-  className={`
-    block px-2 py-2 text-lg font-semibold
-    transition-colors
-    
-    hover:text-red
-  `}
->
-  {index !== 0 && (
-    <span className="block mx-auto mb-2 w-[97%] border-t border-black/40"></span>
-  )}
-
-  {child.label}
-</Link>
-      ))}
-    </div>
-  </div>
-</div>
+                  {/* Dropdown */}
+                  <div
+                    className="
+                      absolute left-0 top-full
+                      pt-2
+                      invisible opacity-0 translate-y-1
+                      group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
+                      group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0
+                      transition
+                      z-50
+                    "
+                  >
+                    <div className="w-fit min-w-[320px] max-w-130 bg-white shadow-md pb-2">
+                      {item.children.map((child, index) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-2 py-2 text-lg font-semibold transition-colors hover:text-red"
+                        >
+                          {index !== 0 && (
+                            <span className="block mx-auto mb-2 w-[97%] border-t border-black/40" />
+                          )}
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </nav>
@@ -139,7 +131,7 @@ export function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/catalogue"
-              className="hidden font-barlow font-bold sm:inline-flex h-10 items-center justify-center rounded-none bg-red px-4 py-6   text-white hover:brightness-95 transition"
+              className="hidden font-barlow font-bold sm:inline-flex h-10 items-center justify-center rounded-none bg-red px-4 py-6 text-white hover:brightness-95 transition"
             >
               CATALOGUE PRODUITS
             </Link>
@@ -166,31 +158,32 @@ export function Header() {
           <div className="lg:hidden pb-4">
             <div className="flex flex-col gap-2 pt-2">
               {navItems.map((item) => {
-                // Item simple
-                if (!("children" in item)) {
+                // Lien simple
+                if (item.type === "link") {
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="py-2 text-sm font-semibold  text-black/80 hover:text-black"
+                      className="py-2 text-sm font-semibold text-black/80 hover:text-black"
                     >
                       {item.label}
                     </Link>
                   );
                 }
 
-                // Item avec accordéon
+                // Menu accordéon (parent non cliquable)
                 return (
-                  <div key={item.href} className="pt-1">
+                  <div key={item.label} className="pt-1">
                     <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="py-2 text-sm font-semibold  text-black/80 hover:text-black"
+                      <button
+                        type="button"
+                        className="py-2 text-sm font-semibold text-black/80 hover:text-black text-left"
+                        aria-expanded={mobileSubOpen}
+                        onClick={() => setMobileSubOpen((v) => !v)}
                       >
                         {item.label}
-                      </Link>
+                      </button>
 
                       <button
                         type="button"
@@ -205,7 +198,7 @@ export function Header() {
                       </button>
                     </div>
 
-                    {mobileSubOpen && item.children && (
+                    {mobileSubOpen && (
                       <div className="mt-1 ml-3 border-l border-black/10 pl-3 flex flex-col">
                         {item.children.map((child) => (
                           <Link
@@ -226,14 +219,14 @@ export function Header() {
                 );
               })}
 
-  <Button
-  href="/catalogue"
-  onClick={() => setOpen(false)}
-  className="mt-2"
-  variant="red"
->
-  CATALOGUE PRODUITS
-</Button>
+              <Button
+                href="/catalogue"
+                onClick={() => setOpen(false)}
+                className="mt-2"
+                variant="red"
+              >
+                CATALOGUE PRODUITS
+              </Button>
             </div>
           </div>
         )}
