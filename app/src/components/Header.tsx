@@ -32,7 +32,7 @@ export function Header() {
           },
           {
             label: "La radiologie et la prise d’empreinte",
-            href: "/materiel-et-mobilier-dentaire/radiologie-prise-empreinte",
+            href: "/materiel-et-mobilier-dentaire/radiologie-empreinte",
           },
           {
             label: "L’hygiène et la stérilisation",
@@ -59,7 +59,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
-              src="/images/logoPY.svg"
+              src="/images/LogoPY.svg"
               alt="Pyrénées Dentaires"
               width={60}
               height={60}
@@ -222,7 +222,7 @@ export function Header() {
               <Button
                 href="/catalogue"
                 onClick={() => setOpen(false)}
-                className="mt-2"
+              
                 variant="red"
               >
                 CATALOGUE PRODUITS
