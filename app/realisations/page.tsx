@@ -1,11 +1,20 @@
+import RealisationsMasonry from "../src/components/realisations/RealisationsGrid";
+
 export default function Materiel() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-        Nos réalisations
-         </h1>
-      </main>
-    </div>
+   
+      <>
+         <section className="bg-red text-white font-barlow">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8">
+          <h1 className="text-5xl font-condensed">
+            NOS RÉALISATIONS
+          </h1>
+          <p className="max-w-7xl text-lg opacity-95">
+Découvrez nos réalisations de cabinets dentaires conçus sur mesure. Chaque projet allie design, ergonomie et respect des normes afin d’offrir un cadre de travail optimal aux praticiens et une expérience agréable aux patients.    </p>
+        </div>
+      </section>
+        <RealisationsMasonry />
+</>
+   
   );
 }

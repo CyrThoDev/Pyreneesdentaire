@@ -3,7 +3,7 @@ import { Barlow, Barlow_Condensed, Oswald } from "next/font/google";
 import "./globals.css";
 import { Header } from "./src/components/Header";
 import { Footer } from "./src/components/Footer";
-import RealisationsSectionFooter from "./src/components/RealisationSectionFooter";
+import RealisationsSectionFooterGate from "./src/components/RealisationsSectionFooterGate";
 
 /* ===== Fonts ===== */
 
@@ -54,7 +54,7 @@ export default function RootLayout({
       <body >
         <Header />
         {children}
-        <RealisationsSectionFooter />
+        <RealisationsSectionFooterGate />
         <Footer />
       </body>
     </html>
