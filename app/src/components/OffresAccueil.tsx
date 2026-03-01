@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./ui/Button";
 
 /**
  * ✅ Shape "Sanity-ready"
@@ -81,12 +82,13 @@ function ProductCard({ product }: { product: ProductCardData }) {
       </div>
 
       <div className="mt-3 flex justify-end">
-        <Link
-          href={href}
-          className="text-xs font-extrabold uppercase  text-red-700 underline underline-offset-4 hover:text-red-800"
-        >
-          En savoir plus
-        </Link>
+        <Button
+  href={href}
+  variant="white"
+
+>
+  En savoir plus
+</Button>
       </div>
     </article>
   );
@@ -130,12 +132,13 @@ export default function OffreProduitsSection() {
         </div>
 
         <div className="mt-12 flex justify-end">
-          <Link
-            href="/offres"
-            className="inline-flex items-center justify-center bg-red-700 px-10 py-4 text-sm font-extrabold uppercase tracking-wide text-white hover:bg-red-800"
-          >
-            VOIR LES OFFRES
-          </Link>
+          <Button
+  href="/offres"
+  variant="red"
+ 
+>
+  VOIR LES OFFRES
+</Button>
         </div>
       </div>
     </section>

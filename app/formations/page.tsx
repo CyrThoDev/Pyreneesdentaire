@@ -50,7 +50,7 @@ export default function FormationsPage() {
       <section className="w-full bg-white">
         <section className="bg-red text-white font-barlow py-12">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 ">
-          <h1 className="text-5xl font-condensed">
+          <h1 className="text-5xl ">
            NOS FORMATIONS
           </h1>
         </div>

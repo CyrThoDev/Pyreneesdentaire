@@ -3,6 +3,7 @@ import Link from "next/link";
 
 
 import type { StaticImageData } from "next/image";
+import Button from "./ui/Button";
 
 type Tile = {
   title: string;
@@ -151,12 +152,13 @@ function TileCard({ tile }: { tile: Tile }) {
 
 
 <div className="absolute bottom-6 right-6 z-10">
-  <Link
-    href={tile.href}
-    className="inline-flex h-10 items-center justify-center px-8 text-xs font-semibold uppercase  bg-white text-red hover:brightness-95 transition"
-  >
-    EN SAVOIR PLUS
-  </Link>
+ <Button
+  href={tile.href}
+  variant="white"
+ 
+>
+  EN SAVOIR PLUS
+</Button>
 </div>
 
     </article>

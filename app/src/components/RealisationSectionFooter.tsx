@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+
+import Button from "./ui/Button";
 
 export default function RealisationsSectionFooter() {
   return (
@@ -51,19 +52,23 @@ export default function RealisationsSectionFooter() {
         </div>
       </div>
 
-      {/* ✅ OVERLAY TEXTE + CTA */}
-      <div className="absolute inset-0 flex items-center justify-between px-6 md:px-16">
-        <h2 className="text-white text-4xl md:text-6xl self-center font-light tracking-wide">
-          Nos <span className="font-bold">réalisations</span>
-        </h2>
+      {/* OVERLAY TEXTE + CTA */}
+   <div className="absolute inset-0 flex flex-col justify-between md:flex-row md:items-center md:justify-between px-6 md:px-16 font-barlow">
+  
+  <h2 className="text-white text-6xl self-start mt-10 lg:mt-0 lg:self-center font-light tracking-wide text-center md:text-left">
+    Nos <span className="font-bold">réalisations</span>
+  </h2>
 
-        <Link
-          href="/realisations"
-          className="bg-white px-8 py-4 text-sm md:text-base font-semibold self-end mb-10 uppercase hover:bg-gray-200 transition"
-        >
-          Découvrir nos réalisations
-        </Link>
-      </div>
+  <div className="flex justify-center md:justify-end mb-10 md:mb-0">
+    <Button
+      href="/realisations"
+      variant="black"
+    >
+      DECOUVRIR NOS REALISATIONS
+    </Button>
+  </div>
+
+</div>
     </section>
   );
 }

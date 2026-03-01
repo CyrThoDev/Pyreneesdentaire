@@ -58,7 +58,7 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
     <>
             <section className="bg-red text-white ">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14 ">
-          <h1 className="text-5xl font-condensed">
+          <h1 className="text-5xl ">
            PYRENEES DENTAIRE
           </h1>
         </div>

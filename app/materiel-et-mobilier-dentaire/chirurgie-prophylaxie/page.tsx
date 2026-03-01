@@ -8,7 +8,7 @@ export default function Page() {
     <>
     <section className="bg-red text-white font-barlow">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8">
-          <h1 className="text-5xl font-condensed">
+          <h1 className="text-5xl">
             La chirurgie et la prophylaxie
           </h1>
           <p className="max-w-7xl text-lg opacity-95">

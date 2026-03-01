@@ -48,7 +48,7 @@ export default function NotFound() {
 
               <Button
                 href="/materiel-et-mobilier-dentaire"
-                variant="outline"
+                variant="white"
                 
               >
                 Voir le catalogue

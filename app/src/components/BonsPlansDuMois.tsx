@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Button from "./ui/Button";
 
 export default function BonsPlansDuMoisSection() {
   
@@ -33,7 +34,7 @@ oldPriceValue: "40 000€ TTC",
   };
 
   return (
-    <section className="w-full bg-[#f2f2f2] py-10">
+    <section className="w-full bg-gray py-10">
       <div className="mx-auto w-full max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
           {/* IMAGE */}
@@ -52,9 +53,9 @@ oldPriceValue: "40 000€ TTC",
 
           {/* TEXTE */}
           <div className="flex flex-col gap-0">
-            <h2 className="font-oswald text-[44px] font-black  tracking-tight text-black md:text-[56px]">
+            <h2 className="font-oswald text-[44px] font-black   text-black md:text-[56px]">
               {deal.titleLeft}{" "}
-              <span className="font-light tracking-[0.2em]">{deal.titleRight}</span>
+              <span className="font-light ">{deal.titleRight}</span>
             </h2>
 
             <div className="mt-6">
@@ -86,12 +87,14 @@ oldPriceValue: "40 000€ TTC",
 </p>
               </div>
 
-              <Link
-                href={deal.ctaHref}
-                className="inline-flex h-12 items-center justify-center rounded-sm bg-red px-10  font-extrabold uppercase  text-white shadow-md transition hover:brightness-110"
-              >
-                {deal.ctaLabel}
-              </Link>
+           <Button
+  href={deal.ctaHref}
+  variant="red"
+  className=" text-center inline-flex"
+ 
+>
+  {deal.ctaLabel}
+</Button>
             </div>
           </div>
         </div>
