@@ -1,36 +1,61 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow, Barlow_Condensed, Oswald } from "next/font/google";
 import "./globals.css";
 import { Header } from "./src/components/Header";
+import { Footer } from "./src/components/Footer";
+import RealisationsSectionFooterGate from "./src/components/RealisationsSectionFooterGate";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/* ===== Fonts ===== */
+
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
 });
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
+
+/* ===== Metadata ===== */
 
 export const metadata: Metadata = {
-  title: "Pyrenées Dentaires",
-  description: "Pyrénées Dentaire vous propose des solutions efficaces ainsi qu’un accompagnement sur-mesure pour la conception et la réalisation de votre cabinet dentaire. L’équipe de Pyrénées Dentaire vous accompagne et vous oriente dans le choix de vos équipements et instruments dentaires.",
+  title: "Pyrénées Dentaires",
+  description:
+    "Pyrénées Dentaire vous propose des solutions efficaces ainsi qu’un accompagnement sur-mesure pour la conception et la réalisation de votre cabinet dentaire.",
+  robots:
+    process.env.VERCEL_ENV !== "production"
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
 };
+
+/* ===== Layout ===== */
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-      
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html
+      lang="fr" className={`${barlow.variable} ${barlowCondensed.variable} ${oswald.variable} antialiased ` }
+    >
+      <body >
         <Header />
         {children}
+        <RealisationsSectionFooterGate />
+        <Footer />
       </body>
     </html>
   );
