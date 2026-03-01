@@ -59,14 +59,14 @@ export default function RealisationsSectionFooter() {
     Nos <span className="font-bold">réalisations</span>
   </h2>
 
-  <div className="flex justify-center md:justify-end mb-10 md:mb-0">
-    <Button
-      href="/realisations"
-      variant="black"
-    >
-      DECOUVRIR NOS REALISATIONS
-    </Button>
-  </div>
+<div className="flex justify-center md:justify-end md:mb-10 md:items-end   h-full">
+  <Button
+    href="/realisations"
+    variant="black"
+  >
+    DECOUVRIR NOS REALISATIONS
+  </Button>
+</div>
 
 </div>
     </section>

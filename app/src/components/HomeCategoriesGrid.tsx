@@ -17,7 +17,7 @@ const tiles: Tile[] = [
   {
     title: "FAUTEUIL,",
     subtitle: "MOBILIER\nET ÉCLAIRAGE",
-    href: "/materiel/fauteuil-mobilier-eclairage",
+    href: "/materiel-et-mobilier-dentaire/fauteuils-eclairages-mobilier",
     theme: "light",
     images: [
       {
@@ -30,7 +30,7 @@ const tiles: Tile[] = [
   {
     title: "Radiologie",
     subtitle: "et prise d’empreinte",
-    href: "/materiel/radiologie",
+    href: "/materiel-et-mobilier-dentaire/radiologie-empreinte",
     theme: "red",
     images: [
       {
@@ -43,7 +43,7 @@ const tiles: Tile[] = [
   {
     title: "Hygiene",
     subtitle: "et stérilisation",
-    href: "/materiel/hygiene",
+    href: "/materiel-et-mobilier-dentaire/hygiene-sterilisation",
     theme: "dark",
     images: [
       {
@@ -61,7 +61,7 @@ const tiles: Tile[] = [
   {
     title: "Chirurgie",
     subtitle: "et Prophylaxie",
-    href: "/materiel/chirurgie",
+    href: "/materiel-et-mobilier-dentaire/chirurgie-prophylaxie",
     theme: "light",
     images: [
       // Optionnel : si tu veux un visuel ici, ajoute une image
