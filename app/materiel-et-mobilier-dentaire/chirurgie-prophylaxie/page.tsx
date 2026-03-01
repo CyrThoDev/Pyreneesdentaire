@@ -1,5 +1,7 @@
 // app/chirurgie/page.tsx
 import { CategoryPage } from "@/app/src/components/products/CategoryPage";
+import { CHIRURGIE_ITEMS } from "@/app/src/data/chirurgie";
+
 
 export default function Page() {
   return (
@@ -17,7 +19,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
     <CategoryPage
       title="Chirurgie"
       subtitle="Contenu à venir."
-      items={[]}
+      items={CHIRURGIE_ITEMS}
       ctaHref="/contact"
     />
     </>

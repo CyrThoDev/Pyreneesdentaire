@@ -129,12 +129,12 @@ export function Header() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            <Link
-              href="/catalogue"
-              className="hidden font-barlow font-bold sm:inline-flex h-10 items-center justify-center rounded-none bg-red px-4 py-6 text-white hover:brightness-95 transition"
-            >
-              CATALOGUE PRODUITS
-            </Link>
+           <Button
+                href="/catalogue"
+                variant="red"
+              >
+                CATALOGUE PRODUITS
+              </Button>
 
             {/* Mobile button */}
             <button
