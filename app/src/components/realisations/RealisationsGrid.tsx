@@ -22,7 +22,7 @@ export default function RealisationsGrid() {
       <div className="">
 
         {/* 🖥 DESKTOP → montage unique */}
-        <div className="hidden lg:block">
+        <div className="hidden lg:block p-20">
           <Image
             src="/images/realisations/Masonry.png"
             alt="Réalisations"
