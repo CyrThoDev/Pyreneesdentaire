@@ -26,20 +26,18 @@ export function HomeHero() {
           <div className="flex flex-col gap-8 max-w-4xl">
 
             <div className="flex flex-col gap-4">
-              <h1 className="text-white font-oswald font-extrabold uppercase leading-[0.95] tracking-tight text-5xl md:text-6xl lg:text-7xl">
+              <h1 className="text-white font-oswald font-extrabold uppercase l tracking-tight text-5xl md:text-6xl lg:text-8xl">
                 PYRÉNÉES DENTAIRE
               </h1>
 
-              <p className="font-barlow text-white uppercase tracking-[0.35em] text-xs md:text-xl">
+              <p className="font-barlow text-white uppercase tracking-[0.2em] text-xs md:text-xl">
                 MATÉRIELS ET FOURNITURES POUR L’ART DENTAIRE
               </p>
             </div>
 
             <div className="flex flex-col gap-6">
-              <p className="font-barlow text-white md:text-lg leading-relaxed max-w-2xl">
-                Pyrénées Dentaire vous propose des solutions efficaces ainsi
-                qu’un accompagnement sur-mesure pour la conception et la
-                réalisation de votre cabinet dentaire.
+              <p className="font-barlow text-white md:text-lg leading-relaxed ">
+                Pyrénées Dentaire vous propose des solutions performantes et un accompagnement sur mesure pour la conception et la réalisation de votre cabinet dentaire. Notre équipe vous conseille et vous guide dans le choix de vos équipements et instruments dentaires, en fonction de vos besoins et de vos exigences professionnelles. 
               </p>
 
               <div className="flex flex-col gap-2">
