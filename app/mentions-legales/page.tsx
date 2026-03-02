@@ -290,10 +290,7 @@ export default function MentionsLegalesPage() {
           <h1 className="mt-2 font-oswald text-3xl sm:text-4xl font-semibold uppercase tracking-wide text-black/85">
             Règlement et mentions légales
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-black/70">
-            Cette page reprend le texte des mentions légales publié sur
-            PyreneesDentaire.fr (version datée du 25/06/2013).
-          </p>
+         
         </div>
       </header>
 

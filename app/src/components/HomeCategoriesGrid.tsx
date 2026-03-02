@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+
 
 
 import type { StaticImageData } from "next/image";
@@ -79,7 +79,7 @@ function TileCard({ tile }: { tile: Tile }) {
       ? "bg-red"
       : tile.theme === "dark"
         ? "bg-black"
-        : "bg-[#E9E9E9]";
+        : "bg-gray";
 
   const titleColor = isRed || isDark ? "text-white" : "text-black";
   const subtitleColor = isRed || isDark ? "text-white/85" : "text-black/80";
