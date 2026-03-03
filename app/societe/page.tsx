@@ -56,16 +56,17 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
 
   return (
     <>
-            <section className="bg-red text-white ">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14 ">
-          <h1 className="text-5xl ">
-           PYRENEES DENTAIRE
+      <section className="bg-red text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14">
+          <h1 className="text-5xl">
+            PYRENEES DENTAIRE
           </h1>
         </div>
       </section>
+
       {/* INTRO */}
       <section className="mx-auto max-w-7xl px-6 py-16 font-barlow">
-        <div className="space-y-6  leading-relaxed text-gray-700">
+        <div className="space-y-6 leading-relaxed text-gray-700">
           <p>
             Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre partenaire de confiance
             pour l’équipement complet et la gestion de votre cabinet dentaire.
@@ -101,11 +102,25 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
               <div className="h-56 w-full border border-gray-300 bg-gray-100" />
 
               {/* INFOS */}
-              <div className=" space-y-1">
+              <div className="space-y-1">
                 <p className="font-semibold">{member.name}</p>
                 <p className="text-gray-600">{member.role}</p>
-                <p className="text-gray-600">{member.phone}</p>
-                <p className="text-gray-600">{member.email}</p>
+
+                {/* TELEPHONE */}
+                <a
+                  href={`tel:${member.phone.replace(/\s/g, "")}`}
+                  className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
+                >
+                  {member.phone}
+                </a>
+
+                {/* EMAIL */}
+                <a
+                  href={`mailto:${member.email}`}
+                  className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
+                >
+                  {member.email}
+                </a>
               </div>
             </div>
           ))}
@@ -115,11 +130,10 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
       {/* PARTENAIRES */}
       <section className="mx-auto max-w-7xl px-6 pb-24">
         <h3 className="mb-6 font-semibold">Nos partenaires</h3>
-        <p className=" leading-relaxed text-gray-600">
+        <p className="leading-relaxed text-gray-600">
           {partenaires}
         </p>
       </section>
-
     </>
   );
 }

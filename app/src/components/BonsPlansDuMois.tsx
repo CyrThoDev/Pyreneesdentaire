@@ -10,8 +10,8 @@ export default function BonsPlansDuMoisSection() {
     titleLeft: "LES BONS PLANS",
     titleRight: "DU MOIS",
     subtitle: "Déstockage du Kavo Uniqa",
-    tagLine: "Modèle d’exposition",
     descriptionLines: [
+      "Modèle d’exposition",
       "Unit Kavo Uniqa 5 instruments comprenant:",
       "1 seringue Kavo – 1 sortie turbine fibrée (sans turbine) – 2 micromoteurs induction KL703 led",
       "1 détartreur Kavo Piezo led + 3 inserts – 1 tablette support plateaux 2 trays – Crachoir avec jet de verre temporisé",
@@ -34,7 +34,7 @@ oldPriceValue: "40 000€ TTC",
   };
 
   return (
-    <section className="w-full bg-gray py-10">
+    <section className="w-full bg-gray py-10 font-barlow">
       <div className="mx-auto w-full max-w-7xl px-4">
         <div className="grid gap-10 lg:grid-cols-[420px_1fr] lg:items-start">
           {/* IMAGE */}
@@ -53,35 +53,35 @@ oldPriceValue: "40 000€ TTC",
 
           {/* TEXTE */}
           <div className="flex flex-col gap-0">
-            <h2 className="font-oswald text-[44px] font-black   text-black md:text-[56px]">
+            <h2 className=" text-[44px] font-black   text-black md:text-[56px]">
               {deal.titleLeft}{" "}
               <span className="font-light ">{deal.titleRight}</span>
             </h2>
 
-            <div className="mt-6">
+           
               <p className="text-[22px] font-extrabold text-black md:text-[26px]">
                 {deal.subtitle}
               </p>
-              <p className="mt-1 text-[18px] font-semibold text-black">{deal.tagLine}</p>
+             
 
-              <div className="mt-3   text-black">
+              <div className="  text-black leading-none text-lg">
                 {deal.descriptionLines.map((line, i) => (
                   <p key={i}>{line}</p>
                 ))}
               </div>
-            </div>
+            
 
             {/* PRIX + CTA */}
             <div className="mt-6 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
-                <div className="flex  flex-row items-baseline gap-x-4 gap-y-2 ">
-                  <span className="text-xl font-black leading-none text-red md:text-2xl">
+                <div className="flex  flex-row items-baseline gap-x-2 gap-y-1 ">
+                  <span className="text-xl font-black leading-none text-red md:text-3xl">
                     {deal.price}
                   </span>
-                  <span className=" font-semibold text-black">{deal.monthly}</span>
+                  <span className=" font-semibold ">{deal.monthly}</span>
                 </div>
 
-               <p className="mt-2 font-black text-black">
+               <p className="mt-2 font-black">
   {deal.oldPricePrefix}{" "}
   <span className="line-through">{deal.oldPriceValue}</span>
 </p>

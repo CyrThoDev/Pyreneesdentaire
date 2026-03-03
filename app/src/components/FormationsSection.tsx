@@ -2,10 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
+type FormationSubtitleLine = {
+  text: string;
+  bold?: boolean;
+};
+
 type Formation = {
   dayLabel: string;
   title: string;
-  subtitleLines: string[];
+  subtitleLines: FormationSubtitleLine[];
   dateLine: string;
   placeLine: string;
   href: string;
@@ -16,21 +21,21 @@ const formations: Formation[] = [
     dayLabel: "Jeudi 21 MAI",
     title: "FORMATION KULZER",
     subtitleLines: [
-      "360°",
-      "SUR LA RESTAURATION DU SOURIRE",
-      "Animé par le Dr Charles Toledano",
+      { text: "360°", bold: true },
+      { text: "SUR LA RESTAURATION DU SOURIRE", bold: true },
+      { text: "Animé par le Dr Charles Toledano", bold: false },
     ],
     dateLine: "Date : jeudi 21 mai 2026 de 9h à 17h",
-    placeLine: "Lieu : Capbreton,",
+    placeLine: "Lieu : Capbreton",
     href: "/formations/kulzer-360-restauration-sourire",
   },
   {
     dayLabel: "Jeudi 26 Mars",
     title: "FORMATION OWANDY",
     subtitleLines: [
-      "La chaîne du numérique",
-      "Animé par Jean-Michel KEPA, le Dr",
-      "Marchat et le laboratoire MANCINI.",
+      { text: "La chaîne du numérique", bold: true },
+      { text: "Animé par Jean-Michel KEPA, le Dr", bold: false },
+      { text: "Marchat et le laboratoire MANCINI.", bold: false },
     ],
     dateLine: "Date : jeudi 26 Mars 2026 de 9h à 17h",
     placeLine: "Lieu : Salies de Béarn",
@@ -41,7 +46,7 @@ const formations: Formation[] = [
 export default function FormationsSection() {
   return (
     <section
-      className="w-full text-white bg-cover bg-left bg-no-repeat"
+      className="font-barlow w-full text-white bg-cover bg-left bg-no-repeat"
       style={{
         backgroundImage: `
           linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
@@ -107,35 +112,40 @@ function Title() {
 
 function FormationCard({ f }: { f: Formation }) {
   return (
-    <article className="flex h-full max-w-xl flex-col">
+    <article className="flex h-full max-w-xl flex-col leading-none">
       
       {/* Partie haute */}
-      <div>
-        <p className="text-2xl font-extrabold tracking-tight">
+      <div >
+        <p className="text-2xl font-extrabold ">
           {f.dayLabel}
         </p>
 
-        <h3 className="mt-3 text-4xl font-black leading-[1.05] tracking-tight">
+        <h3 className="mt-3 text-4xl font-black leading-[1.05] ">
           {f.title}
         </h3>
 
-        <div className="mt-2 space-y-1 text-lg font-semibold leading-snug text-white/95">
-          {f.subtitleLines.map((line, idx) => (
-            <p key={idx}>{line}</p>
-          ))}
-        </div>
+    <div className="mt-2 space-y-1 text-lg  text-white/95 leading-none">
+  {f.subtitleLines.map((line, idx) => (
+    <p
+      key={idx}
+      className={line.bold ? "font-extrabold" : "font-normal"}
+    >
+      {line.text}
+    </p>
+  ))}
+</div>
       </div>
 
       {/* Partie basse alignée */}
-      <div className="mt-auto pt-8">
-        <div className="space-y-1 text-base leading-relaxed text-white/80">
+      <div className="mt-auto pt-4">
+        <div className="space-y-1 text-base leading-none text-white/80 ">
           <p>{f.dateLine}</p>
           <p>{f.placeLine}</p>
         </div>
 
         <Link
           href={f.href}
-          className="mt-4 inline-flex items-center text-base font-extrabold uppercase text-red-500 hover:text-red-400"
+          className="mt-2 inline-flex items-center text-base font-extrabold uppercase text-red-500 hover:text-red-400"
         >
           + DE DÉTAIL
         </Link>
