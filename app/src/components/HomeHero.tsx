@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Button from "./ui/Button";
 
 export function HomeHero() {
@@ -7,13 +6,16 @@ export function HomeHero() {
 
       {/* Background wrapper */}
       <div className="absolute inset-0 -z-10">
-        <Image
-          src="/images/hero-cabinet.jpg"
-          alt="Cabinet dentaire"
-          fill
-          priority
-          className="object-cover"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-60"
+        >
+          <source src="/videos/hero-cabinet.webm" type="video/webm" />
+        </video>
+
         <div className="absolute inset-0 bg-black/55" />
       </div>
 
@@ -26,7 +28,7 @@ export function HomeHero() {
           <div className="flex flex-col gap-8 max-w-4xl">
 
             <div className="flex flex-col gap-4">
-              <h1 className="text-white font-oswald font-extrabold uppercase l tracking-tight text-5xl md:text-6xl lg:text-8xl">
+              <h1 className="text-white font-oswald font-extrabold uppercase tracking-tight text-5xl md:text-6xl lg:text-8xl">
                 PYRÉNÉES DENTAIRE
               </h1>
 
@@ -36,7 +38,7 @@ export function HomeHero() {
             </div>
 
             <div className="flex flex-col gap-6">
-              <p className="font-barlow text-white md:text-lg leading-relaxed ">
+              <p className="font-barlow text-white md:text-lg leading-relaxed">
                 Pyrénées Dentaire vous propose des solutions performantes et un accompagnement sur mesure pour la conception et la réalisation de votre cabinet dentaire. Notre équipe vous conseille et vous guide dans le choix de vos équipements et instruments dentaires, en fonction de vos besoins et de vos exigences professionnelles. 
               </p>
 

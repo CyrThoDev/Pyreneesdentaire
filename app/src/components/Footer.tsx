@@ -199,16 +199,27 @@ function FooterColumn({ blocks }: { blocks: ContactBlock[] }) {
           <div className="text-sm text-white/85">
             {b.lines.map((l, idx) => {
               if (l.href) {
+                const isTel = l.href.startsWith("tel:");
+                const isMail = l.href.startsWith("mailto:");
+
                 return (
                   <a
                     key={`${b.title}-${idx}`}
                     href={l.href}
-                    className="block w-fit hover:text-white"
+                    aria-label={
+                      isTel
+                        ? `Appeler ${l.label}`
+                        : isMail
+                        ? `Envoyer un email à ${l.label}`
+                        : undefined
+                    }
+                    className="block w-fit break-all transition hover:underline hover:underline-offset-4"
                   >
                     {l.label}
                   </a>
                 );
               }
+
               return (
                 <div key={`${b.title}-${idx}`} className="block">
                   {l.label}

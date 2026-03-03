@@ -47,22 +47,22 @@ export function Header() {
       { type: "link", label: "NOS FORMATIONS", href: "/formations" },
       { type: "link", label: "LA SOCIÉTÉ", href: "/societe" },
       { type: "link", label: "NOS RÉALISATIONS", href: "/realisations" },
-      { type: "link", label: "CONTACT", href: "/contact" },
+      { type: "link", label: "CONTACT", href: "/societe" },
     ],
     []
   );
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-black/10">
-      <div className="mx-auto max-w-7xl px-4 py-3">
+      <div className="mx-auto max-w-7xl px-4 py-6">
         <div className="flex h-16 items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
               src="/images/LogoPY.svg"
               alt="Pyrénées Dentaires"
-              width={60}
-              height={60}
+              width={90}
+              height={90}
               priority
             />
           </Link>
@@ -128,7 +128,7 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          {/* <div className="flex items-center gap-3">
            <Button
                 href="/catalogue"
                 variant="red"
@@ -136,7 +136,6 @@ export function Header() {
                 CATALOGUE PRODUITS
               </Button>
 
-            {/* Mobile button */}
             <button
               type="button"
               aria-label="Ouvrir le menu"
@@ -150,7 +149,7 @@ export function Header() {
             >
               <span className="text-xl leading-none">{open ? "×" : "≡"}</span>
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile menu */}
