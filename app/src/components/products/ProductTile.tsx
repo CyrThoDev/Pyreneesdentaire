@@ -14,7 +14,7 @@ export function ProductTile({
   ctaLabel?: string;
 }) {
   return (
-    <Card className="h-full">
+    <Card className="h-full font-barlow">
       <CardContent className="flex h-full flex-col">
         <div className="mb-5 overflow-hidden">
           <div className="relative aspect-[4/3] w-full">

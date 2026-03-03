@@ -15,7 +15,7 @@ export default function CataloguePage() {
       id: "airel-quetin-pe9",
       brand: "AIREL-QUETIN",
       model: "PE9",
-      title: "PE9, le fauteuil universel",
+      
       desc:
         "L’équipement PE9 a été conçu afin de s’adapter à toutes les positions de travail, de droite comme de gauche, de deux à quatre mains. Le PE9 est le fauteuil ambidextre par excellence. Son design ergonomique et ses fonctionnalités font de lui un unit universel",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
@@ -33,7 +33,7 @@ export default function CataloguePage() {
       id: "airel-quetin-k2",
       brand: "AIREL-QUETIN",
       model: "K2",
-      title: "K2, le fauteuil compact",
+ 
       desc:
         "L’équipement k2 a été conçu afin de répondre à un besoin d’optimisation. Compact et léger, il rend l’espace de travail aéré et accessible pour le patient et le praticien. Le K2 s’adapte parfaitement aux petits espaces !",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",

@@ -14,9 +14,6 @@ export function ProductsGrid({
     <div className="space-y-10">
       <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4">
         {items.map((item, index) => {
-          const prev = items[index - 1];
-          const showBrandHeader = !prev || prev.brand !== item.brand;
-
           const isEndOfRowDesktop = (index + 1) % 4 === 0;
           const isEndOfRowMobile = (index + 1) % 4 === 0;
 
@@ -25,16 +22,11 @@ export function ProductsGrid({
 
           return (
             <Fragment key={item.id}>
-              {/* ✅ Brand en haut (dans la cellule), seulement au début d'une marque */}
+              {/* ✅ Brand au-dessus de CHAQUE produit (dans la cellule) */}
               <div className="flex flex-col">
-                {showBrandHeader ? (
-                  <p className="text-2xl font-barlow font-semibold uppercase text-black">
-                    {item.brand.toUpperCase()}
-                  </p>
-                ) : (
-                  // optionnel : garde un alignement vertical régulier
-                  <div className="mb-2 h-[1.25rem]" />
-                )}
+                <p className="text-2xl font-barlow font-semibold uppercase text-black">
+                  {item.brand.toUpperCase()}
+                </p>
 
                 <ProductTile item={item} ctaHref={ctaHref} />
               </div>

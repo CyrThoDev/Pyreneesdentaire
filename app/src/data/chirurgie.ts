@@ -105,16 +105,15 @@ export const CHIRURGIE_ITEMS: ProductCard[] = [
   },
 
   // ===== (Marque à confirmer dans la maquette) =====
-  {
-    id: "scanner-pspix-2",
-    brand: "ACTEON",
-    // NOTE: sur ta radiologie, tu l’avais déjà chez ACTEON ; sur la maquette chirurgie il apparaît sans header de marque clair dans ce rang.
-    model: "Scanner PSPIX® 2",
-    description:
-      "Déposez simplement la plaque à l’intérieur de la fente, le PSPIX2 détectera automatiquement la taille, la numérisera, optimisera l’image et l’enverra instantanément à votre logiciel d’imagerie. PSPIX® 2 est un concentré de technologie, comme notre technologie brevetée FIBER2PIXEL®, basée sur l’utilisation de microfibres optiques à large spectre, garantissant la clarté et le contraste des images. Avec sa taille révolutionnaire, le PSPIX® 2 nécessite si peu d’espace qu’il peut facilement s’intégrer dans n’importe quel cabinet : Le premier scanner à plaques d’imagerie personnel sur le marché, conçu pour votre commodité.",
-    imageSrc: "/images/chirurgie/acteon-pspix-2.png",
-    imageAlt: "Scanner PSPIX 2",
-  },
+ {
+  id: "opus",
+  brand: "ACTEON",
+  model: "OPUS®",
+  description:
+    "Solution complète pour un nettoyage de pointe et un polissage contrôlé, OPUS® garantit une élimination efficace du biofilm, des taches et du tartre précoce. Grâce à ses vibrations ultrasoniques parfaitement maîtrisées, il permet des traitements peu invasifs tout en préservant les dents et les tissus mous. Compatible avec plus de 60 inserts, il offre une grande polyvalence clinique. Son nouvel aéropolisseur SILKY Pen assure un traitement sous- et supra-gingival précis et confortable grâce à 4 buses dédiées et une pièce à main ultra-légère.",
+  imageSrc: "/images/chirurgie/F11900-OPUS_expert_mode_F.png", // adapte si besoin
+  imageAlt: "Système de nettoyage et polissage OPUS ACTEON",
+},
 
   // ===== KAVO =====
   {
