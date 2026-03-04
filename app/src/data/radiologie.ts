@@ -11,70 +11,70 @@ export type ProductCard = {
 };
 
 export const RADIOLGIE_ITEMS: ProductCard[] = [
+ {
+  id: "owandy-imax-3d-ceph-xpro",
+  brand: "OWANDY",
+  model: "I-MAX 3D CEPH XPRO",
+  description:
+`Nouvelle génération de panoramique dentaire céphalométrique
+L’I-Max 3D CEPH XPRO s’adapte à tous les cabinets
+L’I-Max 3D CEPH XPRO CONE BEAM MULTI-FOV
+Flexibilité d’utilisation
+Précision et résolution élevées
+Réduction de l’exposition aux rayonnements
+Efficacité clinique
+Polyvalence`,
+  imageSrc: "/images/radiologie/i-max_3d.png",
+  imageAlt: "OWANDY I-MAX 3D CEPH XPRO",
+},
+{
+  id: "owandy-cr",
+  brand: "OWANDY",
+  model: "OWANDY CR",
+  description:
+`Lecteur de plaques dentaire Owandy-CR
+Le plus petit scanner de plaque ERLM
+Un scanner adapté à toutes les pratiques dentaires
+5 tailles de plaques
+L’Owandy-CR peut s’utiliser en endodontie, chirurgie prothétique et implantaire, parodontie
+Mais également pour vos diagnostics carieux
+Différentes tailles de plaques disponibles (bitewing, rétroalvéolaire, postérieure…)`,
+  imageSrc: "/images/radiologie/owandy_cr.png",
+  imageAlt: "OWANDY CR",
+},
+{
+  id: "opteo",
+  brand: "OWANDY",
+  model: "Capteur Intraoral OPTEO",
+  description:
+`Capteur intraoral nouvelle génération, conçu pour s’adapter parfaitement à vos besoins cliniques
+Optimisez votre workflow avec un capteur dentaire haute résolution offrant une visualisation instantanée de vos clichés. Plus besoin de temps de développement : obtenez des images précises en un seul geste, pour des diagnostics plus rapides et fiables.`,
+  imageSrc: "/images/radiologie/capteur_intraoral_owandy.png",
+  imageAlt: "Capteur intraoral OPTEO",
+},
   {
-    id: "owandy-imax-3d-ceph-xpro",
-    brand: "OWANDY",
-    model: "I-MAX 3D CEPH XPRO",
-    headline: "Nouvelle génération de panoramique dentaire céphalométrique",
-    lines: [
-      "L’I-Max 3D CEPH XPRO s’adapte à tous les cabinets",
-      "L’I-Max 3D CEPH XPRO CONE BEAM MULTI-FOV",
-      "Flexibilité d’utilisation",
-      "Précision et résolution élevées",
-      "Réduction de l’exposition aux rayonnements",
-      "Efficacité clinique",
-      "Polyvalence",
-    ],
-    imageSrc: "/images/radiologie/i-max_3d.png",
-    imageAlt: "OWANDY I-MAX 3D CEPH XPRO",
-  },
-  {
-    id: "owandy-cr",
-    brand: "OWANDY",
-    model: "OWANDY CR",
-    headline: "Lecteur de plaques dentaire Owandy-CR",
-    lines: [
-      "Le plus petit scanner de plaque ERLM",
-      "Un scanner adapté à toutes les pratiques dentaire",
-      "5 tailles de plaques",
-      "Endodontie, chirurgie prothétique et implantaire, parodontie",
-      "Diagnostics carieux",
-      "Bitewing, rétroalvéolaire, postérieure…",
-    ],
-    imageSrc: "/images/radiologie/owandy_cr.png",
-    imageAlt: "OWANDY CR",
-  },
-  {
-    id: "opteo",
-    brand: "OWANDY",
-    model: "Capteur Intraoral OPTEO",
-    headline:
-      "Capteur intraoral nouvelle génération, conçu pour s’adapter parfaitement à vos besoins cliniques",
-    description:
-      "Optimisez votre workflow avec un capteur dentaire haute résolution offrant une visualisation instantanée de vos clichés. Plus besoin de temps de développement : obtenez des images précises en un seul geste, pour des diagnostics plus rapides et fiables.",
-    imageSrc: "/images/radiologie/capteur_intraoral_owandy.png",
-    imageAlt: "Capteur intraoral OPTEO",
-  },
-  {
-    id: "owandy-ios",
-    brand: "OWANDY",
-    model: "OWANDY IOS INTRAORAL SCANNER",
-    description:
-      "Incroyablement rapide & précis. Technologie Fast Scan. Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Précision 20µm. Aucun mouvement mécanique. Aucune calibration. Reconstruction assistée par I.A.",
-    imageSrc: "/images/radiologie/owandy_ios_intraoral.png",
-    imageAlt: "Owandy IOS Intraoral Scanner",
-  },
+  id: "owandy-ios",
+  brand: "OWANDY",
+  model: "OWANDY IOS INTRAORAL SCANNER",
+  description:
+`Incroyablement rapide & précis. Notre scanner intra-oral abordable constitue la base essentielle de votre expérience numérique.
+Technologie Fast Scan. Scannez immédiatement, pas de temps de préchauffage. 20 secondes arcade complète, 60 secondes pour la bouche entière. Grâce à des images de Haute Fidélité et au transfert de données ultra rapide !
+Précision 20µm. Meilleur rapport prix/précision. Aucun mouvement mécanique, elle reste précise !
+Aucune calibration. Innovation, reconstruction haute-fidélité, assistée par I.A. Pas de calibration requise (couleur ou précision) !`,
+  imageSrc: "/images/radiologie/owandy_ios_intraoral.png",
+  imageAlt: "Owandy IOS Intraoral Scanner",
+},
 
-  {
-    id: "dexis-op-3d-lx",
-    brand: "DEXIS",
-    model: "OP 3D LX",
-    headline: "L’innovation en imagerie qui voit plus grand.",
-    description:
-      "Plateforme d’imagerie multimodale construite sur la technologie OP 3D, pour élargir vos possibilités de diagnostic 3D grâce à une gamme d’applications cliniques.",
-    imageSrc: "/images/radiologie/op_3D_LX.png",
-    imageAlt: "DEXIS OP 3D LX",
-  },
+{
+  id: "dexis-op-3d-lx",
+  brand: "DEXIS",
+  model: "OP 3D LX",
+  description:
+`L’innovation en imagerie qui voit plus grand.
+Plateforme d’imagerie multimodale construite sur la technologie OP 3D, pour élargir vos possibilités de diagnostic 3D grâce à une gamme d’applications cliniques.`,
+  imageSrc: "/images/radiologie/op_3D_LX.png",
+  imageAlt: "DEXIS OP 3D LX",
+},
   {
     id: "dexis-focus",
     brand: "DEXIS",
@@ -93,16 +93,16 @@ export const RADIOLGIE_ITEMS: ProductCard[] = [
     imageSrc: "/images/radiologie/dexis_ixs_sensor.png",
     imageAlt: "DEXIS IXS Sensor",
   },
-  {
-    id: "dexis-is-3800w",
-    brand: "DEXIS",
-    model: "DEXIS IS 3800W",
-    headline: "La liberté d’évoluer sans fil",
-    description:
-      "Jusqu’à une heure de prise d’empreinte en continu. Station de recharge intelligente. Connexion Wi-Fi point-à-point dédiée.",
-    imageSrc: "/images/radiologie/dexis_is_3800.png",
-    imageAlt: "DEXIS IS 3800W",
-  },
+ {
+  id: "dexis-is-3800w",
+  brand: "DEXIS",
+  model: "DEXIS IS 3800W",
+  description:
+`La liberté d’évoluer sans fil
+Jusqu’à une heure de prise d’empreinte en continu. Station de recharge intelligente. Connexion Wi-Fi point-à-point dédiée.`,
+  imageSrc: "/images/radiologie/dexis_is_3800.png",
+  imageAlt: "DEXIS IS 3800W",
+},
 
   {
     id: "acteon-xmind",

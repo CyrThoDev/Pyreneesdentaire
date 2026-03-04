@@ -28,29 +28,28 @@ export function ProductTile({
           </div>
         </div>
 
-        <h3 className="text-lg font-bold">
+        <h3 className="text-lg leading-none font-bold">
           {item.model}
         </h3>
 
         {item.headline ? (
-          <p className="mt-2  font-semibold text-black/80">
+          <p className="mt-1 font-semibold leading-none text-black/80">
             {item.headline}
           </p>
         ) : null}
 
         {item.lines?.length ? (
-          <ul className="mt-3 list-disc leading-none space-y-1 pl-5  text-black/75">
+          <ul className=" mt-1 list-disc leading-none space-y-1 pl-5  text-black/75">
             {item.lines.map((l, idx) => (
               <li key={`${item.id}-l-${idx}`}>{l}</li>
             ))}
           </ul>
         ) : null}
-
-        {item.description ? (
-          <p className="mt-3  leading-none text-black/75">
-            {item.description}
-          </p>
-        ) : null}
+{item.description ? (
+  <p className="mt-0 leading-none text-black/75 whitespace-pre-line">
+    {item.description}
+  </p>
+) : null}
 
         <div className="mt-auto pt-6 text-center">
           <Button variant="red">

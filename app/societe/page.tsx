@@ -88,7 +88,7 @@ Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour 
           L’ÉQUIPE DE PYRÉNÉES DENTAIRE
         </h2>
 
-        <div className="grid grid-cols-1 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
+        <div className="font-barlow grid grid-cols-1 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
           {team.map((member, i) => (
             <div key={i} className="space-y-4">
               
@@ -96,7 +96,7 @@ Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour 
               <div className="h-56 w-full border border-gray-300 bg-gray-100" />
 
               {/* INFOS */}
-              <div className="space-y-1">
+              <div className="leading-none">
                 <p className="font-semibold">{member.name}</p>
                 <p className="text-gray-600">{member.role}</p>
 
@@ -122,9 +122,9 @@ Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour 
       </section>
 
       {/* PARTENAIRES */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <h3 className="mb-6 font-semibold">Nos partenaires</h3>
-        <p className="leading-relaxed text-gray-600">
+      <section className="mx-auto max-w-7xl px-6 pb-24 font-barlow">
+        <h3 className="mb-3 text-lg font-semibold">Nos partenaires</h3>
+        <p className=" text-gray-600">
           {partenaires}
         </p>
       </section>

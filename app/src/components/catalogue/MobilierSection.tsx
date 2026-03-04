@@ -32,7 +32,7 @@ export function MobilierSection({
         <div className="flex flex-col gap-6">
           
           {/* Ligne marques */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className=" grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {visible.map((x) => (
               <div key={`${x.id}-brand`} className="flex flex-col gap-3">
                 
@@ -44,7 +44,7 @@ export function MobilierSection({
           </div>
 
           {/* Cartes */}
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className=" font-barlow grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {visible.map((x) => (
               <article key={x.id} className="flex h-full flex-col gap-4">
                 
@@ -60,7 +60,7 @@ export function MobilierSection({
                 </div>
 
                 {/* Texte */}
-                <div className="flex flex-1 flex-col gap-2">
+                <div className="flex flex-1 flex-col gap-0">
                   <h4 className="font-semibold text-black">
                     {x.title}
                   </h4>

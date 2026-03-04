@@ -11,12 +11,12 @@ export function HomeHero() {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-60"
+          className="w-full h-full object-cover"
         >
           <source src="/videos/hero-cabinet.webm" type="video/webm" />
         </video>
 
-        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-black/10" />
       </div>
 
       {/* Content */}
@@ -59,7 +59,7 @@ export function HomeHero() {
 
           {/* CTA */}
           <div className="flex md:justify-end">
-            <Button href="/contact" variant="red">
+            <Button href="mailto:michaut.g@wanadoo.fr" variant="red">
               PRENDRE RENDEZ-VOUS
             </Button>
           </div>

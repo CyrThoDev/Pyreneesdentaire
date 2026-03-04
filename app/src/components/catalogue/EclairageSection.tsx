@@ -115,7 +115,7 @@ export function EclairageSection({
                 </div>
 
                 {/* texte */}
-                <div className="flex flex-1 flex-col gap-2">
+                <div className="0">
                   <h4 className="font-semibold text-black">{x.title}</h4>
                   <p className=" text-black/70 leading-none">{x.desc}</p>
                 </div>
