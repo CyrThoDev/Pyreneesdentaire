@@ -308,7 +308,7 @@ export default function MentionsLegalesPage() {
                 <h2 className="font-oswald text-xl sm:text-2xl font-semibold uppercase tracking-wide text-black/85">
                   {a.title}
                 </h2>
-                <div className="mt-4 text-[15px] leading-7 text-black/70">
+                <div className="mt-4 text-[15px] leading-5 text-black/70">
                   {a.content}
                 </div>
               </article>
@@ -318,7 +318,7 @@ export default function MentionsLegalesPage() {
               <h2 className="font-oswald text-xl sm:text-2xl font-semibold uppercase tracking-wide text-black/85">
                 Conception du site
               </h2>
-              <p className="mt-4 text-[15px] leading-7 text-black/70">
+              <p className="mt-4 text-[15px] leading-5 text-black/70">
                 Conception de site internet par{" "}
                 <a
                   className="font-semibold text-red underline underline-offset-4 hover:brightness-95"

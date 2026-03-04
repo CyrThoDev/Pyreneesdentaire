@@ -66,25 +66,19 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
 
       {/* INTRO */}
       <section className="mx-auto max-w-7xl px-6 py-16 font-barlow">
-        <div className="space-y-6 leading-relaxed text-gray-700">
-          <p>
-            Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre partenaire de confiance
-            pour l’équipement complet et la gestion de votre cabinet dentaire.
-            Nous sommes spécialisés dans l’étude, l’agencement, l’installation,
-            l’entretien et la maintenance de tous les matériels nécessaires à votre activité.
+        <div className="space-y-0 leading-5 text-gray-700">
+          <p className="mb-5">
+            Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre partenaire de confiance pour l’équipement complet et la gestion de votre cabinet dentaire. Nous sommes spécialisés dans l’étude, l’agencement, l’installation, l’entretien et la maintenance de tous les matériels nécessaires à votre activité : unités de soins, fauteuils dentaires, mobilier, instrumentation, stérilisation, radiologie et imagerie.
           </p>
 
           <p>
-            Notre expertise s’étend également aux laboratoires de prothèse dentaire,
-            pour lesquels nous proposons un service complet comprenant la réalisation,
-            l’installation, l’entretien et la maintenance des équipements.
-          </p>
+            Notre expertise s’étend également aux laboratoires de prothèse dentaire, pour lesquels nous proposons un service complet comprenant la réalisation, l’installation, l’entretien et la maintenance des équipements et installations.
+</p>
+<p>Chez <strong>PYRÉNÉES DENTAIRE</strong>, nous mettons à votre disposition toute la fourniture et le périphérique indispensables à votre activité, en sélectionnant uniquement des produits de qualité professionnelle et fiables.
+Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour répondre à tous vos besoins, optimiser l’organisation de votre espace de travail et garantir le confort, la sécurité et l’efficacité de votre cabinet ou laboratoire.
 
-          <p>
-            Chez <strong>PYRÉNÉES DENTAIRE</strong>, nous mettons à votre disposition
-            toute la fourniture et le périphérique indispensables à votre activité,
-            en sélectionnant uniquement des produits de qualité professionnelle.
           </p>
+          <p>Avec <strong>PYRÉNÉES DENTAIRE</strong>, vous bénéficiez d’un service complet et personnalisé, alliant expertise technique, fiabilité des équipements et accompagnement professionnel pour faire de votre cabinet ou laboratoire un environnement moderne et performant.</p>
         </div>
       </section>
 

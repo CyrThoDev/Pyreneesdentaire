@@ -39,7 +39,7 @@ export function ProductTile({
         ) : null}
 
         {item.lines?.length ? (
-          <ul className="mt-3 list-disc space-y-1 pl-5  text-black/75">
+          <ul className="mt-3 list-disc leading-none space-y-1 pl-5  text-black/75">
             {item.lines.map((l, idx) => (
               <li key={`${item.id}-l-${idx}`}>{l}</li>
             ))}
@@ -47,7 +47,7 @@ export function ProductTile({
         ) : null}
 
         {item.description ? (
-          <p className="mt-3  leading-relaxed text-black/75">
+          <p className="mt-3  leading-none text-black/75">
             {item.description}
           </p>
         ) : null}
