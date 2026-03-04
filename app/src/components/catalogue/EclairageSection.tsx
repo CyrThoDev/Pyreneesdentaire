@@ -42,7 +42,7 @@ export function EclairageSection({
 
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg font-bold">{hero.title}</h3>
-                <p className="max-w-2xl  text-black/70">{hero.desc}</p>
+                <p className="max-w-2xl leading-none text-black/70">{hero.desc}</p>
               </div>
             </div>
 
@@ -117,7 +117,7 @@ export function EclairageSection({
                 {/* texte */}
                 <div className="flex flex-1 flex-col gap-2">
                   <h4 className="font-semibold text-black">{x.title}</h4>
-                  <p className=" text-black/70">{x.desc}</p>
+                  <p className=" text-black/70 leading-none">{x.desc}</p>
                 </div>
               </article>
             ))}

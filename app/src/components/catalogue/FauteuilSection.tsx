@@ -61,7 +61,7 @@ function FauteuilRow({ item, ctaLabel }: { item: CatalogueFauteuil; ctaLabel: st
             {item.title ? <p className=" font-semibold text-black/60">{item.title}</p> : null}
           </div>
 
-          {item.desc ? <p className="max-w-2xl  text-black/70">{item.desc}</p> : null}
+          {item.desc ? <p className="max-w-2xl  text-black/70 leading-none">{item.desc}</p> : null}
 
           {item.specs?.length ? (
             <div className="flex flex-col gap-2">
@@ -69,7 +69,7 @@ function FauteuilRow({ item, ctaLabel }: { item: CatalogueFauteuil; ctaLabel: st
                 <p className=" font-bold uppercase text-black">{item.specsTitle}</p>
               ) : null}
 
-              <ul className="flex flex-col gap-1  text-black/70">
+              <ul className="flex flex-col gap-1 leading-none text-black/70">
                 {item.specs.map((s, i) => (
                   <li key={`${item.id}-spec-${i}`}>• {s.replace(/^•\s?/, "")}</li>
                 ))}
