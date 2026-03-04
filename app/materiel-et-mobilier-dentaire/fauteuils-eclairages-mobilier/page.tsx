@@ -222,7 +222,7 @@ export default function CataloguePage() {
           <h1 className="text-5xl ">
             Les fauteuils, l’éclairage et le mobilier
           </h1>
-          <p className="max-w-7xl text-lg opacity-95">
+          <p className="max-w-7xl text-lg opacity-95 leading-5">
             Pyrenées Dentaire vous propose une large gamme de fauteuils, éclairages et mobilier dentaire issus des meilleures marques. Alliant ergonomie, confort et design, nos solutions optimisent votre cabinet tout en offrant un environnement agréable pour vos patients. Que vous recherchiez des fauteuils performants, des éclairages précis ou du mobilier fonctionnel et esthétique, nous avons le matériel adapté à vos besoins.
           </p>
         </div>

@@ -11,7 +11,7 @@ export default function Page() {
           <h1 className="text-5xl">
             La chirurgie et la prophylaxie
           </h1>
-          <p className="max-w-7xl text-lg opacity-95">
+          <p className="max-w-7xl text-lg leading-5 opacity-95">
 Pyrénées Dentaire vous accompagne dans le choix des solutions les plus performantes en imagerie et prise d’empreinte. Grâce à des technologies innovantes et un accompagnement expert, nous vous aidons à gagner en précision, en efficacité et en confort au quotidien.</p>
         </div>
       </section>
