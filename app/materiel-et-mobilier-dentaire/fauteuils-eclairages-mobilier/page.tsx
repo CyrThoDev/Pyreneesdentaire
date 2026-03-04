@@ -9,6 +9,8 @@ import type {
   CatalogueLightingItem,
 } from "@/app/src/components/catalogue/types";
 
+import { MOBILIER_ITEMS } from "@/app/src/data/mobilier";
+
 export default function CataloguePage() {
   const fauteuils: CatalogueFauteuil[] = [
     {
@@ -239,11 +241,11 @@ export default function CataloguePage() {
       />
 
       <MobilierSection
-        title="Le mobilier"
-        items={mobilier}
-        ctaLabel="CONTACTEZ NOUS"
-        ctaHref="#"
-      />
+  title="Le mobilier"
+  items={MOBILIER_ITEMS}
+  ctaLabel="CONTACTEZ NOUS"
+  ctaHref="#"
+/>
     </div>
   );
 }

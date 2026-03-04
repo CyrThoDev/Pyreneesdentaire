@@ -128,12 +128,12 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          {/* <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
            <Button
                 href="/catalogue"
                 variant="red"
               >
-                CATALOGUE PRODUITS
+                OFFRES PRODUITS
               </Button>
 
             <button
@@ -149,7 +149,7 @@ export function Header() {
             >
               <span className="text-xl leading-none">{open ? "×" : "≡"}</span>
             </button>
-          </div> */}
+          </div>
         </div>
 
         {/* Mobile menu */}

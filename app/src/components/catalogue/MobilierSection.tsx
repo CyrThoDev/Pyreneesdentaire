@@ -1,4 +1,3 @@
-// app/src/components/catalogue/MobilierSection.tsx
 "use client";
 
 import Image from "next/image";
@@ -16,34 +15,72 @@ export function MobilierSection({
   ctaLabel: string;
   ctaHref: string;
 }) {
+  const visible = items.slice(0, 4);
+
   return (
     <section>
+      {/* Bandeau titre */}
       <div className="bg-black/5">
         <div className="mx-auto max-w-7xl px-6 py-4">
-          <h2 className="font-barlow text-3xl font-semibold text-black/60">{title}</h2>
+          <h2 className="font-barlow text-3xl font-semibold text-black/60">
+            {title}
+          </h2>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 pb-10">
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {items.map((x) => (
-            <article key={x.id} className="border border-black/10 bg-white">
-              <div className="relative aspect-[4/3] w-full bg-black/5">
-                <Image src={x.image} alt={x.title} fill className="object-cover" />
+      <div className="mx-auto max-w-7xl px-6 pb-10 pt-8">
+        <div className="flex flex-col gap-6">
+          
+          {/* Ligne marques */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {visible.map((x) => (
+              <div key={`${x.id}-brand`} className="flex flex-col gap-3">
+                
+                <p className="text-2xl font-semibold uppercase text-black">
+                  {x.brand}
+                </p>
               </div>
-              <div className="flex flex-col gap-2 p-4">
-                <p className="text-xs font-semibold uppercase text-black/60">{x.brand}</p>
-                <h3 className="text-sm font-bold">{x.title}</h3>
-                <p className="text-sm/6 text-black/70">{x.desc}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        {/* CTA */}
-        <div className="flex justify-end pt-8">
-          <Button variant="red">
-            <a href={ctaHref}>{ctaLabel}</a>
-          </Button>
+            ))}
+          </div>
+
+          {/* Cartes */}
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {visible.map((x) => (
+              <article key={x.id} className="flex h-full flex-col gap-4">
+                
+                {/* Image */}
+                <div className="relative h-[140px] lg:h-[250px] w-full overflow-hidden bg-white">
+                  <Image
+                    src={x.image.src}
+                    alt={x.image.alt}
+                    fill
+                    className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
+                    sizes="(min-width: 1024px) 240px, 50vw"
+                  />
+                </div>
+
+                {/* Texte */}
+                <div className="flex flex-1 flex-col gap-2">
+                  <h4 className="font-semibold text-black">
+                    {x.title}
+                  </h4>
+
+                  <p className="text-black/70 leading-none whitespace-pre-line">
+                    {x.desc}
+                  </p>
+                </div>
+
+              </article>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-end">
+            <Button variant="red">
+              <a href={ctaHref}>{ctaLabel}</a>
+            </Button>
+          </div>
+
         </div>
       </div>
     </section>

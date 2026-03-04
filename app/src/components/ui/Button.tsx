@@ -27,7 +27,7 @@ export default function Button({
   rel,
 }: ButtonProps) {
   const base =
-    "font-oswald font-semibold sm:inline-flex items-center justify-center rounded-none px-6 py-4 hover:brightness-95 transition";
+    "font-oswald font-semibold sm:inline-flex items-center justify-center rounded-none px-14 py-3 hover:brightness-95 transition";
 
   const variants: Record<Variant, string> = {
     red: "bg-red text-white hover:bg-red/80 focus-visible:ring-red",

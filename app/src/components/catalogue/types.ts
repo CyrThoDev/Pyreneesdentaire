@@ -30,12 +30,15 @@ export type CatalogueLightingItem = {
   image: { src: string; alt: string };
   href?: string;
 };
+export type CatalogueImage = {
+  src: string;
+  alt: string;
+};
 
 export type CatalogueFurnitureCard = {
   id: string;
   brand: string;
   title: string;
   desc: string;
-  image: string;
-  href?: string;
+  image: CatalogueImage;
 };
