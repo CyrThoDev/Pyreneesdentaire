@@ -185,36 +185,7 @@ export default function CataloguePage() {
     },
   ];
 
-  const mobilier: CatalogueFurnitureCard[] = [
-    {
-      id: "dental-art-avant",
-      brand: "DENTAL ART",
-      title: "Avant system",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-1.png",
-    },
-    {
-      id: "rossicaws-eva",
-      brand: "ROSSICAWS",
-      title: "Eva",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-2.png",
-    },
-    {
-      id: "belmont-eurus-clair",
-      brand: "BELMONT",
-      title: "L’Eurus CLAIR",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-3.png",
-    },
-    {
-      id: "support-design-statera",
-      brand: "SUPPORT DESIGN",
-      title: "Statera Core+",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-4.png",
-    },
-  ];
+;
 
   return (
     <div className="min-h-screen bg-white text-black">
