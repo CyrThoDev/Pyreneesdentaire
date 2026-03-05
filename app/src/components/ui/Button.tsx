@@ -62,7 +62,7 @@ export default function Button({
 
     // 👉 Sinon navigation interne Next.js
     return (
-      <Link href={href} onClick={onClick} className={classes}>
+      <Link href={href} onClick={onClick} scroll={true} className={classes}>
         {children}
       </Link>
     );

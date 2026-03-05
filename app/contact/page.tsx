@@ -26,7 +26,7 @@ export default function ContactPage() {
       <section className="bg-red text-white font-barlow">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-12">
           <h1 className="text-5xl">
-            Contact
+            CONTACT
           </h1>
           <p className="max-w-7xl text-lg leading-5 opacity-95">
 Retrouvez ici toutes les coordonnées pour contacter l’agence : visite au showroom, demande d’information ou accompagnement sur votre projet. </p>

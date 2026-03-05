@@ -173,8 +173,15 @@ function LegalLinks() {
       >
         Mentions légales
       </Link>
-
       <span className="hidden text-white/35 sm:inline">|</span>
+       <Link
+        href="/confidentialite"
+        className="font-semibold uppercase tracking-wide underline underline-offset-4 hover:text-white"
+      >
+        Politique de confidentialité et cookies
+      </Link>
+
+      
 
       {/* Optionnel si tu crées une page dédiée plus tard */}
       {/* 

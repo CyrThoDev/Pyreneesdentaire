@@ -59,7 +59,7 @@ export default function NotFound() {
               <p className="text-sm text-black/55">
                 Besoin d’aide ?{" "}
                 <Link
-                  href="mailto:michaut.g@wanadoo.fr"
+                  href="/contact"
                   className="font-semibold text-black/75 underline underline-offset-4 hover:text-black"
                 >
                   Contactez-nous

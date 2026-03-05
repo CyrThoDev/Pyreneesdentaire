@@ -20,7 +20,7 @@ const ARTICLES: Article[] = [
     id: "article-1",
     title: "Article 1. Objet & Présentation",
     content: (
-      <div className="space-y-3">
+      <div className="space-y-3 leading-none">
         <p>
           L&apos;entreprise Pyrénées Dentaire, domiciliée au <br />
           5, rue de l&apos;Oussere 64320 Idron <br />
@@ -35,8 +35,10 @@ const ARTICLES: Article[] = [
     id: "article-2",
     title: "Article 2. Avertissements à caractère général",
     content: (
-      <div className="space-y-3">
-        <p>En accédant au site PyreneesDentaire.fr l&apos;internaute s&apos;engage à :</p>
+      <div className="space-y-3 leading-none">
+        <p>
+          En accédant au site PyreneesDentaire.fr l&apos;internaute s&apos;engage à :
+        </p>
         <ul className="list-disc pl-5 space-y-2">
           <li>
             ne pas détourner les informations auxquelles il aura accès légalement
@@ -77,7 +79,7 @@ const ARTICLES: Article[] = [
     id: "article-3",
     title: "Article 3. Protection",
     content: (
-      <div className="space-y-3">
+      <div className="space-y-3 leading-none">
         <p>
           L&apos;ensemble des programmes et données de PyreneesDentaire.fr sont
           régis par le code de la propriété intellectuelle et reste la propriété
@@ -121,8 +123,10 @@ const ARTICLES: Article[] = [
     id: "article-4",
     title: "Article 4. Droit sur les informations nominatives",
     content: (
-      <div className="space-y-3">
-        <p className="font-semibold">Loi &quot; Informatique, fichiers et libertés &quot;</p>
+      <div className="space-y-3 leading-none">
+        <p className="font-semibold">
+          Loi &quot; Informatique, fichiers et libertés &quot;
+        </p>
         <p>
           En application de la loi nº78-17 du 6 janvier 1978 relative à
           l&apos;informatique, aux fichiers et aux libertés, vous disposez des
@@ -140,7 +144,7 @@ const ARTICLES: Article[] = [
         <p>Pour exercer ce droit adressez-vous à PyreneesDentaire.fr :</p>
         <p>
           <Link
-            href="mailto:michaut.g@wanadoo.fr"
+            href="/contact"
             className="inline-flex items-center gap-2 font-bold uppercase tracking-wide text-red underline underline-offset-4 hover:brightness-95"
           >
             en utilisant le formulaire de contact
@@ -154,7 +158,7 @@ const ARTICLES: Article[] = [
     id: "article-5",
     title: "Article 5. Avertissements relatifs aux différents services proposés",
     content: (
-      <div className="space-y-3">
+      <div className="space-y-3 leading-none">
         <p>
           L&apos;entreprise Pyrénées Dentaire rappelle qu&apos;elle se réserve le
           droit de mettre fin ou de modifier à tout moment les services proposés
@@ -167,8 +171,8 @@ const ARTICLES: Article[] = [
     id: "article-6",
     title: "Article 6. Responsabilité de l’entreprise gestionnaire",
     content: (
-      <div className="space-y-6">
-        <div className="space-y-2">
+      <div className="space-y-3">
+        <div className="space-y-2 leading-none">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Navigateur de l&apos;internaute
           </h3>
@@ -179,11 +183,14 @@ const ARTICLES: Article[] = [
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 leading-none ">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Continuité du site
           </h3>
-          <p>PyreneesDentaire.fr a pour vocation de fonctionner 24 heures sur 24, 7 jours sur 7.</p>
+          <p>
+            PyreneesDentaire.fr a pour vocation de fonctionner 24 heures sur 24,
+            7 jours sur 7.
+          </p>
           <p>
             Cela dit, l&apos;entreprise Pyrénées Dentaire se réserve le droit
             d&apos;interrompre l&apos;accès à son site web pour toute raison,
@@ -195,7 +202,7 @@ const ARTICLES: Article[] = [
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 leading-none">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Liens vers des sites tiers
           </h3>
@@ -211,7 +218,7 @@ const ARTICLES: Article[] = [
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 leading-none">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Données échangées sur le site
           </h3>
@@ -227,7 +234,7 @@ const ARTICLES: Article[] = [
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 leading-none">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Dommages
           </h3>
@@ -245,7 +252,7 @@ const ARTICLES: Article[] = [
           </p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2 leading-none">
           <h3 className="font-oswald text-lg font-semibold uppercase tracking-wide text-black/80">
             Préjudices
           </h3>
@@ -263,7 +270,7 @@ const ARTICLES: Article[] = [
     id: "article-7",
     title: "Article 7. Convention de Preuve",
     content: (
-      <div className="space-y-3">
+      <div className="space-y-3 leading-none ">
         <p>
           Il est convenu que, excepté dans le cas d&apos;erreurs manifestes, les
           données contenues dans les systèmes d&apos;information de l&apos;entreprise
@@ -272,53 +279,66 @@ const ARTICLES: Article[] = [
           l&apos;inscription à PyreneesDentaire.fr et a la navigation sur
           PyreneesDentaire.fr.
         </p>
-        <p className="font-semibold">Pyrénées Dentaire / PyreneesDentaire.fr le 25/06/2013</p>
+        <p className="font-semibold">
+          Pyrénées Dentaire / PyreneesDentaire.fr le 25/06/2013
+        </p>
       </div>
     ),
   },
 ];
 
+function ArticleCard({ a }: { a: Article }) {
+  return (
+    <article
+      id={a.id}
+      className=" bg-white "
+    >
+      <h2 className="font-oswald text-xl sm:text-2xl font-semibold uppercase tracking-wide text-black/85">
+        {a.title}
+      </h2>
+      <div className="mt-4  leading-5 text-black/70">{a.content}</div>
+    </article>
+  );
+}
+
 export default function MentionsLegalesPage() {
   return (
-    <main className="font-barlow">
-      {/* Bandeau titre */}
-      <header className="bg-black/5">
-        <div className="mx-auto max-w-6xl px-6 py-10 sm:py-12">
-          <p className="text-sm font-semibold uppercase tracking-wide text-black/60">
+    <main className="w-full bg-white font-barlow">
+      {/* HERO (même thème que Confidentialité) */}
+      <header className="bg-red text-white">
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <p className="text-sm font-semibold uppercase tracking-wide text-white/80">
             Informations légales
           </p>
-          <h1 className="mt-2 font-oswald text-3xl sm:text-4xl font-semibold uppercase tracking-wide text-black/85">
+
+          <h1 className="mt-2 font-oswald text-4xl sm:text-5xl uppercase tracking-wide">
             Règlement et mentions légales
           </h1>
-         
+
+          <p className="mt-3 max-w-3xl text-white/90">
+            Retrouvez ci-dessous les informations légales relatives au site
+            PyreneesDentaire.fr.
+          </p>
+
         </div>
       </header>
 
-      {/* Contenu */}
-      <section className="mx-auto max-w-6xl px-6 py-10 sm:py-12">
+      {/* CONTENU */}
+      <section className="mx-auto max-w-7xl px-6 py-10 sm:py-12">
         <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-start">
           {/* Articles */}
           <div className="space-y-6">
             {ARTICLES.map((a) => (
-              <article
-                key={a.id}
-                id={a.id}
-                className="rounded-sm border border-black/10 bg-white p-6 sm:p-8"
-              >
-                <h2 className="font-oswald text-xl sm:text-2xl font-semibold uppercase tracking-wide text-black/85">
-                  {a.title}
-                </h2>
-                <div className="mt-4 text-[15px] leading-5 text-black/70">
-                  {a.content}
-                </div>
-              </article>
+              <ArticleCard key={a.id} a={a} />
             ))}
 
-            <div className="rounded-sm border border-black/10 bg-white p-6 sm:p-8">
+            {/* Conception */}
+            <section className="rounded-sm border border-black/10 bg-white p-6 sm:p-8">
               <h2 className="font-oswald text-xl sm:text-2xl font-semibold uppercase tracking-wide text-black/85">
                 Conception du site
               </h2>
-              <p className="mt-4 text-[15px] leading-5 text-black/70">
+
+              <p className="mt-4  leading-5 text-black/70">
                 Conception de site internet par{" "}
                 <a
                   className="font-semibold text-red underline underline-offset-4 hover:brightness-95"
@@ -328,41 +348,58 @@ export default function MentionsLegalesPage() {
                 >
                   Cyrielle Thomas - https://www.cyrielle-webdev.fr/
                 </a>
-                
               </p>
-            <p>
-  Le présent règlement est imprimable (<PrintButton />).
-</p>
-            </div>
+
+              <div className="mt-6 rounded-sm border border-black/10 bg-black/5 p-4 text-[14px] leading-6 text-black/70">
+                Le présent règlement est imprimable (<PrintButton />).
+              </div>
+            </section>
           </div>
 
-          {/* Sommaire (sticky desktop) */}
+          {/* Sommaire sticky */}
           <aside className="lg:sticky lg:top-24">
-            <div className="rounded-sm border border-black/10 bg-white p-6">
+            <div
+              id="sommaire"
+              className="rounded-sm border border-black/10 bg-white p-6"
+            >
               <p className="font-oswald text-base font-semibold uppercase tracking-wide text-black/80">
                 Sommaire
               </p>
+
               <nav className="mt-4 space-y-2">
                 {ARTICLES.map((a) => (
                   <a
                     key={a.id}
                     href={`#${a.id}`}
-                    className="block text-sm font-semibold text-black/65 hover:text-red"
+                    className="block text-sm font-semibold text-black/65 hover:text-red transition"
                   >
                     {a.title}
                   </a>
                 ))}
+              </nav>
+
+              <div className="mt-6 space-y-3">
                 <a
-                  href="#"
-                  className="mt-4 inline-flex w-full items-center justify-center bg-red px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:brightness-95 transition"
+                  href="#top"
+                  className="inline-flex w-full items-center justify-center bg-red px-4 py-3 text-sm font-semibold uppercase tracking-wider text-white hover:brightness-95 transition"
                 >
                   Retour en haut
                 </a>
-              </nav>
+
+                <a
+                  href="/confidentialite"
+                  className="inline-flex w-full items-center justify-center border border-black/10 bg-white px-4 py-3 text-sm font-semibold uppercase tracking-wider text-black/75 hover:bg-black/5 transition"
+                >
+                  Confidentialité & cookies
+                </a>
+              </div>
             </div>
           </aside>
         </div>
       </section>
+
+      {/* ancre top */}
+      <div id="top" />
     </main>
   );
 }

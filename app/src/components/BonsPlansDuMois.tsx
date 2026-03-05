@@ -28,7 +28,7 @@ export default function BonsPlansDuMoisSection() {
 oldPriceValue: "40 000€ TTC",
 
     ctaLabel: "CONTACTEZ-NOUS",
-    ctaHref: "mailto:michaut.g@wanadoo.fr",
+    ctaHref: "/contact",
     imageSrc: "/images/bonplan.png", 
     imageAlt: "Kavo Uniqa",
   };

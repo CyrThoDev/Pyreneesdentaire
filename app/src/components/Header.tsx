@@ -47,7 +47,7 @@ export function Header() {
       { type: "link", label: "NOS FORMATIONS ET EVENEMENTS", href: "/formations" },
       { type: "link", label: "LA SOCIÉTÉ", href: "/societe" },
       { type: "link", label: "NOS RÉALISATIONS", href: "/realisations" },
-      { type: "link", label: "CONTACT", href: "/societe" },
+      { type: "link", label: "CONTACT", href: "/contact" },
     ],
     []
   );
@@ -130,7 +130,7 @@ export function Header() {
           {/* Right side */}
           <div className="flex items-center gap-3">
            <Button
-                href="/catalogue"
+                href="/offres-produits"
                 variant="red"
               >
                 OFFRES PRODUITS

@@ -29,7 +29,7 @@ export default function CataloguePage() {
         "Système de désinfection interne IGN",
       ],
       image: "/images/fauteuils/fauteuil_pe9.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "airel-quetin-k2",
@@ -48,7 +48,7 @@ export default function CataloguePage() {
         "Sellerie confortable et personnalisable",
       ],
       image: "/images/fauteuils/fauteuil_k2.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-s8",
@@ -67,7 +67,7 @@ export default function CataloguePage() {
         "Versions : Standard (Crachoir) & VAC PACK",
       ],
       image: "/images/fauteuils/Belmont_S8.jpg",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-s6",
@@ -86,7 +86,7 @@ export default function CataloguePage() {
         "Versions : Standard (Crachoir) & VAC PACK",
       ],
       image: "/images/fauteuils/Belmont_S6.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "castellini-puma-eli-ambidextre",
@@ -97,7 +97,7 @@ export default function CataloguePage() {
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Caméra intra-orale", "Capteur radiographique Zen-X", "Écran LED"],
       image: "/images/fauteuils/Castellini_Puma.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "castellini-skema-6",
@@ -109,7 +109,7 @@ export default function CataloguePage() {
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Interface Full Touch", "Technologie NFC", "Élégance et fonctionnalité"],
       image: "/images/fauteuils/Castellini_AREA.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "kavo-uniqa",
@@ -126,7 +126,7 @@ export default function CataloguePage() {
         "Nouveaux accessoires",
       ],
       image: "/images/fauteuils/KaVo-uniQa_S-LED-HD_7h-transparent01.png",
-      href: "#",
+      href: "/contact",
     },
   ];
 
@@ -154,7 +154,7 @@ export default function CataloguePage() {
       desc:
         "Un tout nouveau concept. TAO redéfinit le rôle du mobilier dans le cabinet dentaire en termes de dimensions, de sécurité et d’organisation. TAO est un projet ambitieux issu de la recherche sur l’art dentaire réalisée dans des cliniques de toute l’Europe. Il s’agit d’un concept innovant et évolutif pour l’aménagement de votre cabinet, afin de respecter vos habitudes de travail d’aujourd’hui et de demain.",
       image: { src: "/images/eclairages/chrom-nt-2018.png", alt: "TAO" },
-      href: "#",
+      href: "/contact",
     },
     {
       id: "zenium-zyo-ii",
@@ -163,7 +163,7 @@ export default function CataloguePage() {
       desc:
         "ZYO est une lampe scialytique à leds au design d’une pureté saisissante, un condensé d’énergie et de puissance au service de l’espace dentaire. Face aux nouveaux protocoles médicaux intégrant la vidéo pour assister les chirurgiens dentistes dans leurs interventions, ZYO est l’outil par excellence inventé pour répondre à leurs attentes.",
       image: { src: "/images/eclairages/zyo-ii.png", alt: "ZYO II" },
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-light",
@@ -172,7 +172,7 @@ export default function CataloguePage() {
       desc:
         "L’Eurus Light de nouvelle génération (conforme à la norme ISO9680) est capable de diffuser une lumière d’intensité variable de 3 000 à 34.000 lux et reproduit la lumière naturelle avec une capacité de rendu des couleurs fonctionnelles élevée.",
       image: { src: "/images/eclairages/EURUS-LIGHT_mirror.jpg", alt: "Eurus Light" },
-      href: "#",
+      href: "/contact",
     },
     {
       id: "faro-siderea-sunlight",
@@ -181,7 +181,7 @@ export default function CataloguePage() {
       desc:
         "Depuis toujours, la recherche de la solution adaptée pour un meilleur éclairage au cabinet est une nécessité. FARO présente un nouveau produit en or : la scialytique d’ambiance LEO.",
       image: { src: "/images/eclairages/SIDEREA.png", alt: "Siderea Sunlight" },
-      href: "#",
+      href: "/contact",
     },
   ];
 
@@ -208,14 +208,14 @@ export default function CataloguePage() {
         hero={eclairageHero}
         items={eclairages}
         ctaLabel="CONTACTEZ-NOUS"
-        ctaHref="mailto:michaut.g@wanadoo.fr"
+        ctaHref="/contact"
       />
 
       <MobilierSection
   title="Le mobilier"
   items={MOBILIER_ITEMS}
   ctaLabel="CONTACTEZ NOUS"
-  ctaHref="mailto:michaut.g@wanadoo.fr"
+  ctaHref="/contact"
 />
     </div>
   );

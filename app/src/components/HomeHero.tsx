@@ -59,7 +59,7 @@ export function HomeHero() {
 
           {/* CTA */}
           <div className="flex md:justify-end">
-            <Button href="mailto:michaut.g@wanadoo.fr" variant="red">
+            <Button href="/contact" variant="red">
               PRENDRE RENDEZ-VOUS
             </Button>
           </div>
