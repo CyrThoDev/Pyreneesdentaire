@@ -76,7 +76,7 @@ function FauteuilRow({
   }
 
   return (
-    <article className="py-10">
+    <article className="py-3">
       <div
         className={[
           "flex flex-col gap-6",
@@ -89,10 +89,10 @@ function FauteuilRow({
           className={[
             "min-w-0",
             zoomed ? "order-2 w-full" : "lg:order-1 lg:w-[58%]",
-            "flex flex-col gap-3",
+            "flex flex-col gap-0",
           ].join(" ")}
         >
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-5">
             <p className="text-2xl font-semibold uppercase text-black">
               {item.brand}
             </p>
@@ -107,17 +107,17 @@ function FauteuilRow({
           ) : null}
 
           {item.specs?.length ? (
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col ">
               {item.specsTitle ? (
-                <p className="font-bold uppercase text-black">
+                <p className="mt-3 font-bold uppercase text-black">
                   {item.specsTitle}
                 </p>
               ) : null}
 
-              <ul className="flex flex-col gap-1 leading-none text-black/70">
+              <ul className="flex flex-col leading-none text-black/70">
                 {item.specs.map((s, i) => (
                   <li key={`${item.id}-spec-${i}`}>
-                    • {s.replace(/^•\s?/, "")}
+                    - {s.replace(/^•\s?/, "")}
                   </li>
                 ))}
               </ul>

@@ -153,7 +153,7 @@ export default function CataloguePage() {
       title: "TAO",
       desc:
         "Un tout nouveau concept. TAO redéfinit le rôle du mobilier dans le cabinet dentaire en termes de dimensions, de sécurité et d’organisation. TAO est un projet ambitieux issu de la recherche sur l’art dentaire réalisée dans des cliniques de toute l’Europe. Il s’agit d’un concept innovant et évolutif pour l’aménagement de votre cabinet, afin de respecter vos habitudes de travail d’aujourd’hui et de demain.",
-      image: { src: "/images/eclairages/uniqa.jpg", alt: "TAO" },
+      image: { src: "/images/eclairages/chrom-nt-2018.png", alt: "TAO" },
       href: "#",
     },
     {
