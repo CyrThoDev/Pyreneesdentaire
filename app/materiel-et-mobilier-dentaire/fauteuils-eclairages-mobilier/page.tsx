@@ -208,14 +208,14 @@ export default function CataloguePage() {
         hero={eclairageHero}
         items={eclairages}
         ctaLabel="CONTACTEZ-NOUS"
-        ctaHref="#"
+        ctaHref="mailto:michaut.g@wanadoo.fr"
       />
 
       <MobilierSection
   title="Le mobilier"
   items={MOBILIER_ITEMS}
   ctaLabel="CONTACTEZ NOUS"
-  ctaHref="#"
+  ctaHref="mailto:michaut.g@wanadoo.fr"
 />
     </div>
   );

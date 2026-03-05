@@ -59,7 +59,7 @@ export default function NotFound() {
               <p className="text-sm text-black/55">
                 Besoin d’aide ?{" "}
                 <Link
-                  href="/contact"
+                  href="mailto:michaut.g@wanadoo.fr"
                   className="font-semibold text-black/75 underline underline-offset-4 hover:text-black"
                 >
                   Contactez-nous
@@ -96,7 +96,7 @@ export default function NotFound() {
                 (URL) et on corrige.
               </p>
               <div className="mt-4">
-                <Button href="/contact" variant="white" >
+                <Button href="mailto:" variant="white" >
                   Nous contacter
                 </Button>
               </div>

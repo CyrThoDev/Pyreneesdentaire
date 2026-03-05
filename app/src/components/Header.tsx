@@ -24,7 +24,7 @@ export function Header() {
       { type: "link", label: "ACCUEIL", href: "/" },
       {
         type: "menu",
-        label: "MATÉRIEL ET MOBILIER DENTAIRE",
+        label: "MATÉRIEL",
         children: [
           {
             label: "Les fauteuils, l’éclairages et le mobilier",
@@ -44,7 +44,7 @@ export function Header() {
           },
         ],
       },
-      { type: "link", label: "NOS FORMATIONS", href: "/formations" },
+      { type: "link", label: "NOS FORMATIONS ET EVENEMENTS", href: "/formations" },
       { type: "link", label: "LA SOCIÉTÉ", href: "/societe" },
       { type: "link", label: "NOS RÉALISATIONS", href: "/realisations" },
       { type: "link", label: "CONTACT", href: "/societe" },
@@ -76,7 +76,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="hover:text-black transition-colors"
+                    className="hover:text-black/50 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -86,14 +86,14 @@ export function Header() {
               // Menu dropdown (parent non cliquable)
               return (
                 <div key={item.label} className="relative group">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 transition-colors"
-                    aria-haspopup="menu"
-                  >
-                    {item.label}
-                    <span className="text-base leading-none opacity-70">▾</span>
-                  </button>
+                 <button
+  type="button"
+  className="inline-flex items-center gap-2 transition-colors hover:text-black/50"
+  aria-haspopup="menu"
+>
+  {item.label}
+  <span className="text-base leading-none opacity-70">▾</span>
+</button>
 
                   {/* Dropdown */}
                   <div

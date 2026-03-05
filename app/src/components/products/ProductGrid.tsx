@@ -5,7 +5,7 @@ import type { ProductCard } from "../../data/products";
 
 export function ProductsGrid({
   items,
-  ctaHref = "/contact",
+  ctaHref = "mailto:michaut.g@wanadoo.fr",
 }: {
   items: ProductCard[];
   ctaHref?: string;

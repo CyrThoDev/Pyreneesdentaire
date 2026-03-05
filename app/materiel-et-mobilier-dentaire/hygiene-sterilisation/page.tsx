@@ -25,7 +25,7 @@ function Spacer({ mdCols = 1 }: { mdCols?: 1 | 2 | 3 }) {
 
 export default function HygieneSterilisationPage() {
   const items = HYGIENE_ITEMS as ProductCard[];
-  const ctaHref = "/contact";
+  const ctaHref = "mailto:michaut.g@wanadoo.fr";
 
   const melag = items.filter((i) => brandIs(i, "MELAG")).slice(0, 3);
 

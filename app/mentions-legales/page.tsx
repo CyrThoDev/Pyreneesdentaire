@@ -140,7 +140,7 @@ const ARTICLES: Article[] = [
         <p>Pour exercer ce droit adressez-vous à PyreneesDentaire.fr :</p>
         <p>
           <Link
-            href="/contact"
+            href="mailto:michaut.g@wanadoo.fr"
             className="inline-flex items-center gap-2 font-bold uppercase tracking-wide text-red underline underline-offset-4 hover:brightness-95"
           >
             en utilisant le formulaire de contact

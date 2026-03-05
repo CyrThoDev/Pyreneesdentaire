@@ -40,9 +40,12 @@ export default function Button({
 
   if (href) {
     const isExternal =
-      href.startsWith("http") || href.endsWith(".pdf");
+      href.startsWith("http") ||
+  href.startsWith("mailto:") ||
+  href.startsWith("tel:") ||
+  href.endsWith(".pdf");
 
-    // 👉 Si PDF ou lien externe → <a>
+    
     if (isExternal) {
       return (
         <a

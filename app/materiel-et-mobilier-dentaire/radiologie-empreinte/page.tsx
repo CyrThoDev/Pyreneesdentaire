@@ -18,7 +18,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       title="Radiologie & prise d’empreinte"
       subtitle="Sélection de solutions d’imagerie et de scanners intra-oraux."
       items={RADIOLGIE_ITEMS}
-      ctaHref="/contact"
+      ctaHref="mailto:michaut.g@wanadoo.fr"
     />
     </>
   );
