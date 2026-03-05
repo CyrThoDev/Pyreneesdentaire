@@ -24,7 +24,7 @@ export const formations: Formation[] = [
     titleTop: "360°",
     titleMain: "LA CHAÎNE DU NUMÉRIQUE",
 
-    posterSrc: "/images/formations/chaine-numerique.jpg",
+    posterSrc: "/images/FORMATION_OWANDY.png",
     posterAlt: "Formation La chaîne du numérique",
 
     ctaLabel: "INSCRIPTION",

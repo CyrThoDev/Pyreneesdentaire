@@ -25,17 +25,36 @@ export default function FormationRow({
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 md:grid-cols-[360px_1fr] md:gap-14">
           {/* POSTER */}
-          <div className="relative w-full">
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-white shadow-sm">
-              <Image
-                src={f.posterSrc}
-                alt={f.posterAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 360px"
-              />
-            </div>
-          </div>
+<div className="w-full">
+  {/* Mobile: ratio naturel (pas de whitespace forcé) */}
+  <div className="block lg:hidden">
+    <Image
+      src={f.posterSrc}
+      alt={f.posterAlt}
+      width={1200}          // valeur “logique” (ex: largeur réelle de l'affiche si tu la connais)
+      height={1700}         // valeur “logique” (hauteur réelle)
+      className="w-full h-auto"
+      sizes="100vw"
+      priority={false}
+    />
+  </div>
+
+  {/* Desktop: tu peux garder ton rendu actuel si tu veux */}
+  <div className="hidden lg:block relative aspect-[3/4] w-full overflow-hidden">
+    <Image
+      src={f.posterSrc}
+      alt={f.posterAlt}
+      fill
+      className="object-contain"
+      sizes="360px"
+    />
+  </div>
+
+  {/* Texte en dessous */}
+  <div className="mt-4">
+    {/* ton texte */}
+  </div>
+</div>
 
           {/* TEXTE */}
           <div className="flex flex-col justify-start pt-1">

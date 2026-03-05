@@ -30,7 +30,7 @@ export const MOBILIER_ITEMS: CatalogueFurnitureCard[] = [
     brand: "DENTAL ART",
     title: "L’Eurus CLAIR",
     image: {
-      src: "/images/mobilier/eurus-clair.jpg",
+      src: "/images/mobilier/eurusclair.png",
       alt: "Fauteuil Eurus Clair",
     },
     desc:

@@ -71,11 +71,11 @@ function OfferCard({ offer }: { offer: OfferCardData }) {
      <div className="mt-4">
   <Button
     href={offer.downloadHref}
-    variant="red"
+    variant="gray"
     target="_blank"
     rel="noopener noreferrer"
   >
-    TELECHARGER LES OFFRES
+    Télécharger l'offre
   </Button>
 </div>
     </article>
@@ -131,7 +131,7 @@ export default function OffreProduitsSection() {
 
   return (
     <section className="w-full bg-white font-barlow">
-      <div className="mx-auto max-w-7xl px-6 py-10">
+      <div className="relative mx-auto max-w-7xl px-6 py-10 pb-28">
         <h2 className="text-5xl tracking-tight font-barlow">
           <span className="font-light">{title.split(" ")[0]} </span>
           <span className="font-extrabold">
@@ -144,7 +144,16 @@ export default function OffreProduitsSection() {
             <OfferCard key={o._id} offer={o} />
           ))}
         </div>
+       <Button
+          href="/offres-produits"
+          variant="red"
+          className="absolute  right-6 bottom-10"
+        >
+          VOIR LES OFFRES
+        </Button>
       </div>
+
+       
     </section>
   );
 }

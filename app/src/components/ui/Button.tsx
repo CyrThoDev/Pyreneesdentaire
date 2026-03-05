@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 
-type Variant = "red" | "white" | "black" | "ghost";
+type Variant = "red" | "white" | "black" | "gray";
 
 interface ButtonProps {
   children: ReactNode;
@@ -33,7 +33,7 @@ export default function Button({
     red: "bg-red text-white hover:bg-red/80 focus-visible:ring-red",
     white: "bg-white text-red hover:bg-gray-100 focus-visible:ring-red",
     black: "bg-white text-black hover:bg-gray-100 focus-visible:ring-black",
-    ghost: "text-red hover:bg-red/10 focus-visible:ring-red",
+    gray: "text-white bg-[#909495] underline underline-offset-2 hover:bg-black/10 focus-visible:ring-gray",
   };
 
   const classes = `${base} ${variants[variant]} ${className ?? ""}`;
