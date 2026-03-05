@@ -128,10 +128,11 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className=" flex items-center gap-3">
            <Button
                 href="/offres-produits"
                 variant="red"
+                className="hidden lg:block"
               >
                 OFFRES PRODUITS
               </Button>
@@ -219,12 +220,12 @@ export function Header() {
               })}
 
               <Button
-                href="/catalogue"
+                href="/offres-produits"
                 onClick={() => setOpen(false)}
-              
+              className="inline-flex"
                 variant="red"
               >
-                CATALOGUE PRODUITS
+                OFFRES PRODUITS
               </Button>
             </div>
           </div>

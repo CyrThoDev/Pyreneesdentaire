@@ -16,7 +16,7 @@ export function HomeHero() {
           <source src="/videos/hero-cabinet.webm" type="video/webm" />
         </video>
 
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
