@@ -21,8 +21,8 @@ export default function FormationRow({
       : "bg-white";
 
   return (
-    <article className={`${bgClass} w-full py-14`}>
-      <div className="mx-auto max-w-7xl px-6">
+    <article id={f.id} className={`${bgClass} w-full scroll-mt-28 py-14`}>
+      <div  className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 md:grid-cols-[360px_1fr] md:gap-14">
           {/* POSTER */}
 <div className="w-full">
@@ -68,13 +68,7 @@ export default function FormationRow({
             <div className="mt-5 max-w-2xl">{f.content}</div>
 
             <div className="mt-5">
-              <Button
-                href={f.ctaHref}
-                variant="red"
-                aria-label={`${f.ctaLabel} : ${f.titleTop ?? ""} ${f.titleMain}`}
-              >
-                {f.ctaLabel}
-              </Button>
+              
             </div>
           </div>
         </div>

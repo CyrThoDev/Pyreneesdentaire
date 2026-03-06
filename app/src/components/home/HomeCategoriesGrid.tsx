@@ -16,8 +16,13 @@ const tiles: Tile[] = [
     layout: "fauteuil",
     ctaAlign: "br",
     images: [
-      { src: "/images/fauteuils/Belmont_S6.png", alt: "Fauteuil dentaire" },
-      { src: "/images/fauteuils/fauteuil_k2.png", alt: "Mobilier et éclairage dentaire" },
+      { src: "/images/fauteuils/Belmont_S6.png", alt: "Belmont S6" },
+      { src: "/images/fauteuils/Belmont_S8.jpg", alt: "Belmont S8" },
+      { src: "/images/fauteuils/Castellini_AREA.png", alt: "Castellini AREA" },
+      { src: "/images/fauteuils/Castellini_PUMA.png", alt: "Castellini PUMA" },
+      { src: "/images/fauteuils/fauteuil_k2.png", alt: "Fauteuil K2" },
+      { src: "/images/fauteuils/fauteuil_pe9.png", alt: "Fauteuil P9" },
+       { src: "/images/fauteuils/KaVo-uniQa_S-LED-HD_7h-transparent01.png", alt: "KAVO" },
     ],
   },
   {

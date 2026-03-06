@@ -27,7 +27,7 @@ const formations: Formation[] = [
     ],
     dateLine: "Date : jeudi 21 mai 2026 de 9h à 17h",
     placeLine: "Lieu : Capbreton",
-    href: "/formations/kulzer-360-restauration-sourire",
+    href: "/formations/#restauration-sourire",
   },
   {
     dayLabel: "Jeudi 26 Mars",
@@ -39,7 +39,7 @@ const formations: Formation[] = [
     ],
     dateLine: "Date : jeudi 26 Mars 2026 de 9h à 17h",
     placeLine: "Lieu : Salies de Béarn",
-    href: "/formations/owandy-chaine-du-numerique",
+    href: "/formations/#chaine-numerique",
   },
 ];
 
