@@ -24,7 +24,7 @@ export function ProductsGrid({
             <Fragment key={item.id}>
               {/* ✅ Brand au-dessus de CHAQUE produit (dans la cellule) */}
               <div className="flex flex-col">
-                <p className="text-2xl font-barlow font-semibold uppercase text-black">
+                <p className="text-2xl font-barlow  uppercase text-black">
                   {item.brand.toUpperCase()}
                 </p>
 

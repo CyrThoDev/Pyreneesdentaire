@@ -93,10 +93,10 @@ function FauteuilRow({
           ].join(" ")}
         >
           <div className="flex flex-col gap-5">
-            <p className="text-2xl font-semibold uppercase text-black">
+            <p className="text-2xl  uppercase text-black">
               {item.brand}
             </p>
-            <h3 className="text-lg font-bold">{item.model}</h3>
+            <h3 className="text-xl font-bold">{item.model}</h3>
             {item.title ? (
               <p className="font-semibold text-black/60">{item.title}</p>
             ) : null}

@@ -10,7 +10,7 @@ function brandIs(item: ProductCard, brand: string) {
 function ProductCell({ item, ctaHref }: { item: ProductCard; ctaHref: string }) {
   return (
     <div className="flex flex-col">
-      <p className="text-2xl font-barlow font-semibold uppercase text-black">
+      <p className="text-2xl font-barlow  uppercase text-black">
         {item.brand?.toUpperCase()}
       </p>
       <ProductTile item={item} ctaHref={ctaHref} />

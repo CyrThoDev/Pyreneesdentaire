@@ -103,9 +103,8 @@ export default function CataloguePage() {
       id: "castellini-skema-6",
       brand: "CASTELLINI",
       model: "SKEMA 6",
-      title: "L’innovation au service des professionnels odontologiques",
       desc:
-        "Conçu pour répondre aux besoins des professionnels les plus exigeants, Skema 6 est le point de rencontre entre l’innovation technologique et l’ergonomie de pointe. Cette unité de soins dentaires intègre les fonctionnalités de pointe, offrant une expérience d’utilisation fluide, conviviale et entièrement personnalisable. Grâce à une interface tactile de 7’’, à des commandes vocales et à une large gamme d’instruments intégrés, Skema 6 permet d’aborder n’importe quelle procédure, de l’endodontie à la chirurgie implantaire, avec précision et sécurité. Le design ergonomique, la gestion intelligente des paramètres de fonctionnement et l’interconnexion avec les systèmes numériques du cabinet, font de Skema 6 la solution idéale pour ceux qui recherchent l’excellence des performances et une efficacité opérationnelle maximale.",
+        "L’innovation au service des professionnels odontologiques.Conçu pour répondre aux besoins des professionnels les plus exigeants, Skema 6 est le point de rencontre entre l’innovation technologique et l’ergonomie de pointe. Cette unité de soins dentaires intègre les fonctionnalités de pointe, offrant une expérience d’utilisation fluide, conviviale et entièrement personnalisable. Grâce à une interface tactile de 7’’, à des commandes vocales et à une large gamme d’instruments intégrés, Skema 6 permet d’aborder n’importe quelle procédure, de l’endodontie à la chirurgie implantaire, avec précision et sécurité. Le design ergonomique, la gestion intelligente des paramètres de fonctionnement et l’interconnexion avec les systèmes numériques du cabinet, font de Skema 6 la solution idéale pour ceux qui recherchent l’excellence des performances et une efficacité opérationnelle maximale.",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Interface Full Touch", "Technologie NFC", "Élégance et fonctionnalité"],
       image: "/images/fauteuils/Castellini_AREA.png",
@@ -115,9 +114,8 @@ export default function CataloguePage() {
       id: "kavo-uniqa",
       brand: "KAVO",
       model: "UNIQA",
-      title: "La première unité de traitement dans la classe compacte premium",
       desc:
-        "Signé KaVo, l’uniQa est un produit unique en son genre. Sa grande marge de manœuvre permet de répondre à vos besoins particuliers et à votre manière de travailler. Une conception attrayante associée à des fonctionnalités intelligentes et à la fabrication KaVo premium garantissent un traitement quotidien de qualité exceptionnelle, ainsi qu’un succès pérenne.",
+        "La première unité de traitement dans la classe compacte premium.Signé KaVo, l’uniQa est un produit unique en son genre. Sa grande marge de manœuvre permet de répondre à vos besoins particuliers et à votre manière de travailler. Une conception attrayante associée à des fonctionnalités intelligentes et à la fabrication KaVo premium garantissent un traitement quotidien de qualité exceptionnelle, ainsi qu’un succès pérenne.",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: [
         "Nouvelles diodes lumineuses dans la courbe du fauteuil",

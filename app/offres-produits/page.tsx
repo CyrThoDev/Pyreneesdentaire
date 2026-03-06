@@ -15,12 +15,12 @@ export default function OffresProduitsPage() {
 
         {/* INTRO comme /formations */}
         <div className="mx-auto max-w-7xl px-6 py-10 sm:py-12 font-barlow">
-          <div className="max-w-none">
+          <div className="max-w-none leading-none">
             <p className="font-barlow">
-              Pyrénées Dentaire : nos offres produits à télécharger
+              Pyrénées Dentaire : nos offres produits à télécharger.
             </p>
 
-            <p className="m-0 leading-5">
+            <p className="m-0 leading-none">
               <br />
               Retrouvez sur cette page l’ensemble de nos dépliants d’offres
               produits. Chaque offre est disponible au format PDF.
