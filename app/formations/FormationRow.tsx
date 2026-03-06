@@ -58,7 +58,7 @@ export default function FormationRow({
 
           {/* TEXTE */}
           <div className="flex flex-col justify-start pt-1">
-            <p className="text-lg text-neutral-600">{f.dateLine}</p>
+            <p className="text-xl font-bold text-neutral-600">{f.dateLine}</p>
 
             <h2 className=" text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">
               {f.titleTop ? <span className="block">{f.titleTop}</span> : null}

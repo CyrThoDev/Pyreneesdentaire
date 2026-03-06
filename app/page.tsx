@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { HomeHero } from "./src/components/HomeHero";
-import { HomeCategoriesGrid } from "./src/components/HomeCategoriesGrid";
+import { HomeCategoriesGrid } from "./src/components/home/HomeCategoriesGrid";
 import FormationsSection from "./src/components/FormationsSection";
 import OffreProduitsSection from "./src/components/OffresAccueil";
 import BonsPlansDuMoisSection from "./src/components/BonsPlansDuMois";

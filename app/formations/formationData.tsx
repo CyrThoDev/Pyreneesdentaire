@@ -21,7 +21,7 @@ export const formations: Formation[] = [
   {
     id: "chaine-numerique",
     dateLine: "Jeudi 26 Mars 2026 - à la Rotonde de Salies de Béarn",
-    titleTop: "360°",
+   
     titleMain: "LA CHAÎNE DU NUMÉRIQUE",
 
     posterSrc: "/images/FORMATION_OWANDY.png",
@@ -84,6 +84,13 @@ export const formations: Formation[] = [
 
           <p className="mt-2  text-neutral-700">
             AGATA GAUTRY —{" "}
+             <a
+              href="mailto: agata.pyreneesdentaire@gmail.com"
+              className="hover:underline underline-offset-2"
+            >
+              agata.pyreneesdentaire@gmail.com
+            </a>
+            {" "}-{" "}
             <a
               href="tel:+33638657587"
               className="hover:underline underline-offset-2"
@@ -94,6 +101,13 @@ export const formations: Formation[] = [
 
           <p className=" text-neutral-700">
             JULIEN DELMOND —{" "}
+             <a
+              href="mailto: julien.delmond@icloud.com"
+              className="hover:underline underline-offset-2"
+            >
+              julien.delmond@icloud.com
+            </a>
+            {" "}-{" "}
             <a
               href="tel:+33677119121"
               className="hover:underline underline-offset-2"
@@ -206,24 +220,22 @@ export const formations: Formation[] = [
           <p className="font-bold text-neutral-900">INSCRIPTION</p>
 
           <p className="mt-2  ">
-            JULIEN DELMOND —{" "}
+            JULIEN DELMOND -{" "}
+            <a
+              href="mailto: julien.delmond@icloud.com"
+              className="hover:underline underline-offset-2"
+            >
+              julien.delmond@icloud.com
+            </a>
+            {" "}-{" "}
             <a
               href="tel:+33677119121"
               className="hover:underline underline-offset-2"
             >
-              06 77 11 91 21
+               06 77 11 91 21
             </a>
           </p>
 
-          <p className=" ">
-            Marc-Sebastien Cotteret —{" "}
-            <a
-              href="tel:+33671715628"
-              className="hover:underline underline-offset-2"
-            >
-              06 71 71 56 28
-            </a>
-          </p>
         </div>
       </>
     ),
