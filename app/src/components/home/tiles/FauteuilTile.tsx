@@ -21,7 +21,7 @@ export default function FauteuilTile({ tile }: Props) {
     },
     [
       Autoplay({
-        delay: 2000,
+        delay: 2500,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),
