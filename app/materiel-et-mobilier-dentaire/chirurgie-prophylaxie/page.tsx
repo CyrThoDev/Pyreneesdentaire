@@ -1,4 +1,5 @@
 // app/chirurgie/page.tsx
+import PartnersSection from "@/app/src/components/Partenaires";
 import { CategoryPage } from "@/app/src/components/products/CategoryPage";
 import { CHIRURGIE_ITEMS } from "@/app/src/data/chirurgie";
 
@@ -22,6 +23,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       items={CHIRURGIE_ITEMS}
       ctaHref="mailto:michaut.g@wanadoo.fr"
     />
+    <PartnersSection />
     </>
   );
 }

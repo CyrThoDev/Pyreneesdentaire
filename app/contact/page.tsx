@@ -43,7 +43,7 @@ Retrouvez ici toutes les coordonnées pour contacter l’agence : visite au show
 
             <p className="font-barlow text-black/80 mb-6">
               Pour planifier un échange (projet, devis, démonstration, installation),
-              vous pouvez appeler directement ou réserver un créneau.
+              vous pouvez appeler directement ou envoyer un email.
             </p>
 
             <div className="space-y-4">
@@ -76,7 +76,7 @@ Retrouvez ici toutes les coordonnées pour contacter l’agence : visite au show
             <h2 className="font-oswald text-2xl uppercase mb-4">Demande de prix / SAV</h2>
 
             <p className="font-barlow text-black/80 mb-6">
-              Pour toute question (produits, disponibilité, SAV, formation), vous pouvez
+              Pour toute question (produits, disponibilité, SAV) , vous pouvez
               nous contacter par téléphone ou par email.
             </p>
 
@@ -112,12 +112,7 @@ Retrouvez ici toutes les coordonnées pour contacter l’agence : visite au show
                 </p>
               </div>
 
-              <div className="mt-6 bg-gray-50 border border-gray-200 p-4">
-                <p className="text-sm text-black/70">
-                  Astuce : si le clic sur “envoyer un email” ne fonctionne pas, copiez-collez
-                  simplement l’adresse ci-dessus dans votre webmail (Gmail, Outlook, etc.).
-                </p>
-              </div>
+              
             </div>
           </div>
         </div>

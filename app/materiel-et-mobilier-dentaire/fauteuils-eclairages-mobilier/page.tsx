@@ -10,6 +10,7 @@ import type {
 } from "@/app/src/components/catalogue/types";
 
 import { MOBILIER_ITEMS } from "@/app/src/data/mobilier";
+import PartnersSection from "@/app/src/components/Partenaires";
 
 export default function CataloguePage() {
   const fauteuils: CatalogueFauteuil[] = [
@@ -215,6 +216,7 @@ export default function CataloguePage() {
   ctaLabel="CONTACTEZ NOUS"
   ctaHref="/contact"
 />
+<PartnersSection />
     </div>
   );
 }

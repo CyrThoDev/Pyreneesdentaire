@@ -1,4 +1,5 @@
 // app/radiologie/page.tsx
+import PartnersSection from "@/app/src/components/Partenaires";
 import { CategoryPage } from "@/app/src/components/products/CategoryPage";
 import { RADIOLGIE_ITEMS } from "@/app/src/data/radiologie";
 
@@ -18,8 +19,9 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       title="Radiologie & prise d’empreinte"
       subtitle="Sélection de solutions d’imagerie et de scanners intra-oraux."
       items={RADIOLGIE_ITEMS}
-      ctaHref="mailto:michaut.g@wanadoo.fr"
+      ctaHref="/contact"
     />
+    <PartnersSection />
     </>
   );
 }

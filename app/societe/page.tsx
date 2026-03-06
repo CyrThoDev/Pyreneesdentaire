@@ -1,3 +1,5 @@
+import PartnersSection from "../src/components/Partenaires";
+
 export default function SocietePage() {
   const team = [
     {
@@ -122,12 +124,7 @@ Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour 
       </section>
 
       {/* PARTENAIRES */}
-      <section className="mx-auto max-w-7xl px-6 pb-24 font-barlow">
-        <h3 className="mb-3 text-lg font-semibold">Nos partenaires</h3>
-        <p className=" text-gray-600">
-          {partenaires}
-        </p>
-      </section>
+   <PartnersSection />
     </>
   );
 }

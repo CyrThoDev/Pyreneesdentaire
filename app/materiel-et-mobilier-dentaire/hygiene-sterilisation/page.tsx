@@ -1,4 +1,5 @@
 // app/materiel-et-mobilier-dentaire/hygiene-sterilisation/page.tsx
+import PartnersSection from "@/app/src/components/Partenaires";
 import { ProductTile } from "@/app/src/components/products/ProductTile";
 import type { ProductCard } from "@/app/src/data/chirurgie";
 import { HYGIENE_ITEMS } from "@/app/src/data/hygiene";
@@ -41,7 +42,7 @@ export default function HygieneSterilisationPage() {
   };
 
   return (
-    <main className="pb-16">
+    <main className="">
       {/* ✅ HERO / TITRE DE PAGE */}
       <section className="bg-red text-white font-barlow">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8">
@@ -106,6 +107,7 @@ export default function HygieneSterilisationPage() {
           {missingCols(nsk.length) === 3 && <Spacer mdCols={3} />}
         </section>
       </div>
+      <PartnersSection />
     </main>
   );
 }
