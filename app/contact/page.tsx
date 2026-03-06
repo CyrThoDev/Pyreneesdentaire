@@ -73,7 +73,7 @@ Retrouvez ici toutes les coordonnées pour contacter l’agence : visite au show
 
           {/* BLOC CONTACT */}
           <div className=" p-8">
-            <h2 className="font-oswald text-2xl uppercase mb-4">Demande de contact</h2>
+            <h2 className="font-oswald text-2xl uppercase mb-4">Demande de prix / SAV</h2>
 
             <p className="font-barlow text-black/80 mb-6">
               Pour toute question (produits, disponibilité, SAV, formation), vous pouvez
