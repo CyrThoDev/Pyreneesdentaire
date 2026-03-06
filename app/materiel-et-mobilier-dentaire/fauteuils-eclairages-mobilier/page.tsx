@@ -108,7 +108,7 @@ export default function CataloguePage() {
         "L’innovation au service des professionnels odontologiques.Conçu pour répondre aux besoins des professionnels les plus exigeants, Skema 6 est le point de rencontre entre l’innovation technologique et l’ergonomie de pointe. Cette unité de soins dentaires intègre les fonctionnalités de pointe, offrant une expérience d’utilisation fluide, conviviale et entièrement personnalisable. Grâce à une interface tactile de 7’’, à des commandes vocales et à une large gamme d’instruments intégrés, Skema 6 permet d’aborder n’importe quelle procédure, de l’endodontie à la chirurgie implantaire, avec précision et sécurité. Le design ergonomique, la gestion intelligente des paramètres de fonctionnement et l’interconnexion avec les systèmes numériques du cabinet, font de Skema 6 la solution idéale pour ceux qui recherchent l’excellence des performances et une efficacité opérationnelle maximale.",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Interface Full Touch", "Technologie NFC", "Élégance et fonctionnalité"],
-      image: "/images/fauteuils/Castellini_AREA.png",
+      image: "/images/fauteuils/220_0_castellini_skema-6.png",
       href: "/contact",
     },
     {
