@@ -53,7 +53,7 @@ export default function FauteuilTile({ tile }: Props) {
 
             {tile.subtitle_2 && (
               <p
-                className={`${titleColor} font-oswald text-lg sm:text-2xl font-semibold uppercase leading-none tracking-tight`}
+                className={`${titleColor} font-oswald text-2xl sm:text-4xl font-semibold uppercase leading-none tracking-tight`}
               >
                 {tile.subtitle_2}
               </p>

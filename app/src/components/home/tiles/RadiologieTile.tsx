@@ -35,8 +35,8 @@ export default function RadiologieTile({ tile }: Props) {
 
         <div className="relative  flex-1 min-h-[180px] sm:min-h-[450px]">
           {mainImage && (
-            <div className="absolute right-0 -top-20 w-[62%] sm:w-[56%] lg:w-[70%]">
-              <div className="relative aspect-[4/5] w-full">
+            <div className="absolute right-0 top-0 w-[62%] sm:w-[56%] lg:w-[70%]">
+              <div className="relative aspect-square w-full">
                 <Image
                   src={mainImage.src}
                   alt={mainImage.alt}
