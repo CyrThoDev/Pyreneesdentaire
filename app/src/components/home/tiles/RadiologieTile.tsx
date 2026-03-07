@@ -33,15 +33,15 @@ export default function RadiologieTile({ tile }: Props) {
           </h3>
         </div>
 
-        <div className="relative mt-4 flex-1 min-h-[180px] sm:min-h-[220px]">
+        <div className="relative  flex-1 min-h-[180px] sm:min-h-[450px]">
           {mainImage && (
-            <div className="absolute right-0 top-0 w-[62%] sm:w-[56%] lg:w-[58%]">
+            <div className="absolute right-0 -top-20 w-[62%] sm:w-[56%] lg:w-[70%]">
               <div className="relative aspect-[4/5] w-full">
                 <Image
                   src={mainImage.src}
                   alt={mainImage.alt}
                   fill
-                  className="object-contain object-right-top"
+                  className="object-contain object-center"
                   sizes="(max-width: 639px) 52vw, (max-width: 1023px) 30vw, 20vw"
                 />
               </div>
@@ -49,8 +49,8 @@ export default function RadiologieTile({ tile }: Props) {
           )}
 
           {secondaryImage && (
-            <div className="absolute left-2 bottom-1 w-[18%] sm:w-[16%] lg:w-[15%]">
-              <div className="relative aspect-[3/5] w-full">
+            <div className="absolute left-15 bottom-1 w-[18%] sm:w-[16%] lg:w-[35%]">
+              <div className="relative aspect-[3/4] w-full">
                 <Image
                   src={secondaryImage.src}
                   alt={secondaryImage.alt}

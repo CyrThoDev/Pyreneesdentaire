@@ -30,8 +30,8 @@ const tiles: Tile[] = [
     layout: "radiologie",
     ctaAlign: "br",
     images: [
-      { src: "/images/categories/radiologie.png", alt: "Radiologie dentaire" },
-      { src: "/images/categories/empreinte.png", alt: "Prise d’empreinte" },
+      { src: "/images/radiologie/i-max_3d.png", alt: "Radiologie dentaire" },
+      { src: "/images/radiologie/dexis_is_3800.png", alt: "Prise d’empreinte" },
     ],
   },
   {
