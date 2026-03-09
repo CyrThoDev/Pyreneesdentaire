@@ -9,13 +9,16 @@ import type {
   CatalogueLightingItem,
 } from "@/app/src/components/catalogue/types";
 
+import { MOBILIER_ITEMS } from "@/app/src/data/mobilier";
+import PartnersSection from "@/app/src/components/Partenaires";
+
 export default function CataloguePage() {
   const fauteuils: CatalogueFauteuil[] = [
     {
       id: "airel-quetin-pe9",
       brand: "AIREL-QUETIN",
       model: "PE9",
-      title: "PE9, le fauteuil universel",
+      
       desc:
         "L’équipement PE9 a été conçu afin de s’adapter à toutes les positions de travail, de droite comme de gauche, de deux à quatre mains. Le PE9 est le fauteuil ambidextre par excellence. Son design ergonomique et ses fonctionnalités font de lui un unit universel",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
@@ -27,13 +30,13 @@ export default function CataloguePage() {
         "Système de désinfection interne IGN",
       ],
       image: "/images/fauteuils/fauteuil_pe9.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "airel-quetin-k2",
       brand: "AIREL-QUETIN",
       model: "K2",
-      title: "K2, le fauteuil compact",
+ 
       desc:
         "L’équipement k2 a été conçu afin de répondre à un besoin d’optimisation. Compact et léger, il rend l’espace de travail aéré et accessible pour le patient et le praticien. Le K2 s’adapte parfaitement aux petits espaces !",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
@@ -46,7 +49,7 @@ export default function CataloguePage() {
         "Sellerie confortable et personnalisable",
       ],
       image: "/images/fauteuils/fauteuil_k2.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-s8",
@@ -65,7 +68,7 @@ export default function CataloguePage() {
         "Versions : Standard (Crachoir) & VAC PACK",
       ],
       image: "/images/fauteuils/Belmont_S8.jpg",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-s6",
@@ -84,7 +87,7 @@ export default function CataloguePage() {
         "Versions : Standard (Crachoir) & VAC PACK",
       ],
       image: "/images/fauteuils/Belmont_S6.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "castellini-puma-eli-ambidextre",
@@ -95,27 +98,25 @@ export default function CataloguePage() {
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Caméra intra-orale", "Capteur radiographique Zen-X", "Écran LED"],
       image: "/images/fauteuils/Castellini_Puma.png",
-      href: "#",
+      href: "/contact",
     },
     {
       id: "castellini-skema-6",
       brand: "CASTELLINI",
       model: "SKEMA 6",
-      title: "L’innovation au service des professionnels odontologiques",
       desc:
-        "Conçu pour répondre aux besoins des professionnels les plus exigeants, Skema 6 est le point de rencontre entre l’innovation technologique et l’ergonomie de pointe. Cette unité de soins dentaires intègre les fonctionnalités de pointe, offrant une expérience d’utilisation fluide, conviviale et entièrement personnalisable. Grâce à une interface tactile de 7’’, à des commandes vocales et à une large gamme d’instruments intégrés, Skema 6 permet d’aborder n’importe quelle procédure, de l’endodontie à la chirurgie implantaire, avec précision et sécurité. Le design ergonomique, la gestion intelligente des paramètres de fonctionnement et l’interconnexion avec les systèmes numériques du cabinet, font de Skema 6 la solution idéale pour ceux qui recherchent l’excellence des performances et une efficacité opérationnelle maximale.",
+        "L’innovation au service des professionnels odontologiques.Conçu pour répondre aux besoins des professionnels les plus exigeants, Skema 6 est le point de rencontre entre l’innovation technologique et l’ergonomie de pointe. Cette unité de soins dentaires intègre les fonctionnalités de pointe, offrant une expérience d’utilisation fluide, conviviale et entièrement personnalisable. Grâce à une interface tactile de 7’’, à des commandes vocales et à une large gamme d’instruments intégrés, Skema 6 permet d’aborder n’importe quelle procédure, de l’endodontie à la chirurgie implantaire, avec précision et sécurité. Le design ergonomique, la gestion intelligente des paramètres de fonctionnement et l’interconnexion avec les systèmes numériques du cabinet, font de Skema 6 la solution idéale pour ceux qui recherchent l’excellence des performances et une efficacité opérationnelle maximale.",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: ["Interface Full Touch", "Technologie NFC", "Élégance et fonctionnalité"],
-      image: "/images/fauteuils/Castellini_AREA.png",
-      href: "#",
+      image: "/images/fauteuils/220_0_castellini_skema-6.png",
+      href: "/contact",
     },
     {
       id: "kavo-uniqa",
       brand: "KAVO",
       model: "UNIQA",
-      title: "La première unité de traitement dans la classe compacte premium",
       desc:
-        "Signé KaVo, l’uniQa est un produit unique en son genre. Sa grande marge de manœuvre permet de répondre à vos besoins particuliers et à votre manière de travailler. Une conception attrayante associée à des fonctionnalités intelligentes et à la fabrication KaVo premium garantissent un traitement quotidien de qualité exceptionnelle, ainsi qu’un succès pérenne.",
+        "La première unité de traitement dans la classe compacte premium.Signé KaVo, l’uniQa est un produit unique en son genre. Sa grande marge de manœuvre permet de répondre à vos besoins particuliers et à votre manière de travailler. Une conception attrayante associée à des fonctionnalités intelligentes et à la fabrication KaVo premium garantissent un traitement quotidien de qualité exceptionnelle, ainsi qu’un succès pérenne.",
       specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
       specs: [
         "Nouvelles diodes lumineuses dans la courbe du fauteuil",
@@ -124,7 +125,7 @@ export default function CataloguePage() {
         "Nouveaux accessoires",
       ],
       image: "/images/fauteuils/KaVo-uniQa_S-LED-HD_7h-transparent01.png",
-      href: "#",
+      href: "/contact",
     },
   ];
 
@@ -151,8 +152,8 @@ export default function CataloguePage() {
       title: "TAO",
       desc:
         "Un tout nouveau concept. TAO redéfinit le rôle du mobilier dans le cabinet dentaire en termes de dimensions, de sécurité et d’organisation. TAO est un projet ambitieux issu de la recherche sur l’art dentaire réalisée dans des cliniques de toute l’Europe. Il s’agit d’un concept innovant et évolutif pour l’aménagement de votre cabinet, afin de respecter vos habitudes de travail d’aujourd’hui et de demain.",
-      image: { src: "/images/eclairages/uniqa.jpg", alt: "TAO" },
-      href: "#",
+      image: { src: "/images/eclairages/chrom-nt-2018.png", alt: "TAO" },
+      href: "/contact",
     },
     {
       id: "zenium-zyo-ii",
@@ -161,7 +162,7 @@ export default function CataloguePage() {
       desc:
         "ZYO est une lampe scialytique à leds au design d’une pureté saisissante, un condensé d’énergie et de puissance au service de l’espace dentaire. Face aux nouveaux protocoles médicaux intégrant la vidéo pour assister les chirurgiens dentistes dans leurs interventions, ZYO est l’outil par excellence inventé pour répondre à leurs attentes.",
       image: { src: "/images/eclairages/zyo-ii.png", alt: "ZYO II" },
-      href: "#",
+      href: "/contact",
     },
     {
       id: "belmont-eurus-light",
@@ -170,7 +171,7 @@ export default function CataloguePage() {
       desc:
         "L’Eurus Light de nouvelle génération (conforme à la norme ISO9680) est capable de diffuser une lumière d’intensité variable de 3 000 à 34.000 lux et reproduit la lumière naturelle avec une capacité de rendu des couleurs fonctionnelles élevée.",
       image: { src: "/images/eclairages/EURUS-LIGHT_mirror.jpg", alt: "Eurus Light" },
-      href: "#",
+      href: "/contact",
     },
     {
       id: "faro-siderea-sunlight",
@@ -179,40 +180,11 @@ export default function CataloguePage() {
       desc:
         "Depuis toujours, la recherche de la solution adaptée pour un meilleur éclairage au cabinet est une nécessité. FARO présente un nouveau produit en or : la scialytique d’ambiance LEO.",
       image: { src: "/images/eclairages/SIDEREA.png", alt: "Siderea Sunlight" },
-      href: "#",
+      href: "/contact",
     },
   ];
 
-  const mobilier: CatalogueFurnitureCard[] = [
-    {
-      id: "dental-art-avant",
-      brand: "DENTAL ART",
-      title: "Avant system",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-1.png",
-    },
-    {
-      id: "rossicaws-eva",
-      brand: "ROSSICAWS",
-      title: "Eva",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-2.png",
-    },
-    {
-      id: "belmont-eurus-clair",
-      brand: "BELMONT",
-      title: "L’Eurus CLAIR",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-3.png",
-    },
-    {
-      id: "support-design-statera",
-      brand: "SUPPORT DESIGN",
-      title: "Statera Core+",
-      desc: "Texte descriptif…",
-      image: "/products/mobilier-4.png",
-    },
-  ];
+;
 
   return (
     <div className="min-h-screen bg-white text-black">
@@ -222,7 +194,7 @@ export default function CataloguePage() {
           <h1 className="text-5xl ">
             Les fauteuils, l’éclairage et le mobilier
           </h1>
-          <p className="max-w-7xl text-lg opacity-95">
+          <p className="max-w-7xl text-lg opacity-95 leading-5">
             Pyrenées Dentaire vous propose une large gamme de fauteuils, éclairages et mobilier dentaire issus des meilleures marques. Alliant ergonomie, confort et design, nos solutions optimisent votre cabinet tout en offrant un environnement agréable pour vos patients. Que vous recherchiez des fauteuils performants, des éclairages précis ou du mobilier fonctionnel et esthétique, nous avons le matériel adapté à vos besoins.
           </p>
         </div>
@@ -235,15 +207,16 @@ export default function CataloguePage() {
         hero={eclairageHero}
         items={eclairages}
         ctaLabel="CONTACTEZ-NOUS"
-        ctaHref="#"
+        ctaHref="/contact"
       />
 
       <MobilierSection
-        title="Le mobilier"
-        items={mobilier}
-        ctaLabel="CONTACTEZ NOUS"
-        ctaHref="#"
-      />
+  title="Le mobilier"
+  items={MOBILIER_ITEMS}
+  ctaLabel="CONTACTEZ NOUS"
+  ctaHref="/contact"
+/>
+<PartnersSection />
     </div>
   );
 }

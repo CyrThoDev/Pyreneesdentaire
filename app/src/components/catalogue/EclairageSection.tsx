@@ -36,13 +36,13 @@ export function EclairageSection({
           {/* gauche : texte + visuels */}
           <div className="flex w-full flex-col gap-6 lg:w-[58%]">
             <div className="flex flex-col gap-3">
-              <p className="text-2xl font-semibold uppercase text-black">
+              <p className="text-2xl  uppercase text-black">
                 {hero.eyebrow}
               </p>
 
               <div className="flex flex-col gap-2">
                 <h3 className="text-lg font-bold">{hero.title}</h3>
-                <p className="max-w-2xl  text-black/70">{hero.desc}</p>
+                <p className="max-w-2xl leading-none text-black/70">{hero.desc}</p>
               </div>
             </div>
 
@@ -86,50 +86,46 @@ export function EclairageSection({
         </div>
 
         {/* ====== GRILLE 4 colonnes (bas) ====== */}
-        <div className="flex flex-col gap-6">
-          {/* ligne marques */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {items.slice(0, 4).map((x) => (
-              <div key={`${x.id}-brand`} className="flex flex-col gap-3">
-                <div className="h-px w-[60%] bg-black/10" />
-                <p className="text-2xl font-semibold uppercase text-black">
-                  {x.brand}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* cartes */}
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {items.slice(0, 4).map((x) => (
-              <article key={x.id} className="flex h-full flex-col gap-4">
-                {/* image */}
-                <div className="relative h-[140px] lg:h-[160px] w-full overflow-hidden bg-white">
-                  <Image
-                    src={x.image.src}
-                    alt={x.image.alt}
-                    fill
-                    className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
-                    sizes="(min-width: 1024px) 240px, 50vw"
-                  />
-                </div>
-
-                {/* texte */}
-                <div className="flex flex-1 flex-col gap-2">
-                  <h4 className="font-semibold text-black">{x.title}</h4>
-                  <p className=" text-black/70">{x.desc}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          {/* CTA bas droite */}
-          <div className="flex justify-end">
-            <Button variant="red">
-              <a href={ctaHref}>{ctaLabel}</a>
-            </Button>
-          </div>
+<div className="flex flex-col gap-6">
+  <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+    {items.slice(0, 4).map((x) => (
+      <div key={x.id} className="flex h-full flex-col gap-4">
+        {/* ligne + marque */}
+        <div className="flex flex-col gap-3">
+          <div className="h-px w-[60%] bg-black/10" />
+          <p className="text-2xl  uppercase text-black">
+            {x.brand}
+          </p>
         </div>
+
+        {/* carte */}
+        <article className="flex h-full flex-col gap-4">
+          <div className="relative h-[140px] w-full overflow-hidden bg-white lg:h-[160px]">
+            <Image
+              src={x.image.src}
+              alt={x.image.alt}
+              fill
+              className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
+              sizes="(min-width: 1024px) 240px, 50vw"
+            />
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-xl text-black">{x.title}</h4>
+            <p className="leading-none text-black/70">{x.desc}</p>
+          </div>
+        </article>
+      </div>
+    ))}
+  </div>
+
+  {/* CTA bas droite */}
+  <div className="flex justify-end">
+    <Button variant="red">
+      <a href={ctaHref}>{ctaLabel}</a>
+    </Button>
+  </div>
+</div>
       </div>
     </section>
   );

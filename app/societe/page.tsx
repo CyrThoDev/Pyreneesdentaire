@@ -1,3 +1,5 @@
+import PartnersSection from "../src/components/Partenaires";
+
 export default function SocietePage() {
   const team = [
     {
@@ -56,34 +58,29 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
 
   return (
     <>
-            <section className="bg-red text-white ">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14 ">
-          <h1 className="text-5xl ">
-           PYRENEES DENTAIRE
+      <section className="bg-red text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14">
+          <h1 className="text-5xl">
+            PYRENEES DENTAIRE
           </h1>
         </div>
       </section>
+
       {/* INTRO */}
       <section className="mx-auto max-w-7xl px-6 py-16 font-barlow">
-        <div className="space-y-6  leading-relaxed text-gray-700">
-          <p>
-            Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre partenaire de confiance
-            pour l’équipement complet et la gestion de votre cabinet dentaire.
-            Nous sommes spécialisés dans l’étude, l’agencement, l’installation,
-            l’entretien et la maintenance de tous les matériels nécessaires à votre activité.
+        <div className="space-y-0 leading-5 text-gray-700">
+          <p className="mb-5">
+            Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre partenaire de confiance pour l’équipement complet et la gestion de votre cabinet dentaire. Nous sommes spécialisés dans l’étude, l’agencement, l’installation, l’entretien et la maintenance de tous les matériels nécessaires à votre activité : unités de soins, fauteuils dentaires, mobilier, instrumentation, stérilisation, radiologie et imagerie.
           </p>
 
           <p>
-            Notre expertise s’étend également aux laboratoires de prothèse dentaire,
-            pour lesquels nous proposons un service complet comprenant la réalisation,
-            l’installation, l’entretien et la maintenance des équipements.
-          </p>
+            Notre expertise s’étend également aux laboratoires de prothèse dentaire, pour lesquels nous proposons un service complet comprenant la réalisation, l’installation, l’entretien et la maintenance des équipements et installations.
+</p>
+<p>Chez <strong>PYRÉNÉES DENTAIRE</strong>, nous mettons à votre disposition toute la fourniture et le périphérique indispensables à votre activité, en sélectionnant uniquement des produits de qualité professionnelle et fiables.
+Notre équipe, performante et qualifiée, vous accompagne à chaque étape pour répondre à tous vos besoins, optimiser l’organisation de votre espace de travail et garantir le confort, la sécurité et l’efficacité de votre cabinet ou laboratoire.
 
-          <p>
-            Chez <strong>PYRÉNÉES DENTAIRE</strong>, nous mettons à votre disposition
-            toute la fourniture et le périphérique indispensables à votre activité,
-            en sélectionnant uniquement des produits de qualité professionnelle.
           </p>
+          <p>Avec <strong>PYRÉNÉES DENTAIRE</strong>, vous bénéficiez d’un service complet et personnalisé, alliant expertise technique, fiabilité des équipements et accompagnement professionnel pour faire de votre cabinet ou laboratoire un environnement moderne et performant.</p>
         </div>
       </section>
 
@@ -93,7 +90,7 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
           L’ÉQUIPE DE PYRÉNÉES DENTAIRE
         </h2>
 
-        <div className="grid grid-cols-1 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
+        <div className="font-barlow grid grid-cols-1 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
           {team.map((member, i) => (
             <div key={i} className="space-y-4">
               
@@ -101,11 +98,25 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
               <div className="h-56 w-full border border-gray-300 bg-gray-100" />
 
               {/* INFOS */}
-              <div className=" space-y-1">
+              <div className="leading-none">
                 <p className="font-semibold">{member.name}</p>
                 <p className="text-gray-600">{member.role}</p>
-                <p className="text-gray-600">{member.phone}</p>
-                <p className="text-gray-600">{member.email}</p>
+
+                {/* TELEPHONE */}
+                <a
+                  href={`tel:${member.phone.replace(/\s/g, "")}`}
+                  className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
+                >
+                  {member.phone}
+                </a>
+
+                {/* EMAIL */}
+                <a
+                  href={`mailto:${member.email}`}
+                  className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
+                >
+                  {member.email}
+                </a>
               </div>
             </div>
           ))}
@@ -113,13 +124,7 @@ Airel/Quetin - Anthogyr - Bego - Belmont - Bien Air - Carestream - Castellini - 
       </section>
 
       {/* PARTENAIRES */}
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <h3 className="mb-6 font-semibold">Nos partenaires</h3>
-        <p className=" leading-relaxed text-gray-600">
-          {partenaires}
-        </p>
-      </section>
-
+   <PartnersSection />
     </>
   );
 }

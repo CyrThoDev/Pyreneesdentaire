@@ -173,8 +173,15 @@ function LegalLinks() {
       >
         Mentions légales
       </Link>
-
       <span className="hidden text-white/35 sm:inline">|</span>
+       <Link
+        href="/confidentialite"
+        className="font-semibold uppercase tracking-wide underline underline-offset-4 hover:text-white"
+      >
+        Politique de confidentialité et cookies
+      </Link>
+
+      
 
       {/* Optionnel si tu crées une page dédiée plus tard */}
       {/* 
@@ -199,16 +206,27 @@ function FooterColumn({ blocks }: { blocks: ContactBlock[] }) {
           <div className="text-sm text-white/85">
             {b.lines.map((l, idx) => {
               if (l.href) {
+                const isTel = l.href.startsWith("tel:");
+                const isMail = l.href.startsWith("mailto:");
+
                 return (
                   <a
                     key={`${b.title}-${idx}`}
                     href={l.href}
-                    className="block w-fit hover:text-white"
+                    aria-label={
+                      isTel
+                        ? `Appeler ${l.label}`
+                        : isMail
+                        ? `Envoyer un email à ${l.label}`
+                        : undefined
+                    }
+                    className="block w-fit break-all transition hover:underline hover:underline-offset-4"
                   >
                     {l.label}
                   </a>
                 );
               }
+
               return (
                 <div key={`${b.title}-${idx}`} className="block">
                   {l.label}

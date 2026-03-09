@@ -24,7 +24,7 @@ export function Header() {
       { type: "link", label: "ACCUEIL", href: "/" },
       {
         type: "menu",
-        label: "MATÉRIEL ET MOBILIER DENTAIRE",
+        label: "MATÉRIEL",
         children: [
           {
             label: "Les fauteuils, l’éclairages et le mobilier",
@@ -44,7 +44,7 @@ export function Header() {
           },
         ],
       },
-      { type: "link", label: "NOS FORMATIONS", href: "/formations" },
+      { type: "link", label: "NOS FORMATIONS ET EVENEMENTS", href: "/formations" },
       { type: "link", label: "LA SOCIÉTÉ", href: "/societe" },
       { type: "link", label: "NOS RÉALISATIONS", href: "/realisations" },
       { type: "link", label: "CONTACT", href: "/contact" },
@@ -54,15 +54,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-black/10">
-      <div className="mx-auto max-w-7xl px-4 py-3">
+      <div className="mx-auto max-w-7xl px-4 py-6">
         <div className="flex h-16 items-center justify-between gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
             <Image
               src="/images/LogoPY.svg"
               alt="Pyrénées Dentaires"
-              width={60}
-              height={60}
+              width={90}
+              height={90}
               priority
             />
           </Link>
@@ -76,7 +76,7 @@ export function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="hover:text-black transition-colors"
+                    className="hover:text-black/50 transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -86,14 +86,14 @@ export function Header() {
               // Menu dropdown (parent non cliquable)
               return (
                 <div key={item.label} className="relative group">
-                  <button
-                    type="button"
-                    className="inline-flex items-center gap-2 transition-colors"
-                    aria-haspopup="menu"
-                  >
-                    {item.label}
-                    <span className="text-base leading-none opacity-70">▾</span>
-                  </button>
+                 <button
+  type="button"
+  className="inline-flex items-center gap-2 transition-colors hover:text-black/50"
+  aria-haspopup="menu"
+>
+  {item.label}
+  <span className="text-base leading-none opacity-70">▾</span>
+</button>
 
                   {/* Dropdown */}
                   <div
@@ -128,15 +128,15 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className=" flex items-center gap-3">
            <Button
-                href="/catalogue"
+                href="/offres-produits"
                 variant="red"
+                className="hidden lg:block"
               >
-                CATALOGUE PRODUITS
+                OFFRES PRODUITS
               </Button>
 
-            {/* Mobile button */}
             <button
               type="button"
               aria-label="Ouvrir le menu"
@@ -220,12 +220,12 @@ export function Header() {
               })}
 
               <Button
-                href="/catalogue"
+                href="/offres-produits"
                 onClick={() => setOpen(false)}
-              
+              className="inline-flex"
                 variant="red"
               >
-                CATALOGUE PRODUITS
+                OFFRES PRODUITS
               </Button>
             </div>
           </div>

@@ -1,4 +1,5 @@
 // app/radiologie/page.tsx
+import PartnersSection from "@/app/src/components/Partenaires";
 import { CategoryPage } from "@/app/src/components/products/CategoryPage";
 import { RADIOLGIE_ITEMS } from "@/app/src/data/radiologie";
 
@@ -10,7 +11,7 @@ export default function Page() {
           <h1 className="text-5xl ">
             La radiologie et la prise d’empreinte
           </h1>
-          <p className="max-w-7xl text-lg opacity-95">
+          <p className="max-w-7xl leading-5 text-lg opacity-95">
 Pyrénées Dentaire vous accompagne dans le choix des solutions les plus performantes en imagerie et prise d’empreinte. Grâce à des technologies innovantes et un accompagnement expert, nous vous aidons à gagner en précision, en efficacité et en confort au quotidien.          </p>
         </div>
       </section>
@@ -20,6 +21,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       items={RADIOLGIE_ITEMS}
       ctaHref="/contact"
     />
+    <PartnersSection />
     </>
   );
 }

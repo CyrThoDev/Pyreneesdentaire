@@ -97,7 +97,7 @@ export const HYGIENE_ITEMS: ProductCard[] = [
 
   {
     id: "tethys-h10-plus",
-    brand: "TETHYS",
+    brand: "CASTELLINI",
     model: "H10 PLUS",
     headline: "Premier dispositif 4 en 1",
     description:
