@@ -23,17 +23,18 @@ const tiles: Tile[] = [
     ],
   },
   {
-    title: "Radiologie",
-    subtitle_1: "et prise d’empreinte",
-    href: "/materiel-et-mobilier-dentaire/radiologie-empreinte",
+    title: "Chirurgie",
+    subtitle_1: "et Prophylaxie",
+    href: "/materiel-et-mobilier-dentaire/chirurgie-prophylaxie",
     theme: "red",
-    layout: "radiologie",
+    layout: "chirurgie",
     ctaAlign: "br",
-    images: [
-      { src: "/images/radiologie/i-max_3d.png", alt: "Radiologie dentaire" },
-      { src: "/images/radiologie/dexis_is_3800.png", alt: "Prise d’empreinte" },
-    ],
+    images: [{ src: "/images/chirurgie/AFMP_front_169.png", alt: "Belmont S6" },{ src: "/images/chirurgie/1700751-001_Chiropro PLUS_F_2019_MO+CA1.2.5_15CM.tif", alt: "Belmont S6" }
+      ],
+
+    
   },
+  
   {
     title: "Hygiène",
     subtitle_1: "et stérilisation",
@@ -47,29 +48,36 @@ const tiles: Tile[] = [
     ],
   },
   {
-    title: "Chirurgie",
-    subtitle_1: "et Prophylaxie",
-    href: "/materiel-et-mobilier-dentaire/chirurgie-prophylaxie",
+    title: "Radiologie",
+    subtitle_1: "et prise d’empreinte",
+    href: "/materiel-et-mobilier-dentaire/radiologie-empreinte",
     theme: "light",
-    layout: "chirurgie",
+    layout: "radiologie",
     ctaAlign: "br",
-    images: [],
-  },
+    images: [
+      { src: "/images/radiologie/DEXIS-IS-3800W_vertical_Charging_Product_Smaller.png.webp", alt: "Radiologie dentaire" },
+      { src: "/images/radiologie/IMAX-3D-CEPH-SHOT06-1.webp", alt: "Prise d’empreinte" },
+       { src: "/images/radiologie/Myray_9304-Photoroom.png", alt: "Prise d’empreinte" },
+       { src: "/images/radiologie/x-mindprime2.png", alt: "Prise d’empreinte" },
+    ],
+  }
+  
 ];
 
 function TileCard({ tile }: { tile: Tile }) {
   switch (tile.layout) {
     case "fauteuil":
       return <FauteuilTile tile={tile} />;
+      case "chirurgie":
+      return <ChirurgieTile tile={tile} />;
 
-    case "radiologie":
-      return <RadiologieTile tile={tile} />;
+    
 
     case "hygiene":
       return <HygieneTile tile={tile} />;
 
-    case "chirurgie":
-      return <ChirurgieTile tile={tile} />;
+    case "radiologie":
+      return <RadiologieTile tile={tile} />;
 
     default:
       return null;

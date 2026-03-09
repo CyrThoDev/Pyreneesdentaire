@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import type { Tile } from "../types";
 import TileShell, { getTileStyles } from "./TitleShell";
 
@@ -10,18 +12,32 @@ type Props = {
 
 export default function RadiologieTile({ tile }: Props) {
   const { titleColor, subtitleColor } = getTileStyles(tile.theme);
-  const mainImage = tile.images?.[0];
-  const secondaryImage = tile.images?.[1];
+
+  const autoplay = Autoplay({
+    delay: 2500,
+    stopOnInteraction: false,
+    stopOnMouseEnter: true,
+  });
+
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+    },
+    [autoplay]
+  );
 
   return (
     <TileShell
       tile={tile}
-      className="min-h-[300px] sm:min-h-[340px] lg:min-h-[390px]"
+      className="min-h-[340px] sm:min-h-[380px] lg:min-h-[500px]"
       buttonVariant="white"
     >
       <div className="flex h-full flex-col p-6 sm:p-8">
         <div className="shrink-0 max-w-[95%]">
-          <h3 className={`${titleColor} font-barlow text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-tight`}>
+          <h3
+            className={`${titleColor} font-barlow text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-tight`}
+          >
             <span className="block lg:inline">{tile.title}</span>
             {tile.subtitle_1 && (
               <span
@@ -33,34 +49,27 @@ export default function RadiologieTile({ tile }: Props) {
           </h3>
         </div>
 
-        <div className="relative  flex-1 min-h-[180px] sm:min-h-[450px]">
-          {mainImage && (
-            <div className="absolute right-0 top-0 w-[62%] sm:w-[56%] lg:w-[70%]">
-              <div className="relative aspect-square w-full">
-                <Image
-                  src={mainImage.src}
-                  alt={mainImage.alt}
-                  fill
-                  className="object-contain object-center"
-                  sizes="(max-width: 639px) 52vw, (max-width: 1023px) 30vw, 20vw"
-                />
-              </div>
+        <div className="mt-6 flex-1 min-h-[180px] sm:min-h-[220px] overflow-hidden">
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex">
+              {tile.images?.map((image, index) => (
+                <div
+                  key={index}
+                  className="min-w-0 flex-[0_0_100%] flex items-center justify-center"
+                >
+                  <div className="relative h-[180px] w-full sm:h-[450px]">
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 639px) 80vw, (max-width: 1023px) 40vw, 28vw"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
-
-          {secondaryImage && (
-            <div className="absolute left-15 bottom-1 w-[18%] sm:w-[16%] lg:w-[35%]">
-              <div className="relative aspect-[3/4] w-full">
-                <Image
-                  src={secondaryImage.src}
-                  alt={secondaryImage.alt}
-                  fill
-                  className="object-contain object-left-bottom"
-                  sizes="(max-width: 639px) 16vw, (max-width: 1023px) 10vw, 6vw"
-                />
-              </div>
-            </div>
-          )}
+          </div>
         </div>
       </div>
     </TileShell>
