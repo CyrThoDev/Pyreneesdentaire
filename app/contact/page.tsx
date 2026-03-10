@@ -7,7 +7,6 @@ type ContactInfo = {
   phoneDisplay: string;
   phoneE164: string;
   email: string;
-  rdvUrl: string;
 };
 
 const CONTACT: ContactInfo = {
@@ -15,8 +14,13 @@ const CONTACT: ContactInfo = {
   phoneDisplay: "05 59 02 28 46",
   phoneE164: "+33559022846",
   email: "michaut.g@wanadoo.fr",
-  rdvUrl: "/contact#rdv",
 };
+
+const mailtoHref = `mailto:${CONTACT.email}?subject=${encodeURIComponent(
+  "Demande d’informations"
+)}&body=${encodeURIComponent(
+  "Bonjour,\n\nJe souhaiterais obtenir plus d’informations.\n\nCordialement,"
+)}`;
 
 export default function ContactPage() {
   return (
@@ -52,33 +56,31 @@ export default function ContactPage() {
               </p>
             </div>
 
-<div className="flex flex-col gap-3 sm:flex-row sm:items-start">
-  
-  <a
-    href={`tel:${CONTACT.phoneE164}`}
-    className="font-oswald inline-flex items-center justify-center rounded-none px-14 py-3 border border-black text-black hover:bg-red/80 focus-visible:ring-red"
-  >
-    Appeler {CONTACT.phoneDisplay}
-  </a>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start">
+              <a
+                href={`tel:${CONTACT.phoneE164}`}
+                className="font-oswald inline-flex items-center justify-center rounded-none border border-black px-14 py-3 text-black hover:bg-red/80 focus-visible:ring-red"
+              >
+                Appeler {CONTACT.phoneDisplay}
+              </a>
 
-  <div className="flex flex-col items-center">
-    <Button
-      href={CONTACT.rdvUrl}
-      variant="red"
-      className="w-full border border-red"
-    >
-      Réserver un créneau
-    </Button>
+              <div className="flex flex-col items-center">
+                <Button
+                  href={mailtoHref}
+                  variant="red"
+                  className="w-full border border-red"
+                >
+                  Demander plus d'informations
+                </Button>
 
-    <a
-      href={`mailto:${CONTACT.email}`}
-      className="mt-2 font-barlow text-center text-sm underline underline-offset-4 hover:opacity-70"
-    >
-      {CONTACT.email}
-    </a>
-  </div>
-
-</div>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="mt-2 font-barlow text-center text-sm underline underline-offset-4 hover:opacity-70"
+                >
+                  {CONTACT.email}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

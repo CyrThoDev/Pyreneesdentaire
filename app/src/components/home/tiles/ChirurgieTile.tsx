@@ -22,7 +22,7 @@ export default function ChirurgieTile({ tile }: Props) {
     >
       <div className="grid h-full grid-cols-2 gap-4 p-6 sm:gap-6 sm:p-8">
         {/* COLONNE GAUCHE */}
-        <div className="flex h-full items-start">
+        <div className="flex h-full items-center">
           {leftImage && (
             <div className="relative w-full">
               <div className="relative aspect-square w-full">
@@ -38,40 +38,42 @@ export default function ChirurgieTile({ tile }: Props) {
           )}
         </div>
 
-        {/* COLONNE DROITE */}
-        <div className="flex h-full flex-col ">
-          <div className="flex ">
-            {rightImage && (
-              <div className="relative w-full ">
-                <div className="relative aspect-square w-full">
-                  <Image
-                    src={rightImage.src}
-                    alt={rightImage.alt}
-                    fill
-                    className="object-contain"
-                    
-                  />
-                </div>
-              </div>
-            )}
-          </div>
+        
+      {/* COLONNE DROITE */}
+<div className="flex h-full flex-col items-end text-right gap-4">
+  
+  {/* TITRE */}
+  <div>
+    <h3
+      className={`${titleColor} font-barlow text-4xl font-semibold leading-none sm:text-5xl`}
+    >
+      {tile.title}
+    </h3>
 
-          <div className="text-right">
-            <h3
-              className={`${titleColor} font-barlow text-4xl font-semibold leading-none sm:text-5xl`}
-            >
-              {tile.title}
-            </h3>
+    {tile.subtitle_1 && (
+      <p
+        className={`${subtitleColor} mt-1 font-barlow text-base font-semibold leading-none sm:text-lg`}
+      >
+        {tile.subtitle_1}
+      </p>
+    )}
+  </div>
 
-            {tile.subtitle_1 && (
-              <p
-                className={`${subtitleColor} mt-1 font-barlow text-base font-semibold leading-none sm:text-lg`}
-              >
-                {tile.subtitle_1}
-              </p>
-            )}
-          </div>
-        </div>
+  {/* IMAGE */}
+  {rightImage && (
+    <div className="relative w-full">
+      <div className="relative aspect-square w-full">
+        <Image
+          src={rightImage.src}
+          alt={rightImage.alt}
+          fill
+          className="object-contain"
+        />
+      </div>
+    </div>
+  )}
+
+</div>
       </div>
     </TileShell>
   );
