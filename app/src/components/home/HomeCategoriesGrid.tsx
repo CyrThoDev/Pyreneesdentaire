@@ -8,9 +8,9 @@ import ChirurgieTile from "./tiles/ChirurgieTile";
 
 const tiles: Tile[] = [
   {
-    title: "FAUTEUIL,",
-    subtitle_1: "MOBILIER",
-    subtitle_2: "ET ÉCLAIRAGE",
+    title: "Fauteuil,",
+    subtitle_1: "Mobilier",
+    subtitle_2: "et Éclairage",
     href: "/materiel-et-mobilier-dentaire/fauteuils-eclairages-mobilier",
     theme: "light",
     layout: "fauteuil",

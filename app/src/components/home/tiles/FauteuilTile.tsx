@@ -38,14 +38,14 @@ export default function FauteuilTile({ tile }: Props) {
         <div className="shrink-0">
           <div className="flex flex-col items-start gap-1">
             <h3
-              className={`${titleColor} font-barlow text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight`}
+              className={`${titleColor} font-barlow text-4xl sm:text-5xl font-bold  leading-none tracking-tight`}
             >
               {tile.title}
             </h3>
 
             {tile.subtitle_1 && (
               <p
-                className={`${titleColor} font-barlow text-lg sm:text-xl font-bold uppercase leading-none tracking-tight`}
+                className={`${titleColor} font-barlow text-lg sm:text-xl font-bold  leading-none tracking-tight`}
               >
                 {tile.subtitle_1}
               </p>
@@ -53,7 +53,7 @@ export default function FauteuilTile({ tile }: Props) {
 
             {tile.subtitle_2 && (
               <p
-                className={`${titleColor} font-barlow text-2xl sm:text-4xl font-bold uppercase leading-none tracking-tight`}
+                className={`${titleColor} font-barlow text-2xl sm:text-4xl font-bold  leading-none tracking-tight`}
               >
                 {tile.subtitle_2}
               </p>
