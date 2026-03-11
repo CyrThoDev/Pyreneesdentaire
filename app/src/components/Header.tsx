@@ -146,7 +146,7 @@ export function Header() {
                 // Quand on ferme le menu, on ferme aussi le sous-menu
                 if (open) setMobileSubOpen(false);
               }}
-              className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-black/15"
+              className="lg:hidden inline-flex h-10 w-10 items-center justify-center "
             >
               <span className="text-xl leading-none">{open ? "×" : "≡"}</span>
             </button>
