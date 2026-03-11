@@ -45,14 +45,14 @@ export default function ChirurgieTile({ tile }: Props) {
   {/* TITRE */}
   <div>
     <h3
-      className={`${titleColor} font-barlow text-4xl font-semibold leading-none sm:text-5xl`}
+      className={`${titleColor} font-barlow text-4xl font-bold leading-none sm:text-5xl`}
     >
       {tile.title}
     </h3>
 
     {tile.subtitle_1 && (
       <p
-        className={`${subtitleColor} mt-1 font-barlow text-base font-semibold leading-none sm:text-lg`}
+        className={`${subtitleColor} mt-1 font-barlow text-base font-bold leading-none sm:text-lg`}
       >
         {tile.subtitle_1}
       </p>

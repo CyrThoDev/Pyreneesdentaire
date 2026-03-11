@@ -22,12 +22,12 @@ export default function HygieneTile({ tile }: Props) {
         {/* TITRE EN HAUT A DROITE */}
         <div className="absolute right-6 top-6 sm:right-8 sm:top-8 text-right">
           <div className="flex flex-col items-end gap-1">
-            <h3 className={`${titleColor} font-barlow text-4xl sm:text-5xl font-semibold leading-none`}>
+            <h3 className={`${titleColor} font-barlow text-4xl sm:text-5xl font-bold leading-none`}>
               {tile.title}
             </h3>
 
             {tile.subtitle_1 && (
-              <p className={`${subtitleColor} font-barlow text-base sm:text-lg font-semibold leading-none`}>
+              <p className={`${subtitleColor} font-barlow text-base sm:text-lg font-bold leading-none`}>
                 {tile.subtitle_1}
               </p>
             )}

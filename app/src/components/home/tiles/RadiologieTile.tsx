@@ -36,12 +36,12 @@ export default function RadiologieTile({ tile }: Props) {
       <div className="flex h-full flex-col p-6 sm:p-8">
         <div className="shrink-0 max-w-[95%]">
           <h3
-            className={`${titleColor} font-barlow text-4xl sm:text-5xl font-semibold leading-[0.95] tracking-tight`}
+            className={`${titleColor} font-barlow text-4xl sm:text-5xl font-bold leading-[0.95] tracking-tight`}
           >
             <span className="block lg:inline">{tile.title}</span>
             {tile.subtitle_1 && (
               <span
-                className={`block lg:inline text-base sm:text-lg lg:ml-2 tracking-[0.02em] ${subtitleColor} font-semibold`}
+                className={`block lg:inline text-base sm:text-lg lg:ml-2 tracking-[0.02em] ${subtitleColor} font-bold`}
               >
                 {tile.subtitle_1}
               </span>
