@@ -6,7 +6,7 @@ export function CategoryPage({
   title,
   subtitle,
   items,
-  ctaHref = "mailto:michaut.g@wanadoo.fr",
+  ctaHref = "/contact",
 }: {
   title: string;
   subtitle?: string;

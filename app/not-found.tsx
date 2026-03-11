@@ -96,7 +96,7 @@ export default function NotFound() {
                 (URL) et on corrige.
               </p>
               <div className="mt-4">
-                <Button href="mailto:" variant="white" >
+                <Button href="/contact" variant="white" >
                   Nous contacter
                 </Button>
               </div>

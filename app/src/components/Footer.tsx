@@ -95,6 +95,17 @@ export function Footer() {
       ],
     },
     {
+      title: " Loïc NIESER",
+      lines: [
+        { label: "Technicien" },
+        { label: "07 86 94 83 07", href: "tel:+33786948307" },
+        {
+          label: "loic.pyrenees@gmail.com",
+          href: "mailto:loic.pyrenees@gmail.com",
+        },
+      ],
+    },
+    {
       title: "Service informatique",
       lines: [
         { label: "Fabrice RIBAS" },
@@ -109,7 +120,7 @@ export function Footer() {
   const col1 = [columns[0], columns[1]];
   const col2 = [columns[2], columns[3], columns[4]];
   const col3 = [columns[5], columns[6], columns[7]];
-  const col4 = [columns[8]];
+  const col4 = [columns[8],columns[9]];
 
   return (
     <footer className="bg-black text-white">

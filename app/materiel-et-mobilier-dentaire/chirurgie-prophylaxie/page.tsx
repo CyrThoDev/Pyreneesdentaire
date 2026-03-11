@@ -21,7 +21,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       title="Chirurgie"
       subtitle="Contenu à venir."
       items={CHIRURGIE_ITEMS}
-      ctaHref="mailto:michaut.g@wanadoo.fr"
+      ctaHref="/contact"
     />
     <PartnersSection />
     </>
