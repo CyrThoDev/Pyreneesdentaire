@@ -129,21 +129,21 @@ export default function CataloguePage() {
     },
   ];
 
-  const eclairageHero: CatalogueLightingHero = {
-    eyebrow: "OUDIN DENTAIRE",
-    title: "UNIQA",
-    desc:
-      "Un dentiste passe 2000 heures par an dans un lieu clos et éclairé d’une lumière artificielle. Le reste du temps ? Accueil, salle d’attente, salle de soins, bloc de chirurgie, stérilisation, salle de repos. Au total, cela fait bien peu de lumière naturelle… Nous poussons loin la technologie LED pour aller au delà des seuls aspects économique et écologique. En recréant au mieux la lumière extérieure avec des luminaires haut de gamme, nous visons confort visuel et optimisation de l’ergonomie du poste de travail. Une meilleure appréciation, donc plus de précision.",
-    rightImage: {
-      src: "/images/eclairages/omedia.png",
-      alt: "Omedia – luminaire avec écran",
-    },
-    thumbs: [
-      { src: "/images/eclairages/albedo.png", alt: "Panneau lumineux" },
-      { src: "/images/eclairages/od-aminoa-evo-lampe.png", alt: "Luminaire organique" },
+  // const eclairageHero: CatalogueLightingHero = {
+  //   eyebrow: "OUDIN DENTAIRE",
+  //   title: "UNIQA",
+  //   desc:
+  //     "Un dentiste passe 2000 heures par an dans un lieu clos et éclairé d’une lumière artificielle. Le reste du temps ? Accueil, salle d’attente, salle de soins, bloc de chirurgie, stérilisation, salle de repos. Au total, cela fait bien peu de lumière naturelle… Nous poussons loin la technologie LED pour aller au delà des seuls aspects économique et écologique. En recréant au mieux la lumière extérieure avec des luminaires haut de gamme, nous visons confort visuel et optimisation de l’ergonomie du poste de travail. Une meilleure appréciation, donc plus de précision.",
+  //   rightImage: {
+  //     src: "/images/eclairages/omedia.png",
+  //     alt: "Omedia – luminaire avec écran",
+  //   },
+  //   thumbs: [
+  //     { src: "/images/eclairages/albedo.png", alt: "Panneau lumineux" },
+  //     { src: "/images/eclairages/od-aminoa-evo-lampe.png", alt: "Luminaire organique" },
      
-    ],
-  };
+  //   ],
+  // };
 
   const eclairages: CatalogueLightingItem[] = [
     {
@@ -204,7 +204,7 @@ export default function CataloguePage() {
 
       <EclairageSection
         title="L’éclairage"
-        hero={eclairageHero}
+        // hero={eclairageHero}
         items={eclairages}
         ctaLabel="CONTACTEZ-NOUS"
         ctaHref="/contact"
