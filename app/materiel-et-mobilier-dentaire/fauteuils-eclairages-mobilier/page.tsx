@@ -51,6 +51,24 @@ export default function CataloguePage() {
       image: "/images/fauteuils/fauteuil_k2.png",
       href: "/contact",
     },
+     {
+      id: "airel-quetin-Talys",
+      brand: "AIREL-QUETIN",
+      model: "Talys",
+      
+      desc:
+        "L’équipement Talys est un fauteuil-table à position totalement horizontale, conçu pour offrir au praticien une posture naturelle en travail à 12h tout en garantissant au patient un confort optimal et durable.",
+      specsTitle: "CARACTÉRISTIQUES TECHNIQUES",
+      specs: [
+        "Support aspirationflex avec deux canules",
+        "êtière ergonomique avec repose-poignets ajustés et double articulation à assistance pneumatique",
+        "Tablette instrument sur bras compensé avec écran intégré",
+        "Sellerie confortable et personnalisable",
+        
+      ],
+      image: "/images/fauteuils/talys_tablette_vue_1.png",
+      href: "/contact",
+    },
     {
       id: "belmont-eurus-s8",
       brand: "BELMONT",
@@ -182,6 +200,7 @@ export default function CataloguePage() {
       image: { src: "/images/eclairages/SIDEREA.png", alt: "Siderea Sunlight" },
       href: "/contact",
     },
+    
   ];
 
 ;
