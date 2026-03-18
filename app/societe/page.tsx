@@ -58,6 +58,13 @@ export default function SocietePage() {
       email: "lacour.pyreneesdentaire@orange.fr",
       photo: "/images/equipe/jean-marie-lacour.png",
     },
+     {
+      name: "Loïc NIESER",
+      role: "Technicien",
+      phone: "07 86 94 83 07",
+      email: "loic.pyrenees@gmail.com",
+      photo: "/images/equipe/loic-nieser.png",
+    },
   ];
 
   return (
