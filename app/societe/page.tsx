@@ -159,7 +159,7 @@ export default function SocietePage() {
       </section>
 
       {/* PARTENAIRES */}
-      <PartnersSection />
+      {/* <PartnersSection /> */}
     </>
   );
 }
