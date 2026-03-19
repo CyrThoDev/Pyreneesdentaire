@@ -107,7 +107,7 @@ export default function HygieneSterilisationPage() {
           {missingCols(nsk.length) === 3 && <Spacer mdCols={3} />}
         </section>
       </div>
-      <PartnersSection />
+      {/* <PartnersSection data={partenaires} /> */}
     </main>
   );
 }

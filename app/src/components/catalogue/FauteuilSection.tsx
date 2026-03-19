@@ -1,10 +1,12 @@
 // app/src/components/catalogue/FauteuilSection.tsx
 "use client";
-
+import { urlFor } from "../../lib/sanity/images";
 import Image from "next/image";
 import { useId, useState } from "react";
 import Button from "../ui/Button";
 import type { CatalogueFauteuil } from "@/app/src/components/catalogue/types";
+
+
 
 export function FauteuilSection({
   title,
@@ -28,8 +30,8 @@ export function FauteuilSection({
       <div className="mx-auto max-w-7xl px-6 font-barlow">
         <div className="divide-y divide-black/10">
           {items.map((item) => (
-            <FauteuilRow key={item.id} item={item} ctaLabel={ctaLabel} />
-          ))}
+  <FauteuilRow key={item._id} item={item} ctaLabel={ctaLabel} />  // id → _id
+))}
         </div>
       </div>
     </section>
@@ -97,9 +99,9 @@ function FauteuilRow({
               {item.brand}
             </p>
             <h3 className="text-xl font-bold">{item.model}</h3>
-            {item.title ? (
+            {/* {item.title ? (
               <p className="font-semibold text-black/60">{item.title}</p>
-            ) : null}
+            ) : null} */}
           </div>
 
           {item.desc ? (
@@ -116,7 +118,7 @@ function FauteuilRow({
 
               <ul className="flex flex-col leading-none text-black/70">
                 {item.specs.map((s, i) => (
-                  <li key={`${item.id}-spec-${i}`}>
+                  <li key={`${item._id}-spec-${i}`}>
                     - {s.replace(/^•\s?/, "")}
                   </li>
                 ))}
@@ -155,17 +157,17 @@ function FauteuilRow({
                   : "h-[240px] sm:h-[280px] lg:h-[260px]",
               ].join(" ")}
             >
-              <Image
-                src={item.image}
-                alt={`${item.brand} ${item.model}`}
-                fill
-                sizes="(min-width: 1024px) 520px, 100vw"
-                className={[
-                  "object-contain transition-transform duration-500",
-                  // ✅ hover zoom seulement desktop
-                  zoomed ? "lg:scale-[1.04]" : "lg:group-hover:scale-[1.03]",
-                ].join(" ")}
-              />
+         
+<Image
+  src={urlFor(item.image).width(900).fit("max").url()}
+  alt={`${item.brand} ${item.model}`}
+  fill
+  sizes="(min-width: 1024px) 520px, 100vw"
+  className={[
+    "object-contain transition-transform duration-500",
+    zoomed ? "lg:scale-[1.04]" : "lg:group-hover:scale-[1.03]",
+  ].join(" ")}
+/>
             </div>
 
             {/* ✅ Badge uniquement desktop */}

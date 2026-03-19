@@ -21,7 +21,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       items={RADIOLGIE_ITEMS}
       ctaHref="/contact"
     />
-    <PartnersSection />
+    {/* <PartnersSection data={partenaires} /> */}
     </>
   );
 }

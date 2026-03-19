@@ -23,7 +23,7 @@ Pyrénées Dentaire vous accompagne dans le choix des solutions les plus perform
       items={CHIRURGIE_ITEMS}
       ctaHref="/contact"
     />
-    <PartnersSection />
+   {/* <PartnersSection data={partenaires} /> */}
     </>
   );
 }
