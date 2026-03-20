@@ -3,10 +3,40 @@
 
 import Image from "next/image";
 import Button from "../ui/Button";
+import { urlFor } from "../../lib/sanity/images";
 import type {
   CatalogueLightingHero,
   CatalogueLightingItem,
 } from "@/app/src/components/catalogue/types";
+
+function SanityImage({
+  value,
+  alt,
+  className,
+  sizes,
+}: {
+  value: unknown;
+  alt: string;
+  className?: string;
+  sizes?: string;
+}) {
+  if (!value) return null;
+  try {
+    const src = urlFor(value).width(1200).fit("max").url();
+    if (!src) return null;
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={className}
+        sizes={sizes}
+      />
+    );
+  } catch {
+    return null;
+  }
+}
 
 export function EclairageSection({
   title,
@@ -21,9 +51,11 @@ export function EclairageSection({
   ctaLabel: string;
   ctaHref: string;
 }) {
+  const thumbs = [hero.thumb1, hero.thumb2, hero.thumb3].filter(Boolean);
+
   return (
     <section>
-      {/* Bande titre (gris) */}
+      {/* Bande titre */}
       <div className="bg-black/5">
         <div className="mx-auto flex max-w-7xl items-center px-6 py-4">
           <h2 className="font-barlow text-3xl font-semibold text-black/60">{title}</h2>
@@ -31,101 +63,68 @@ export function EclairageSection({
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-10 font-barlow">
-        {/* ====== BLOC HERO (haut) ====== */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-stretch">
-          {/* gauche : texte + visuels */}
-          <div className="flex w-full flex-col gap-6 lg:w-[58%]">
-            <div className="flex flex-col gap-3">
-              <p className="text-2xl  uppercase text-black">
-                {hero.eyebrow}
-              </p>
 
-              <div className="flex flex-col gap-2">
-                <h3 className="text-lg font-bold">{hero.title}</h3>
-                <p className="max-w-2xl leading-none text-black/70">{hero.desc}</p>
-              </div>
-            </div>
+        {/* BLOC HERO */}
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-3">
+            <p className="text-2xl uppercase text-black">{hero.eyebrow}</p>
+            <p className="leading-none text-black/70">{hero.desc}</p>
+          </div>
 
-            {/* THUMBS */}
-            <div className="flex w-full flex-col gap-6 sm:flex-row">
-              {hero.thumbs.map((t, idx) => (
+          {thumbs.length > 0 && (
+            <div className="flex w-full flex-col gap-4 sm:flex-row">
+              {thumbs.map((thumb, idx) => (
                 <div
-                  key={`${t.src}-${idx}`}
-                  className="
-                    relative w-full overflow-hidden bg-white
-                    h-[200px] sm:h-[260px] lg:h-[300px]
-                    sm:basis-1/2
-                  "
+                  key={idx}
+                  className="relative w-full overflow-hidden bg-white h-[200px] sm:h-[260px] lg:h-[320px] sm:basis-1/3"
                 >
-                  <Image
-                    src={t.src}
-                    alt={t.alt}
-                    fill
+                  <SanityImage
+                    value={thumb}
+                    alt={`${hero.eyebrow} ${idx + 1}`}
                     className="object-contain transition-transform duration-500 lg:hover:scale-[1.03]"
-                    sizes="(min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 640px) 33vw, 100vw"
                   />
                 </div>
               ))}
             </div>
-          </div>
+          )}
+        </div>
 
-          {/* droite : grand visuel */}
-          <div className="flex w-full lg:w-[42%]">
-            <div className="relative w-full overflow-hidden bg-white">
-              <div className="relative h-[280px] sm:h-[360px] lg:h-[400px] xl:h-[460px] w-full">
-                <Image
-                  src={hero.rightImage.src}
-                  alt={hero.rightImage.alt}
-                  fill
-                  className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
-                  sizes="(min-width: 1024px) 520px, 100vw"
-                />
+        {/* GRILLE 4 colonnes */}
+        <div className="flex flex-col gap-6">
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {items.slice(0, 4).map((x) => (
+              <div key={x._id} className="flex h-full flex-col gap-4">
+                <div className="flex flex-col gap-3">
+                  <div className="h-px w-[60%] bg-black/10" />
+                  <p className="text-2xl uppercase text-black">{x.brand}</p>
+                </div>
+
+                <article className="flex h-full flex-col gap-4">
+                  <div className="relative h-[140px] w-full overflow-hidden bg-white lg:h-[160px]">
+                    <SanityImage
+                      value={x.image}
+                      alt={x.title}
+                      className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
+                      sizes="(min-width: 1024px) 240px, 50vw"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-xl text-black">{x.title}</h4>
+                    <p className="leading-none text-black/70">{x.desc}</p>
+                  </div>
+                </article>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <div className="flex justify-end">
+            <Button variant="red">
+              <a href={ctaHref}>{ctaLabel}</a>
+            </Button>
           </div>
         </div>
 
-        {/* ====== GRILLE 4 colonnes (bas) ====== */}
-<div className="flex flex-col gap-6">
-  <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-    {items.slice(0, 4).map((x) => (
-      <div key={x.id} className="flex h-full flex-col gap-4">
-        {/* ligne + marque */}
-        <div className="flex flex-col gap-3">
-          <div className="h-px w-[60%] bg-black/10" />
-          <p className="text-2xl  uppercase text-black">
-            {x.brand}
-          </p>
-        </div>
-
-        {/* carte */}
-        <article className="flex h-full flex-col gap-4">
-          <div className="relative h-[140px] w-full overflow-hidden bg-white lg:h-[160px]">
-            <Image
-              src={x.image.src}
-              alt={x.image.alt}
-              fill
-              className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
-              sizes="(min-width: 1024px) 240px, 50vw"
-            />
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-xl text-black">{x.title}</h4>
-            <p className="leading-none text-black/70">{x.desc}</p>
-          </div>
-        </article>
-      </div>
-    ))}
-  </div>
-
-  {/* CTA bas droite */}
-  <div className="flex justify-end">
-    <Button variant="red">
-      <a href={ctaHref}>{ctaLabel}</a>
-    </Button>
-  </div>
-</div>
       </div>
     </section>
   );

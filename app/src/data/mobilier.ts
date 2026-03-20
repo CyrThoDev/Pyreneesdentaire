@@ -27,7 +27,7 @@ export const MOBILIER_ITEMS: CatalogueFurnitureCard[] = [
 
   {
     id: "eurus-clair",
-    brand: "DENTAL ART",
+    brand: "BELMONT",
     title: "L’Eurus CLAIR",
     image: {
       src: "/images/mobilier/eurusclair.png",

@@ -104,16 +104,7 @@ export const CHIRURGIE_ITEMS: ProductCard[] = [
     imageAlt: "Mectron Combi touch",
   },
 
-  // ===== (Marque à confirmer dans la maquette) =====
- {
-  id: "opus",
-  brand: "ACTEON",
-  model: "OPUS®",
-  description:
-    "Solution complète pour un nettoyage de pointe et un polissage contrôlé, OPUS® garantit une élimination efficace du biofilm, des taches et du tartre précoce. Grâce à ses vibrations ultrasoniques parfaitement maîtrisées, il permet des traitements peu invasifs tout en préservant les dents et les tissus mous. Compatible avec plus de 60 inserts, il offre une grande polyvalence clinique. Son nouvel aéropolisseur SILKY Pen assure un traitement sous- et supra-gingival précis et confortable grâce à 4 buses dédiées et une pièce à main ultra-légère.",
-  imageSrc: "/images/chirurgie/F11900-OPUS_expert_mode_F.png", // adapte si besoin
-  imageAlt: "Système de nettoyage et polissage OPUS ACTEON",
-},
+
 
   // ===== KAVO =====
   {
