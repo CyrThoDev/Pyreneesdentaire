@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
@@ -10,6 +10,6 @@ const nextConfig: NextConfig = {
       static: 0,
     },
   },
-};
+} satisfies NextConfig;
 
 export default nextConfig;
