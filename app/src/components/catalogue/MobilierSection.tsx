@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Button from "../ui/Button";
-import type { CatalogueFurnitureCard } from "@/app/src/components/catalogue/types";
+import { urlFor } from "../../lib/sanity/images";
+import type { SanityMobilier } from "@/app/src/lib/sanity/types";
 
 export function MobilierSection({
   title,
@@ -11,7 +12,7 @@ export function MobilierSection({
   ctaHref,
 }: {
   title: string;
-  items: CatalogueFurnitureCard[];
+  items: SanityMobilier[];
   ctaLabel: string;
   ctaHref: string;
 }) {
@@ -32,24 +33,20 @@ export function MobilierSection({
         <div className="flex flex-col gap-6">
           <div className="grid gap-10 font-barlow sm:grid-cols-2 lg:grid-cols-4">
             {visible.map((x) => (
-              <div key={x.id} className="flex h-full flex-col gap-4">
-               {/* Marque */}
-<div className="flex flex-col gap-3">
-  {/* ligne uniquement mobile */}
- <div className="h-px w-full bg-black/10 lg:hidden" />
-
-  <p className="text-2xl  uppercase text-black">
-    {x.brand}
-  </p>
-</div>
+              <div key={x._id} className="flex h-full flex-col gap-4"> {/* id → _id */}
+                {/* Marque */}
+                <div className="flex flex-col gap-3">
+                  <div className="h-px w-full bg-black/10 lg:hidden" />
+                  <p className="text-2xl uppercase text-black">{x.brand}</p>
+                </div>
 
                 {/* Carte */}
                 <article className="flex h-full flex-col gap-4">
                   {/* Image */}
                   <div className="relative h-[140px] w-full overflow-hidden bg-white lg:h-[250px]">
                     <Image
-                      src={x.image.src}
-                      alt={x.image.alt}
+                      src={urlFor(x.image).width(240).fit("max").auto("format").url()} 
+                      alt={x.title}
                       fill
                       className="object-contain transition-transform duration-500 lg:hover:scale-[1.04]"
                       sizes="(min-width: 1024px) 240px, 50vw"
@@ -59,7 +56,6 @@ export function MobilierSection({
                   {/* Texte */}
                   <div className="flex flex-1 flex-col gap-0">
                     <h4 className="font-semibold text-xl text-black">{x.title}</h4>
-
                     <p className="whitespace-pre-line leading-none text-black/70">
                       {x.desc}
                     </p>

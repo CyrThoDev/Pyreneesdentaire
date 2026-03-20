@@ -1,29 +1,24 @@
-// app/chirurgie/page.tsx
-import PartnersSection from "@/app/src/components/Partenaires";
-import { CategoryPage } from "@/app/src/components/products/CategoryPage";
-import { CHIRURGIE_ITEMS } from "@/app/src/data/chirurgie";
+import { EnteteDePage } from "@/app/src/components/EnteteDePage"
+import { CategoryPage } from "@/app/src/components/products/CategoryPage"
+import { getProduits, getEnteteChirurgieProphylaxie, getPartenaires } from "@/app/src/lib/sanity/queries"
+import PartnersSection from "@/app/src/components/Partenaires"
 
+export default async function ChirurgieProphylaxiePage() {
+  const [enTete, produits, partenaires] = await Promise.all([
+    getEnteteChirurgieProphylaxie(),
+    getProduits('chirurgie-prophylaxie'),
+    getPartenaires(),
+  ])
 
-export default function Page() {
   return (
     <>
-    <section className="bg-red text-white font-barlow">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8">
-          <h1 className="text-5xl">
-            La chirurgie et la prophylaxie
-          </h1>
-          <p className="max-w-7xl text-lg leading-5 opacity-95">
-Pyrénées Dentaire vous accompagne dans le choix des solutions les plus performantes en imagerie et prise d’empreinte. Grâce à des technologies innovantes et un accompagnement expert, nous vous aidons à gagner en précision, en efficacité et en confort au quotidien.</p>
-        </div>
-      </section>
-    
-    <CategoryPage
-      title="Chirurgie"
-      subtitle="Contenu à venir."
-      items={CHIRURGIE_ITEMS}
-      ctaHref="/contact"
-    />
-    <PartnersSection />
+      <EnteteDePage enTete={enTete} />
+      <CategoryPage
+        title="Chirurgie & prophylaxie"
+        items={produits}
+        ctaHref="/contact"
+      />
+      <PartnersSection data={partenaires} />
     </>
-  );
+  )
 }

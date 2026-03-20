@@ -43,14 +43,15 @@ const partenaires = [
   "Zhermack",
 ];
 
-export default function PartnersSection() {
+import type { SanityPartenaires } from "@/app/src/lib/sanity/types"
+
+export default function PartnersSection({ data }: { data: SanityPartenaires }) {
   return (
     <section className="mx-auto max-w-7xl px-6 pt-10 pb-16 border-t border-black/10 font-barlow">
       <h3 className="mb-3 text-lg font-semibold">Nos partenaires</h3>
-
       <p className="text-gray-600 leading-relaxed">
-        {partenaires.join(" - ")}
+        {data.liste.join(" - ")}
       </p>
     </section>
-  );
+  )
 }
