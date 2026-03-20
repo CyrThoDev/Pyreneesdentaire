@@ -45,3 +45,42 @@ export type SanityMobilier = {
 export type SanityPartenaires = {
   liste: string[]
 }
+
+export type SanityProduit = {
+  _id: string
+  brand: string
+  model: string
+  headline?: string
+  lines?: string[]
+  description?: string
+  image: SanityImageSource
+}
+
+export type SanityPageRadiologieEmpreinte = {
+  titre: string
+  description: string
+}
+
+export type SanityMembreEquipe = {
+  _id: string
+  name: string
+  role: string
+  phone: string
+  email: string
+  photo?: SanityImageSource
+  afficherDansSociete?: boolean
+  afficherDansFooter?: boolean
+}
+
+export type SanityPageSociete = {
+  titre: string
+  intro: any[]  // portable text
+}
+
+export type SanityFooterContact = {
+  _id: string
+  name: string
+  role?: string
+  phone?: string
+  email?: string
+}

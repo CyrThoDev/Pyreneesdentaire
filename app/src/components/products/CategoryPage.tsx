@@ -1,6 +1,7 @@
 // src/components/products/CategoryPage.tsx
 import { ProductsGrid } from "./ProductGrid";
 import type { ProductCard } from "../../data/products";
+import { SanityProduit } from "../../lib/sanity/types";
 
 export function CategoryPage({
   title,
@@ -10,7 +11,7 @@ export function CategoryPage({
 }: {
   title: string;
   subtitle?: string;
-  items: ProductCard[];
+  items: SanityProduit[];  
   ctaHref?: string;
 }) {
   return (

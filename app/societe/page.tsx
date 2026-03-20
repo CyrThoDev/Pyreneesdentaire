@@ -1,152 +1,66 @@
-import PartnersSection from "../src/components/Partenaires";
+import { PortableText } from '@portabletext/react'
+import { urlFor } from '../src/lib/sanity/images'
+import { getPageSociete, getEquipe, getPartenaires } from "@/app/src/lib/sanity/queries"
+import PartnersSection from "@/app/src/components/Partenaires"
 
-export default function SocietePage() {
-  const team = [
-    {
-      name: "Guillaume MICHAUT",
-      role: "Agence",
-      phone: "05 59 02 28 46",
-      email: "michaut.g@wanadoo.fr",
-      photo: "/images/equipe/guillaume-michaut.png",
-    },
-    {
-      name: "Nadège MICHAUT",
-      role: "Service comptabilité",
-      phone: "05 59 02 28 46",
-      email: "nadege.michaut@gmail.com",
-      photo: "/images/equipe/nadege-michaut.png",
-    },
-    {
-      name: "Laurent DEPIESSE",
-      role: "Technico-commercial",
-      phone: "06 83 11 51 80",
-      email: "laurentdepiesse@gmail.com",
-      photo: "/images/equipe/laurent-depiesse.png",
-    },
-    {
-      name: "Agata GAUTRY",
-      role: "Responsable commerciale matériel",
-      phone: "06 36 65 75 87",
-      email: "agata.pyreneesdentaire@gmail.com",
-      photo: "/images/equipe/agata-gautry.png",
-    },
-    {
-      name: "Julien DELMOND",
-      role: "Responsable commercial consommable",
-      phone: "06 77 11 91 21",
-      email: "julien.delmond@icloud.com",
-      photo: "/images/equipe/julien-delmond.png",
-    },
-    {
-      name: "Richard DIAZ",
-      role: "Technicien",
-      phone: "06 07 63 61 36",
-      email: "richard.pyrenees@orange.fr",
-      photo: "/images/equipe/richard-diaz.png",
-    },
-    {
-      name: "Jean-Marie ROCTY",
-      role: "Technicien",
-      phone: "06 48 22 58 07",
-      email: "jmarie.pyreneesdentaire@gmail.com",
-      photo: "/images/equipe/jean-marie-rocty.png",
-    },
-    {
-      name: "Jean-Marc LACOUR",
-      role: "Technicien",
-      phone: "06 20 28 83 66",
-      email: "lacour.pyreneesdentaire@orange.fr",
-      photo: "/images/equipe/jean-marie-lacour.png",
-    },
-     {
-      name: "Loïc NIESER",
-      role: "Technicien",
-      phone: "07 86 94 83 07",
-      email: "loic.pyrenees@gmail.com",
-      photo: "/images/equipe/loic-nieser.png",
-    },
-  ];
+export default async function SocietePage() {
+  const [page, equipe, partenaires] = await Promise.all([
+    getPageSociete(),
+    getEquipe(),
+    getPartenaires(),
+  ])
 
   return (
     <>
+      {/* EN-TÊTE */}
       <section className="bg-red text-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-14">
-          <h1 className="text-5xl">PYRENEES DENTAIRE</h1>
+          <h1 className="text-5xl">{page?.titre}</h1>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="mx-auto max-w-7xl px-6 py-16 font-barlow">
-        <div className="space-y-0 leading-5 text-gray-700">
-          <p className="mb-5">
-            Basée à Idron (64), <strong>PYRÉNÉES DENTAIRE</strong> est votre
-            partenaire de confiance pour l'équipement complet et la gestion de
-            votre cabinet dentaire. Nous sommes spécialisés dans l'étude,
-            l'agencement, l'installation, l'entretien et la maintenance de tous
-            les matériels nécessaires à votre activité : unités de soins,
-            fauteuils dentaires, mobilier, instrumentation, stérilisation,
-            radiologie et imagerie.
-          </p>
-          <p>
-            Notre expertise s'étend également aux laboratoires de prothèse
-            dentaire, pour lesquels nous proposons un service complet comprenant
-            la réalisation, l'installation, l'entretien et la maintenance des
-            équipements et installations.
-          </p>
-          <p>
-            Chez <strong>PYRÉNÉES DENTAIRE</strong>, nous mettons à votre
-            disposition toute la fourniture et le périphérique indispensables à
-            votre activité, en sélectionnant uniquement des produits de qualité
-            professionnelle et fiables. Notre équipe, performante et qualifiée,
-            vous accompagne à chaque étape pour répondre à tous vos besoins,
-            optimiser l'organisation de votre espace de travail et garantir le
-            confort, la sécurité et l'efficacité de votre cabinet ou
-            laboratoire.
-          </p>
-          <p>
-            Avec <strong>PYRÉNÉES DENTAIRE</strong>, vous bénéficiez d'un
-            service complet et personnalisé, alliant expertise technique,
-            fiabilité des équipements et accompagnement professionnel pour faire
-            de votre cabinet ou laboratoire un environnement moderne et
-            performant.
-          </p>
-        </div>
-      </section>
+      {page?.intro && (
+        <section className="mx-auto max-w-7xl px-6 py-16 font-barlow">
+          <div className="space-y-5 leading-5 text-gray-700">
+            <PortableText value={page.intro} />
+          </div>
+        </section>
+      )}
 
       {/* ÉQUIPE */}
       <section className="mx-auto max-w-7xl px-6 pb-20">
         <h2 className="mb-14 text-3xl font-light tracking-wide">
           L'ÉQUIPE DE PYRÉNÉES DENTAIRE
         </h2>
-
         <div className="font-barlow grid grid-cols-1 gap-y-16 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-12">
-          {team.map((member, i) => (
-            <div key={i} className="space-y-4">
-
-              {/* PHOTO AVATAR */}
+          {equipe.map((member) => (
+            <div key={member._id} className="space-y-4">
               <div className="flex justify-center">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="h-40 w-40 rounded-full object-cover"
-                />
+               {member.photo ? (
+  <img
+    src={urlFor(member.photo).width(160).height(160).url()}
+    alt={member.name}
+    className="h-40 w-40 rounded-full object-cover"
+  />
+) : (
+  <div className="h-40 w-40 rounded-full bg-black/10 flex items-center justify-center">
+    <span className="text-3xl text-black/30">
+      {member.name.charAt(0)}
+    </span>
+  </div>
+)}
               </div>
-
-              {/* INFOS */}
               <div className="leading-none text-center">
                 <p className="font-semibold">{member.name}</p>
                 <p className="text-gray-600">{member.role}</p>
-
-                {/* TELEPHONE */}
-                <a
+                <a  
                   href={`tel:${member.phone.replace(/\s/g, "")}`}
                   className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
                 >
                   {member.phone}
                 </a>
-
-                {/* EMAIL */}
-                <a
+                <a  
                   href={`mailto:${member.email}`}
                   className="block text-gray-600 hover:underline hover:text-black transition cursor-pointer"
                 >
@@ -158,8 +72,7 @@ export default function SocietePage() {
         </div>
       </section>
 
-      {/* PARTENAIRES */}
-      {/* <PartnersSection /> */}
+      <PartnersSection data={partenaires} />
     </>
-  );
+  )
 }

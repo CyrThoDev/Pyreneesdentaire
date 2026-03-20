@@ -1,6 +1,6 @@
 // src/lib/sanity/queries.ts
 import { client } from './client'
-import { SanityFauteuil, SanityEclairage, SanityEclairageHero, SanityEnteteDePage, SanityMobilier, SanityPartenaires } from './types'
+import { SanityFauteuil, SanityEclairage, SanityEclairageHero, SanityEnteteDePage, SanityMobilier, SanityPartenaires, SanityProduit, SanityPageSociete, SanityMembreEquipe, SanityFooterContact } from './types'
 
 export async function getFauteuils(): Promise<SanityFauteuil[]> {
   return client.fetch(`
@@ -47,6 +47,65 @@ export async function getPartenaires(): Promise<SanityPartenaires> {
   return client.fetch(`
     *[_type == "partenaires" && _id == "partenaires"][0] {
       liste
+    }
+  `)
+}
+
+export async function getProduits(categorie: string): Promise<SanityProduit[]> {
+  return client.fetch(
+    `*[_type == "produit" && categorie == $categorie] | order(orderRank) {
+      _id, brand, model, headline, lines, description, image
+    }`,
+    { categorie }
+  )
+}
+
+export async function getEnteteRadiologieEmpreinte(): Promise<SanityEnteteDePage> {
+  return client.fetch(`
+    *[_type == "pageRadiologieEmpreinte" && _id == "pageRadiologieEmpreinte"][0] {
+      titre, description
+    }
+  `)
+}
+
+export async function getEnteteHygieneSterilisation(): Promise<SanityEnteteDePage> {
+  return client.fetch(`
+    *[_type == "pageHygieneSterilisation" && _id == "pageHygieneSterilisation"][0] {
+      titre, description
+    }
+  `)
+}
+
+export async function getEnteteChirurgieProphylaxie(): Promise<SanityEnteteDePage> {
+  return client.fetch(`
+    *[_type == "pageChirurgieProphylaxie" && _id == "pageChirurgieProphylaxie"][0] {
+      titre, description
+    }
+  `)
+}
+
+export async function getPageSociete(): Promise<SanityPageSociete> {
+  return client.fetch(`
+    *[_type == "pageSociete" && _id == "pageSociete"][0] {
+      titre, intro
+    }
+  `)
+}
+
+
+export async function getEquipe(): Promise<SanityMembreEquipe[]> {
+  return client.fetch(`
+    *[_type == "membreEquipe"] | order(orderRank) {
+      _id, name, role, phone, email, photo
+    }
+  `)
+}
+
+
+export async function getFooterContacts(): Promise<SanityFooterContact[]> {
+  return client.fetch(`
+    *[_type == "footerContact"] | order(orderRank) {
+      _id, name, role, phone, email
     }
   `)
 }
