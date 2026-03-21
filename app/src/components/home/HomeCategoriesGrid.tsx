@@ -55,8 +55,8 @@ const tiles: Tile[] = [
     layout: "radiologie",
     ctaAlign: "br",
     images: [
-      { src: "/images/radiologie/DEXIS-IS-3800W_vertical_Charging_Product_Smaller.png.webp", alt: "Radiologie dentaire" },
-      { src: "/images/radiologie/IMAX-3D-CEPH-SHOT06-1.webp", alt: "Prise d’empreinte" },
+      { src: "/images/radiologie/Imprevo.png", alt: "Radiologie dentaire" },
+      { src: "/images/radiologie/IMAX-3D-XPRO-WALL.png", alt: "Prise d’empreinte" },
        { src: "/images/radiologie/Myray_9304-Photoroom.png", alt: "Prise d’empreinte" },
        { src: "/images/radiologie/x-mindprime2.png", alt: "Prise d’empreinte" },
     ],
