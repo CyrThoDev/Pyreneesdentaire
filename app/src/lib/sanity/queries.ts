@@ -117,3 +117,24 @@ export async function getFooterContacts(): Promise<SanityFooterContact[]> {
     }
   `);
 }
+
+// queries accueil
+
+export const heroQuery = `*[_type == "accueilHero" && _id == "accueilHero"][0]{
+  "videoUrl": video.asset->url,
+  titre,
+  sousTitre,
+  texte,
+  services,
+  ctaLabel,
+  ctaLien
+}`
+
+const imagesFragment = `"images": images[]{ "src": asset->url, alt }`
+
+export const categoriesQuery = `{
+  "fauteuils":  *[_type == "accueilFauteuils"  && _id == "accueilFauteuils"][0]{ ${imagesFragment} },
+  "chirurgie":  *[_type == "accueilChirurgie"  && _id == "accueilChirurgie"][0]{ ${imagesFragment} },
+  "hygiene":    *[_type == "accueilHygiene"    && _id == "accueilHygiene"][0]{   ${imagesFragment} },
+  "radiologie": *[_type == "accueilRadiologie" && _id == "accueilRadiologie"][0]{ ${imagesFragment} },
+}`

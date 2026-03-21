@@ -72,7 +72,7 @@ export default function FauteuilTile({ tile }: Props) {
                   <div className="relative h-[180px] w-full sm:h-[300px]">
                     <Image
                       src={image.src}
-                      alt={image.alt}
+                     alt={image.alt ?? ""}
                       fill
                       className="object-contain"
                       sizes="(max-width: 639px) 80vw, (max-width: 1023px) 40vw, 28vw"

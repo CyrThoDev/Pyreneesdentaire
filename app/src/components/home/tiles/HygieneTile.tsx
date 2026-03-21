@@ -37,22 +37,22 @@ export default function HygieneTile({ tile }: Props) {
         {/* IMAGES */}
         <div className="flex min-h-0 flex-1 items-center">
           <div className="grid w-full grid-cols-2 items-end gap-3 sm:gap-4 lg:gap-2">
-            {tile.images?.map((img, idx) => (
-              <div
-                key={`${typeof img.src === "string" ? img.src : img.src.src}-${idx}`}
-                className="relative w-full"
-              >
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-contain object-bottom"
-                    sizes="(max-width: 639px) 24vw, (max-width: 1023px) 18vw, 14vw"
-                  />
-                </div>
-              </div>
-            ))}
+           {tile.images?.map((img, idx) => (
+  <div
+    key={`${img.src}-${idx}`}  // 👈 plus de typeof, src est toujours string
+    className="relative w-full"
+  >
+    <div className="relative aspect-[4/5] w-full">
+      <Image
+        src={img.src}
+        alt={img.alt ?? ""}
+        fill
+        className="object-contain object-bottom"
+        sizes="(max-width: 639px) 24vw, (max-width: 1023px) 18vw, 14vw"
+      />
+    </div>
+  </div>
+))}
           </div>
         </div>
 

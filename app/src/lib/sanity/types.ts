@@ -84,3 +84,73 @@ export type SanityFooterContact = {
   phone?: string
   email?: string
 }
+
+// ─── ACCUEIL ─────────────────────────────────────────────────────────────────
+
+export type SanityAccueilHero = {
+  videoUrl?: string
+  titre: string
+  sousTitre: string
+  texte: string
+  services: string[]
+  ctaLabel: string
+  ctaLien: string
+}
+
+export type SanityImagesBlock = {
+  images: { src: string; alt?: string }[]
+}
+
+export type SanityAccueilCategories = {
+  fauteuils:  SanityImagesBlock | null
+  chirurgie:  SanityImagesBlock | null
+  hygiene:    SanityImagesBlock | null
+  radiologie: SanityImagesBlock | null
+}
+export type SanityAccueilFormation = {
+  dateAffichee: string
+  date?: string
+  titrePrincipal: string
+  sousTitre?: string
+  animateur?: string
+  lieu?: string
+  ancre?: { current: string }
+  affiche?: SanityImageSource
+  visible: boolean
+}
+
+export type SanityAccueilFormations = {
+  formations: SanityAccueilFormation[]
+  affichePrincipale?: SanityImageSource
+}
+
+export type SanityAccueilOffre = {
+  titre: string
+  sousTitre?: string
+  imageVisuel?: { src: string; alt?: string }
+  imageDepliant?: { src: string; alt?: string }
+  fichierPdfUrl?: string
+  ctaLabel: string
+}
+
+export type SanityAccueilOffres = {
+  offres: SanityAccueilOffre[]
+}
+
+export type SanityAccueilBonPlan = {
+  image?: { src: string; alt?: string }
+  titre: string
+  sousTitre?: string
+  description?: any[]  // portable text
+  prix?: string
+  prixMensuel?: string
+  prixBarre?: string
+  ctaLabel: string
+  ctaLien: string
+}
+
+export type SanityAccueilRealisations = {
+  photos: { src: string; alt?: string }[]
+  ctaLabel: string
+  ctaLien: string
+}

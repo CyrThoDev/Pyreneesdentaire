@@ -1,6 +1,11 @@
 import Button from "./ui/Button";
+import type { SanityAccueilHero } from "../lib/sanity/types";
 
-export function HomeHero() {
+type Props = { data: SanityAccueilHero | null }
+
+export function HomeHero({ data }: Props) {
+  if (!data) return null
+
   return (
     <section className="relative w-full">
 
@@ -13,54 +18,48 @@ export function HomeHero() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/videos/hero-cabinet.webm" type="video/webm" />
+          <source src={data.videoUrl} type="video/webm" />
         </video>
-
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-20">
-
         <div className="flex flex-col justify-center gap-12">
 
           {/* TEXTE */}
           <div className="flex flex-col gap-3 max-w-6xl">
-
             <div className="flex flex-col gap-2">
-              <h1 className="text-white font-oswald font-bold uppercase  text-6xl md:text-7xl lg:text-9xl">
-                PYRÉNÉES DENTAIRE
+              <h1 className="text-white font-oswald font-bold uppercase text-6xl md:text-7xl lg:text-9xl">
+                {data.titre}
               </h1>
-
               <p className="font-barlow text-white uppercase tracking-[0.2em] text-xl md:text-3xl">
-                MATÉRIELS ET FOURNITURES POUR L’ART DENTAIRE
+                {data.sousTitre}
               </p>
             </div>
 
             <div className="flex flex-col gap-3">
-              <p className="font-barlow text-white md:text-xl ">
-                Pyrénées Dentaire vous propose des solutions performantes et un accompagnement sur mesure pour la conception et la réalisation de votre cabinet dentaire. Notre équipe vous conseille et vous guide dans le choix de vos équipements et instruments dentaires, en fonction de vos besoins et de vos exigences professionnelles. 
+              <p className="font-barlow text-white md:text-xl">
+                {data.texte}
               </p>
 
-              <div className="flex flex-col gap-0">
-                <p className="font-barlow text-white text-xl">
-                  Nos services :
-                </p>
-
-                <ul className="font-barlow text-white md:text-xl list-disc pl-6 flex flex-col gap-0 leading-[1.2]">
-                  <li>Vente de matériel dentaire</li>
-                  <li>Conception et installation de cabinet</li>
-                  <li>Formation continue</li>
-                  <li>Entretien et dépannage</li>
-                </ul>
-              </div>
+              {data.services?.length > 0 && (
+                <div className="flex flex-col gap-0">
+                  <p className="font-barlow text-white text-xl">Nos services :</p>
+                  <ul className="font-barlow text-white md:text-xl list-disc pl-6 flex flex-col gap-0 leading-[1.2]">
+                    {data.services.map((service) => (
+                      <li key={service}>{service}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
 
           {/* CTA */}
           <div className="flex md:justify-end">
-            <Button href="/contact" variant="red">
-              PRENDRE RENDEZ-VOUS
+            <Button href={data.ctaLien} variant="red">
+              {data.ctaLabel}
             </Button>
           </div>
 

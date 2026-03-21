@@ -28,7 +28,7 @@ export default function ChirurgieTile({ tile }: Props) {
               <div className="relative aspect-square w-full">
                 <Image
                   src={leftImage.src}
-                  alt={leftImage.alt}
+                  alt={leftImage.alt ?? ""}
                   fill
                   className="object-cover "
                   
@@ -65,7 +65,7 @@ export default function ChirurgieTile({ tile }: Props) {
       <div className="relative aspect-square w-full">
         <Image
           src={rightImage.src}
-          alt={rightImage.alt}
+          alt={rightImage.alt ?? ""}
           fill
           className="object-contain"
         />
