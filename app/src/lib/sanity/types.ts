@@ -107,50 +107,39 @@ export type SanityAccueilCategories = {
   hygiene:    SanityImagesBlock | null
   radiologie: SanityImagesBlock | null
 }
-export type SanityAccueilFormation = {
-  dateAffichee: string
-  date?: string
-  titrePrincipal: string
-  sousTitre?: string
-  animateur?: string
-  lieu?: string
-  ancre?: { current: string }
-  affiche?: SanityImageSource
-  visible: boolean
+
+
+
+
+export type SanityFormationSubtitleLine = {
+  text: string
+  bold?: boolean
+}
+
+export type SanityFormation = {
+  dayLabel: string
+  title: string
+  subtitleLines: SanityFormationSubtitleLine[]
+  dateLine: string
+  placeLine: string
+  href: string
 }
 
 export type SanityAccueilFormations = {
-  formations: SanityAccueilFormation[]
-  affichePrincipale?: SanityImageSource
+  formations: SanityFormation[]
+  afficheUrl?: string
+  afficheAlt?: string
 }
 
-export type SanityAccueilOffre = {
-  titre: string
-  sousTitre?: string
-  imageVisuel?: { src: string; alt?: string }
-  imageDepliant?: { src: string; alt?: string }
-  fichierPdfUrl?: string
-  ctaLabel: string
+// dans types.ts
+export type SanityOffreItem = {
+  title: string
+  subtitle?: string
+  leftVisual: { src: string; alt?: string }
+  rightVisual: { src: string; alt?: string }
+  downloadHref: string
 }
 
 export type SanityAccueilOffres = {
-  offres: SanityAccueilOffre[]
-}
-
-export type SanityAccueilBonPlan = {
-  image?: { src: string; alt?: string }
-  titre: string
-  sousTitre?: string
-  description?: any[]  // portable text
-  prix?: string
-  prixMensuel?: string
-  prixBarre?: string
-  ctaLabel: string
-  ctaLien: string
-}
-
-export type SanityAccueilRealisations = {
-  photos: { src: string; alt?: string }[]
-  ctaLabel: string
-  ctaLien: string
+  offres: SanityOffreItem[]
 }

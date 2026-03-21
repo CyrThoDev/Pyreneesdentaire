@@ -2,9 +2,13 @@
 
 import Button from "./ui/Button";
 import OfferCard from "./offres/OfferCard";
-import { OFFERS_PRODUITS } from "../lib/offers";
+import type { SanityAccueilOffres } from "../lib/sanity/types";
 
-export default function OffreProduitsSection() {
+type Props = { data: SanityAccueilOffres | null }
+
+export default function OffreProduitsSection({ data }: Props) {
+  if (!data?.offres?.length) return null
+
   const title = "OFFRE PRODUITS";
 
   return (
@@ -12,22 +16,16 @@ export default function OffreProduitsSection() {
       <div className="relative mx-auto max-w-7xl px-6 py-10 pb-28">
         <h2 className="text-5xl tracking-tight font-barlow">
           <span className="font-light">{title.split(" ")[0]} </span>
-          <span className="font-extrabold">
-            {title.split(" ").slice(1).join(" ")}
-          </span>
+          <span className="font-extrabold">{title.split(" ").slice(1).join(" ")}</span>
         </h2>
 
         <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-2">
-          {OFFERS_PRODUITS.map((o) => (
-            <OfferCard key={o._id} offer={o} />
+          {data.offres.map((o, i) => (
+            <OfferCard key={i} offer={o} />
           ))}
         </div>
 
-        <Button
-          href="/offres-produits"
-          variant="red"
-          className="absolute right-6 bottom-10"
-        >
+        <Button href="/offres-produits" variant="red" className="absolute right-6 bottom-10">
           VOIR LES OFFRES
         </Button>
       </div>

@@ -138,3 +138,35 @@ export const categoriesQuery = `{
   "hygiene":    *[_type == "accueilHygiene"    && _id == "accueilHygiene"][0]{   ${imagesFragment} },
   "radiologie": *[_type == "accueilRadiologie" && _id == "accueilRadiologie"][0]{ ${imagesFragment} },
 }`
+
+export const formationsQuery = `*[_type == "accueilFormations" && _id == "accueilFormations"][0]{
+  formations[]{
+    dayLabel,
+    title,
+    subtitleLines[]{
+      text,
+      bold
+    },
+    dateLine,
+    placeLine,
+    href
+  },
+  "afficheUrl": affiche.asset->url,
+  "afficheAlt": affiche.alt
+}`
+
+export const offresQuery = `*[_type == "accueilOffres" && _id == "accueilOffres"][0]{
+  offres[]{
+    title,
+    subtitle,
+    "leftVisual": {
+      "src": leftVisual.asset->url,
+      "alt": leftVisual.alt
+    },
+    "rightVisual": {
+      "src": rightVisual.asset->url,
+      "alt": rightVisual.alt
+    },
+    "downloadHref": fichierPdf.asset->url
+  }
+}`

@@ -1,49 +1,16 @@
-// app/components/FormationsSection.tsx
 import Image from "next/image";
 import Link from "next/link";
+import type { SanityAccueilFormations, SanityFormation } from "../lib/sanity/types";
 
-type FormationSubtitleLine = {
-  text: string;
-  bold?: boolean;
-};
+type Props = {
+  data: SanityAccueilFormations | null
+}
 
-type Formation = {
-  dayLabel: string;
-  title: string;
-  subtitleLines: FormationSubtitleLine[];
-  dateLine: string;
-  placeLine: string;
-  href: string;
-};
+export default function FormationsSection({ data }: Props) {
+  if (!data) return null
 
-const formations: Formation[] = [
-  {
-    dayLabel: "Jeudi 21 MAI",
-    title: "FORMATION KULZER",
-    subtitleLines: [
-      { text: "360°", bold: true },
-      { text: "SUR LA RESTAURATION DU SOURIRE", bold: true },
-      { text: "Animé par le Dr Charles Toledano", bold: false },
-    ],
-    dateLine: "Date : jeudi 21 mai 2026 de 9h à 17h",
-    placeLine: "Lieu : Capbreton",
-    href: "/formations/#restauration-sourire",
-  },
-  {
-    dayLabel: "Jeudi 26 Mars",
-    title: "FORMATION OWANDY",
-    subtitleLines: [
-      { text: "La chaîne du numérique", bold: true },
-      { text: "Animé par Jean-Michel KEPA, le Dr", bold: false },
-      { text: "Marchat et le laboratoire MANCINI.", bold: false },
-    ],
-    dateLine: "Date : jeudi 26 Mars 2026 de 9h à 17h",
-    placeLine: "Lieu : Salies de Béarn",
-    href: "/formations/#chaine-numerique",
-  },
-];
+  const { formations, afficheUrl, afficheAlt } = data
 
-export default function FormationsSection() {
   return (
     <section
       className="font-barlow w-full text-white bg-cover bg-left bg-no-repeat"
@@ -55,48 +22,49 @@ export default function FormationsSection() {
       }}
     >
       <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:py-16">
-        {/* MOBILE: enfilade */}
+
+        {/* MOBILE */}
         <div className="grid gap-10 lg:hidden">
           <Title />
-          <FormationCard f={formations[0]} />
-          <FormationCard f={formations[1]} />
-          <Poster />
+          {formations.map((f, i) => (
+            <FormationCard key={i} f={f} />
+          ))}
+          {afficheUrl && <Poster src={afficheUrl} alt={afficheAlt} />}
         </div>
 
-        {/* DESKTOP: flex 2 colonnes */}
-        <div className="hidden lg:grid lg:grid-cols-[3.5fr_1fr]  lg:gap-4">
-          {/* COLONNE GAUCHE */}
+        {/* DESKTOP */}
+        <div className="hidden lg:grid lg:grid-cols-[3.5fr_1fr] lg:gap-4">
           <div className="flex-1">
-            {/* 1) Titre au-dessus */}
             <Title />
-
-            {/* 2) Grid 3 colonnes dessous : vide / f1 / f2 */}
-         <div className="mt-12 grid items-stretch gap-14 lg:grid-cols-[0.2fr_1fr_1fr]">
-              <div /> {/* colonne vide */}
-              <FormationCard f={formations[0]} />
-              <FormationCard f={formations[1]} />
+            <div className="mt-12 grid items-stretch gap-14 lg:grid-cols-[0.2fr_1fr_1fr]">
+              <div />
+              {formations.map((f, i) => (
+                <FormationCard key={i} f={f} />
+              ))}
             </div>
           </div>
 
-          {/* COLONNE DROITE : affiche pleine hauteur */}
-                <a
-            href="/images/affiche-formation.png"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full cursor-zoom-in"
-          >
-            <div className="h-full w-full overflow-hidden rounded-sm shadow-2xl">
-              <Image
-                src="/images/affiche-formation.png"
-                alt="Affiche formation"
-                width={420}
-                height={700}
-                className="h-full w-full object-cover"
-                sizes="(min-width: 1280px) 420px, 360px"
-              />
-            </div>
-          </a>
+          {afficheUrl && (
+            <a
+              href={afficheUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full cursor-zoom-in"
+            >
+              <div className="h-full w-full overflow-hidden rounded-sm shadow-2xl">
+                <Image
+                  src={afficheUrl}
+                  alt={afficheAlt ?? "Affiche formation"}
+                  width={420}
+                  height={700}
+                  className="h-full w-full object-cover"
+                  sizes="(min-width: 1280px) 420px, 360px"
+                />
+              </div>
+            </a>
+          )}
         </div>
+
       </div>
     </section>
   );
@@ -110,39 +78,26 @@ function Title() {
   );
 }
 
-function FormationCard({ f }: { f: Formation }) {
+function FormationCard({ f }: { f: SanityFormation }) {
   return (
     <article className="flex h-full max-w-xl flex-col leading-none">
-      
-      {/* Partie haute */}
-      <div >
-        <p className="text-2xl font-extrabold ">
-          {f.dayLabel}
-        </p>
-
-        <h3 className="mt-3 text-4xl font-black leading-[1.05] ">
-          {f.title}
-        </h3>
-
-    <div className="mt-2 space-y-1 text-lg  text-white/95 leading-none">
-  {f.subtitleLines.map((line, idx) => (
-    <p
-      key={idx}
-      className={line.bold ? "font-extrabold" : "font-normal"}
-    >
-      {line.text}
-    </p>
-  ))}
-</div>
+      <div>
+        <p className="text-2xl font-extrabold">{f.dayLabel}</p>
+        <h3 className="mt-3 text-4xl font-black leading-[1.05]">{f.title}</h3>
+        <div className="mt-2 space-y-1 text-lg text-white/95 leading-none">
+          {f.subtitleLines.map((line, idx) => (
+            <p key={idx} className={line.bold ? "font-extrabold" : "font-normal"}>
+              {line.text}
+            </p>
+          ))}
+        </div>
       </div>
 
-      {/* Partie basse alignée */}
       <div className="mt-auto pt-4">
-        <div className="space-y-1 text-base leading-none text-white/80 ">
+        <div className="space-y-1 text-base leading-none text-white/80">
           <p>{f.dateLine}</p>
           <p>{f.placeLine}</p>
         </div>
-
         <Link
           href={f.href}
           className="mt-2 inline-flex items-center text-base font-extrabold uppercase text-red-500 hover:text-red-400"
@@ -150,21 +105,19 @@ function FormationCard({ f }: { f: Formation }) {
           + DE DÉTAIL
         </Link>
       </div>
-
     </article>
   );
 }
 
-function Poster() {
+function Poster({ src, alt }: { src: string; alt?: string }) {
   return (
-    <div className="w-full overflow-hidden rounded-sm shadow-2xl 0">
+    <div className="w-full overflow-hidden rounded-sm shadow-2xl">
       <Image
-        src="/images/affiche-formation.png"
-        alt="Affiche formation"
+        src={src}
+        alt={alt ?? "Affiche formation"}
         width={800}
         height={1100}
         className="h-auto w-full object-cover"
-        
       />
     </div>
   );
