@@ -32,13 +32,13 @@ export function MobilierSection({
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-8">
         <div className="flex flex-col gap-6">
           <div className="grid gap-10 font-barlow sm:grid-cols-2 lg:grid-cols-4">
-            {visible.map((x) => (
-              <div key={x._id} className="flex h-full flex-col gap-4"> {/* id → _id */}
-                {/* Marque */}
-                <div className="flex flex-col gap-3">
-                  <div className="h-px w-full bg-black/10 lg:hidden" />
-                  <p className="text-2xl uppercase text-black">{x.brand}</p>
-                </div>
+          {visible.map((x, idx) => (
+  <div key={x._id} className="flex h-full flex-col gap-4">
+    {/* Marque */}
+    <div className="flex flex-col gap-3">
+      {idx > 0 && <div className="h-px w-full bg-black/10 lg:hidden" />}
+      <p className="text-2xl uppercase text-black">{x.brand}</p>
+    </div>
 
                 {/* Carte */}
                 <article className="flex h-full flex-col gap-4">

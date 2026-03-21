@@ -68,7 +68,7 @@ export default function ContactPage() {
                 <Button
                   href={mailtoHref}
                   variant="red"
-                  className="w-full border border-red"
+                  className="w-full border text-center border-red"
                 >
                   Demander plus d'informations
                 </Button>

@@ -21,7 +21,7 @@ export async function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="mx-auto w-full max-w-7xl px-6 py-14">
-        <h2 className="text-5xl font-barlow-condensed">Infos pratiques</h2>
+        <h2 className="text-5xl text-center md:text-left font-barlow-condensed">Infos pratiques</h2>
 
         <div className="mt-10 font-barlow">
           

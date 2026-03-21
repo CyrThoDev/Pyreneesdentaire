@@ -53,13 +53,13 @@ oldPriceValue: "40 000€ TTC",
 
           {/* TEXTE */}
           <div className="flex flex-col gap-0">
-            <h2 className=" text-[44px] font-black   text-black md:text-[56px]">
+            <h2 className=" text-5xl font-black   text-black md:text-[56px]">
               {deal.titleLeft}{" "}
               <span className="font-light ">{deal.titleRight}</span>
             </h2>
 
            
-              <p className="text-[22px] font-extrabold text-black md:text-[26px]">
+              <p className="text-2xl font-extrabold text-black md:text-[26px]">
                 {deal.subtitle}
               </p>
              
