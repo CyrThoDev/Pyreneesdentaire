@@ -28,11 +28,11 @@ export function HomeHero() {
           <div className="flex flex-col gap-3 max-w-6xl">
 
             <div className="flex flex-col gap-2">
-              <h1 className="text-white font-oswald font-bold uppercase  text-5xl md:text-6xl lg:text-9xl">
+              <h1 className="text-white font-oswald font-bold uppercase  text-6xl md:text-7xl lg:text-9xl">
                 PYRÉNÉES DENTAIRE
               </h1>
 
-              <p className="font-barlow text-white uppercase tracking-[0.2em] text-xs md:text-3xl">
+              <p className="font-barlow text-white uppercase tracking-[0.2em] text-xl md:text-3xl">
                 MATÉRIELS ET FOURNITURES POUR L’ART DENTAIRE
               </p>
             </div>

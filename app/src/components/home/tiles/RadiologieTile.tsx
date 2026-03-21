@@ -30,7 +30,7 @@ export default function RadiologieTile({ tile }: Props) {
   return (
     <TileShell
       tile={tile}
-      className="min-h-[340px] sm:min-h-[380px] lg:min-h-[500px]"
+      className="min-h-[400px] sm:min-h-[450px] lg:min-h-[500px]"
       buttonVariant="white"
     >
       <div className="flex h-full flex-col p-6 sm:p-8">

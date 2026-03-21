@@ -19,7 +19,7 @@ const tiles: Tile[] = [
       { src: "/images/fauteuils/Belmont_S6.png", alt: "Belmont S6" },
       { src: "/images/fauteuils/220_0_castellini_skema-6.png", alt: "Castellini SKEMA 6" },     
       { src: "/images/fauteuils/fauteuil_k2.png", alt: "Fauteuil K2" },
-       { src: "/images/fauteuils/KaVo-uniQa_S-LED-HD_7h-transparent01.png", alt: "KAVO" },
+       { src: "/images/fauteuils/UNIQA.png", alt: "KAVO" },
     ],
   },
   {
