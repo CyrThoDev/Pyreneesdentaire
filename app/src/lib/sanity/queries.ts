@@ -170,3 +170,16 @@ export const offresQuery = `*[_type == "accueilOffres" && _id == "accueilOffres"
     "downloadHref": fichierPdf.asset->url
   }
 }`
+
+export const bonPlanQuery = `*[_type == "accueilBonPlan" && _id == "accueilBonPlan"][0]{
+  subtitle,
+  description,
+  price,
+  monthly,
+  oldPricePrefix,
+  oldPriceValue,
+  ctaLabel,
+  ctaHref,
+  "imageSrc": image.asset->url,
+  "imageAlt": image.alt
+}`

@@ -143,3 +143,16 @@ export type SanityOffreItem = {
 export type SanityAccueilOffres = {
   offres: SanityOffreItem[]
 }
+
+export type SanityAccueilBonPlan = {
+  subtitle: string
+  description?: any[] 
+  price?: string
+  monthly?: string
+  oldPricePrefix?: string
+  oldPriceValue?: string
+  ctaLabel: string
+  ctaHref: string
+  imageSrc?: string
+  imageAlt?: string
+}
