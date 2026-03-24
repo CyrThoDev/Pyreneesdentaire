@@ -112,7 +112,7 @@ export function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-2 py-2 text-lg font-semibold transition-colors hover:text-red"
+                          className="block px-2 py-2 text-lg font-bold transition-colors hover:text-red"
                         >
                           {index !== 0 && (
                             <span className="block mx-auto mb-2 w-[97%] border-t border-black/40" />
@@ -191,7 +191,7 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="py-2  font-barlow-condensed font-semibold text-black/80 hover:text-black"
+                      className="py-2  font-barlow-condensed text-xl font-bold  hover:text-black"
                     >
                       {item.label}
                     </Link>
@@ -204,7 +204,7 @@ export function Header() {
                     <div className="flex items-center justify-between">
                       <button
                         type="button"
-                        className="py-2  font-barlow-condensed font-semibold text-black/80 hover:text-black text-left"
+                        className="py-2  font-barlow-condensed text-xl  font-bold text-black/80 hover:text-black text-left"
                         aria-expanded={mobileSubOpen}
                         onClick={() => setMobileSubOpen((v) => !v)}
                       >
@@ -239,7 +239,7 @@ export function Header() {
                               setOpen(false);
                               setMobileSubOpen(false);
                             }}
-                            className="py-2  font-barlow-condensed font-semibold text-black/70 hover:text-black"
+                            className="py-2  font-barlow-condensed text-lg  font-bold text-black/70 hover:text-black"
                           >
                             {child.label}
                           </Link>
