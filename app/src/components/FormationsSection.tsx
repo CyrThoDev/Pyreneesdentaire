@@ -12,15 +12,15 @@ export default function FormationsSection({ data }: Props) {
   const { formations, afficheUrl, afficheAlt } = data
 
   return (
-    <section
-      className="font-barlow w-full text-white bg-cover bg-left bg-no-repeat"
-      style={{
-        backgroundImage: `
-          linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
-          url('/images/bg-doctor.png')
-        `,
-      }}
-    >
+<section
+  className="font-barlow w-full text-white bg-cover bg-center bg-no-repeat lg:bg-left"
+  style={{
+    backgroundImage: `
+      linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50)),
+      url('/images/bg-doctor.png')
+    `,
+  }}
+>
       <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:py-16">
 
         {/* MOBILE */}

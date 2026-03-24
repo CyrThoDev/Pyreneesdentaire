@@ -191,7 +191,7 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="py-2 text-sm font-semibold text-black/80 hover:text-black"
+                      className="py-2  font-barlow-condensed font-semibold text-black/80 hover:text-black"
                     >
                       {item.label}
                     </Link>
@@ -204,7 +204,7 @@ export function Header() {
                     <div className="flex items-center justify-between">
                       <button
                         type="button"
-                        className="py-2 text-sm font-semibold text-black/80 hover:text-black text-left"
+                        className="py-2  font-barlow-condensed font-semibold text-black/80 hover:text-black text-left"
                         aria-expanded={mobileSubOpen}
                         onClick={() => setMobileSubOpen((v) => !v)}
                       >
@@ -239,7 +239,7 @@ export function Header() {
                               setOpen(false);
                               setMobileSubOpen(false);
                             }}
-                            className="py-2 text-sm font-semibold text-black/70 hover:text-black"
+                            className="py-2  font-barlow-condensed font-semibold text-black/70 hover:text-black"
                           >
                             {child.label}
                           </Link>

@@ -44,13 +44,15 @@ export async function Footer() {
         {/* Newsletter */}
         <div className="mt-16 flex flex-col items-center justify-end gap-6 lg:flex-row">
           <p className="font-barlow-condensed text-center text-2xl font-light tracking-tight lg:text-left">
-            Inscrivez-vous et restez informé avec notre newsletter
+            Notre newsletter est en cours de préparation — revenez nous voir bientôt !
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
-            <Button href="/newsletter" variant="red">
-              S&apos;INSCRIRE ICI
-            </Button>
+        <div className="cursor-not-allowed" title="Bientôt disponible">
+      <Button href="/newsletter" variant="red" className="pointer-events-none opacity-50">
+        S&apos;INSCRIRE ICI
+      </Button>
+    </div>
 
             <a
               href="https://www.facebook.com/p/Pyr%C3%A9n%C3%A9es-Dentaire-61561102856487/"
