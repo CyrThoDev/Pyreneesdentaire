@@ -94,7 +94,7 @@ export default function RealisationsGrid({ photos = DEFAULT_PHOTOS }: Props) {
           hidden md:grid
           grid-cols-12
           gap-3
-          [grid-template-rows:350px_300px_260px_260px_280px_280px]
+          [grid-template-rows:300px_300px_260px_260px_280px_280px]
         "
       >
         {/* ── Bloc 1 ── */}
