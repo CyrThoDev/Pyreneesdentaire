@@ -24,7 +24,7 @@ export interface RealisationPhoto {
 }
 
 const DEFAULT_PHOTOS: RealisationPhoto[] = [
-  { src: "/images/realisations/realisation7.jpg",  alt: "Cabinet dentaire – double salle avec cloison bois" },
+  { src: "/images/realisations/realisation7.png",  alt: "Cabinet dentaire – double salle avec cloison bois" },
   { src: "/images/realisations/realisation11.jpg", alt: "Fauteuil beige sur sol bleu" },
   { src: "/images/realisations/realisation6.png",  alt: "Cabinet gris avec lustre circulaire" },
   { src: "/images/realisations/realisation2.jpeg", alt: "Plan de travail dentaire moderne" },
