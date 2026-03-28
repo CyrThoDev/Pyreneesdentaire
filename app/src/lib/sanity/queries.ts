@@ -117,3 +117,69 @@ export async function getFooterContacts(): Promise<SanityFooterContact[]> {
     }
   `);
 }
+
+// queries accueil
+
+export const heroQuery = `*[_type == "accueilHero" && _id == "accueilHero"][0]{
+  "videoUrl": video.asset->url,
+  titre,
+  sousTitre,
+  texte,
+  services,
+  ctaLabel,
+  ctaLien
+}`
+
+const imagesFragment = `"images": images[]{ "src": asset->url, alt }`
+
+export const categoriesQuery = `{
+  "fauteuils":  *[_type == "accueilFauteuils"  && _id == "accueilFauteuils"][0]{ ${imagesFragment} },
+  "chirurgie":  *[_type == "accueilChirurgie"  && _id == "accueilChirurgie"][0]{ ${imagesFragment} },
+  "hygiene":    *[_type == "accueilHygiene"    && _id == "accueilHygiene"][0]{   ${imagesFragment} },
+  "radiologie": *[_type == "accueilRadiologie" && _id == "accueilRadiologie"][0]{ ${imagesFragment} },
+}`
+
+export const formationsQuery = `*[_type == "accueilFormations" && _id == "accueilFormations"][0]{
+  formations[]{
+    dayLabel,
+    title,
+    subtitleLines[]{
+      text,
+      bold
+    },
+    dateLine,
+    placeLine,
+    href
+  },
+  "afficheUrl": affiche.asset->url,
+  "afficheAlt": affiche.alt
+}`
+
+export const offresQuery = `*[_type == "accueilOffres" && _id == "accueilOffres"][0]{
+  offres[]{
+    title,
+    subtitle,
+    "leftVisual": {
+      "src": leftVisual.asset->url,
+      "alt": leftVisual.alt
+    },
+    "rightVisual": {
+      "src": rightVisual.asset->url,
+      "alt": rightVisual.alt
+    },
+    "downloadHref": fichierPdf.asset->url
+  }
+}`
+
+export const bonPlanQuery = `*[_type == "accueilBonPlan" && _id == "accueilBonPlan"][0]{
+  subtitle,
+  description,
+  price,
+  monthly,
+  oldPricePrefix,
+  oldPriceValue,
+  ctaLabel,
+  ctaHref,
+  "imageSrc": image.asset->url,
+  "imageAlt": image.alt
+}`

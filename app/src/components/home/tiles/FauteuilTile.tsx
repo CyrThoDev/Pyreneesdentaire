@@ -31,7 +31,7 @@ export default function FauteuilTile({ tile }: Props) {
   return (
     <TileShell
       tile={tile}
-      className="min-h-[340px] sm:min-h-[380px] lg:min-h-[500px]"
+      className="min-h-[400px] sm:min-h-[450px] lg:min-h-[500px]"
       buttonVariant="white"
     >
       <div className="flex h-full flex-col p-6 sm:p-8">
@@ -72,7 +72,7 @@ export default function FauteuilTile({ tile }: Props) {
                   <div className="relative h-[180px] w-full sm:h-[300px]">
                     <Image
                       src={image.src}
-                      alt={image.alt}
+                     alt={image.alt ?? ""}
                       fill
                       className="object-contain"
                       sizes="(max-width: 639px) 80vw, (max-width: 1023px) 40vw, 28vw"

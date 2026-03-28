@@ -96,7 +96,7 @@ export function EclairageSection({
             {items.slice(0, 4).map((x) => (
               <div key={x._id} className="flex h-full flex-col gap-4">
                 <div className="flex flex-col gap-3">
-                  <div className="h-px w-[60%] bg-black/10" />
+                  <div className="h-px w-full bg-black/10" />
                   <p className="text-2xl uppercase text-black">{x.brand}</p>
                 </div>
 

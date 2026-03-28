@@ -112,7 +112,7 @@ export function Header() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-2 py-2 text-lg font-semibold transition-colors hover:text-red"
+                          className="block px-2 py-2 text-lg font-bold transition-colors hover:text-red"
                         >
                           {index !== 0 && (
                             <span className="block mx-auto mb-2 w-[97%] border-t border-black/40" />
@@ -128,7 +128,7 @@ export function Header() {
           </nav>
 
           {/* Right side */}
-          <div className=" flex items-center gap-3">
+          <div className=" flex items-center gap-6">
            <Button
                 href="/offres-produits"
                 variant="red"
@@ -137,26 +137,52 @@ export function Header() {
                 OFFRES PRODUITS
               </Button>
 
-            <button
-              type="button"
-              aria-label="Ouvrir le menu"
-              aria-expanded={open}
-              onClick={() => {
-                setOpen((v) => !v);
-                // Quand on ferme le menu, on ferme aussi le sous-menu
-                if (open) setMobileSubOpen(false);
-              }}
-              className="lg:hidden inline-flex h-10 w-10 items-center justify-center "
-            >
-              <span className="text-xl leading-none">{open ? "×" : "≡"}</span>
-            </button>
+ <button
+  type="button"
+  aria-label="Ouvrir le menu"
+  aria-expanded={open}
+  onClick={() => {
+    setOpen((v) => !v);
+    if (open) setMobileSubOpen(false);
+  }}
+  className="lg:hidden inline-flex h-10 w-10 items-center justify-center"
+>
+  <div className="relative w-8 h-6">
+    {/* Ligne 1 */}
+    <span
+      className={`
+        absolute left-0 top-0 w-8 h-[3px] bg-black rounded
+        transition-all duration-300 ease-in-out
+        ${open ? "top-1/2 rotate-45" : ""}
+      `}
+    />
+
+    {/* Ligne 2 */}
+    <span
+      className={`
+        absolute left-0 top-1/2 w-8 h-[3px] bg-black rounded
+        transition-all duration-300 ease-in-out
+        ${open ? "opacity-0" : "-translate-y-1/2"}
+      `}
+    />
+
+    {/* Ligne 3 */}
+    <span
+      className={`
+        absolute left-0 bottom-0 w-8 h-[3px] bg-black rounded
+        transition-all duration-300 ease-in-out
+        ${open ? "top-1/2 -rotate-45" : ""}
+      `}
+    />
+  </div>
+</button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {open && (
           <div className="lg:hidden pb-4">
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-8">
               {navItems.map((item) => {
                 // Lien simple
                 if (item.type === "link") {
@@ -165,7 +191,7 @@ export function Header() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="py-2 text-sm font-semibold text-black/80 hover:text-black"
+                      className="py-2  font-barlow-condensed text-xl font-bold  hover:text-black"
                     >
                       {item.label}
                     </Link>
@@ -178,24 +204,29 @@ export function Header() {
                     <div className="flex items-center justify-between">
                       <button
                         type="button"
-                        className="py-2 text-sm font-semibold text-black/80 hover:text-black text-left"
+                        className="py-2  font-barlow-condensed text-xl  font-bold text-black/80 hover:text-black text-left"
                         aria-expanded={mobileSubOpen}
                         onClick={() => setMobileSubOpen((v) => !v)}
                       >
                         {item.label}
                       </button>
 
-                      <button
-                        type="button"
-                        aria-label="Afficher les sous-catégories"
-                        aria-expanded={mobileSubOpen}
-                        onClick={() => setMobileSubOpen((v) => !v)}
-                        className="h-9 w-9 border border-black/15 inline-flex items-center justify-center"
-                      >
-                        <span className="text-lg leading-none">
-                          {mobileSubOpen ? "−" : "+"}
-                        </span>
-                      </button>
+<button
+  type="button"
+  aria-label="Afficher les sous-catégories"
+  aria-expanded={mobileSubOpen}
+  onClick={() => setMobileSubOpen((v) => !v)}
+  className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-black/5"
+>
+  <span
+    className={`relative block h-4 w-4 transition-transform duration-300 ${
+      mobileSubOpen ? "rotate-180" : ""
+    }`}
+  >
+    <span className="absolute left-[1px] top-[7px] block h-[2px] w-[9px] rotate-45 rounded bg-black" />
+    <span className="absolute right-[1px] top-[7px] block h-[2px] w-[9px] -rotate-45 rounded bg-black" />
+  </span>
+</button>
                     </div>
 
                     {mobileSubOpen && (
@@ -208,7 +239,7 @@ export function Header() {
                               setOpen(false);
                               setMobileSubOpen(false);
                             }}
-                            className="py-2 text-sm font-semibold text-black/70 hover:text-black"
+                            className="py-2  font-barlow-condensed text-lg  font-bold text-black/70 hover:text-black"
                           >
                             {child.label}
                           </Link>

@@ -84,3 +84,75 @@ export type SanityFooterContact = {
   phone?: string
   email?: string
 }
+
+// ─── ACCUEIL ─────────────────────────────────────────────────────────────────
+
+export type SanityAccueilHero = {
+  videoUrl?: string
+  titre: string
+  sousTitre: string
+  texte: string
+  services: string[]
+  ctaLabel: string
+  ctaLien: string
+}
+
+export type SanityImagesBlock = {
+  images: { src: string; alt?: string }[]
+}
+
+export type SanityAccueilCategories = {
+  fauteuils:  SanityImagesBlock | null
+  chirurgie:  SanityImagesBlock | null
+  hygiene:    SanityImagesBlock | null
+  radiologie: SanityImagesBlock | null
+}
+
+
+
+
+export type SanityFormationSubtitleLine = {
+  text: string
+  bold?: boolean
+}
+
+export type SanityFormation = {
+  dayLabel: string
+  title: string
+  subtitleLines: SanityFormationSubtitleLine[]
+  dateLine: string
+  placeLine: string
+  href: string
+}
+
+export type SanityAccueilFormations = {
+  formations: SanityFormation[]
+  afficheUrl?: string
+  afficheAlt?: string
+}
+
+// dans types.ts
+export type SanityOffreItem = {
+  title: string
+  subtitle?: string
+  leftVisual: { src: string; alt?: string }
+  rightVisual: { src: string; alt?: string }
+  downloadHref: string
+}
+
+export type SanityAccueilOffres = {
+  offres: SanityOffreItem[]
+}
+
+export type SanityAccueilBonPlan = {
+  subtitle: string
+  description?: any[] 
+  price?: string
+  monthly?: string
+  oldPricePrefix?: string
+  oldPriceValue?: string
+  ctaLabel: string
+  ctaHref: string
+  imageSrc?: string
+  imageAlt?: string
+}
