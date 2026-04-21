@@ -17,6 +17,8 @@
 // Mobile : enfilade flex column
 
 import Image from "next/image";
+import { SanityRealisation } from "@/app/src/lib/sanity/types";
+import { urlFor } from "@/app/src/lib/sanity/images";
 
 export interface RealisationPhoto {
   src: string;
@@ -40,9 +42,9 @@ const DEFAULT_PHOTOS: RealisationPhoto[] = [
 
 interface Props {
   photos?: RealisationPhoto[];
+  realisations?: SanityRealisation[];
 }
 
-// Cellule générique : position relative, overflow hidden, hover zoom
 function Cell({
   photo,
   className,
@@ -62,8 +64,14 @@ function Cell({
   );
 }
 
-export default function RealisationsGrid({ photos = DEFAULT_PHOTOS }: Props) {
-  const p = photos.slice(0, 12);
+export default function RealisationsGrid({ photos = DEFAULT_PHOTOS, realisations }: Props) {
+  const resolved: RealisationPhoto[] = realisations && realisations.length > 0
+    ? realisations.map((r) => ({
+        src: urlFor(r.image).width(1200).url(),
+        alt: r.alt ?? "Réalisation cabinet dentaire",
+      }))
+    : photos;
+  const p = resolved.slice(0, 12);
 
   return (
     <section className="max-w-7xl mx-auto lg:py-16">
@@ -100,80 +108,18 @@ export default function RealisationsGrid({ photos = DEFAULT_PHOTOS }: Props) {
         {/* ── Bloc 1 ── */}
  
         {/* p0 : grande gauche, pleine hauteur bloc 1 */}
-        <Cell
-          photo={p[0]}
-          className="[grid-column:1/7] [grid-row:1/3]"
-        />
- 
-        {/* p1 : petite haut-droite */}
-        <Cell
-          photo={p[1]}
-          className="[grid-column:7/10] [grid-row:1/2]"
-        />
- 
-        {/* p2 : petite haut-droite (2e colonne) */}
-        <Cell
-          photo={p[2]}
-          className="[grid-column:10/13] [grid-row:1/2]"
-        />
- 
-        {/* p3 : grande bas-droite bloc 1 */}
-        <Cell
-          photo={p[3]}
-          className="[grid-column:7/13] [grid-row:2/3]"
-        />
- 
-        {/* ── Bloc 2 ── */}
- 
-        {/* p4 : petite gauche haut */}
-        <Cell
-          photo={p[4]}
-          className="[grid-column:1/4] [grid-row:3/4]"
-        />
- 
-        {/* p5 : petite gauche bas */}
-        <Cell
-          photo={p[5]}
-          className="[grid-column:1/4] [grid-row:4/5]"
-        />
- 
-        {/* p6 : moyenne centre, pleine hauteur bloc 2 */}
-        <Cell
-          photo={p[6]}
-          className="[grid-column:4/7] [grid-row:3/5]"
-        />
- 
-        {/* p7 : grande droite, pleine hauteur bloc 2 */}
-        <Cell
-          photo={p[7]}
-          className="[grid-column:7/13] [grid-row:3/5]"
-        />
- 
-        {/* ── Bloc 3 ── */}
- 
-        {/* p8 : grande gauche, pleine hauteur bloc 3 */}
-        <Cell
-          photo={p[8]}
-          className="[grid-column:1/7] [grid-row:5/7]"
-        />
- 
-        {/* p9 : petite centre haut */}
-        <Cell
-          photo={p[9]}
-          className="[grid-column:7/10] [grid-row:5/6]"
-        />
- 
-        {/* p10 : petite centre bas */}
-        <Cell
-          photo={p[10]}
-          className="[grid-column:7/10] [grid-row:6/7]"
-        />
- 
-        {/* p11 : grande droite, pleine hauteur bloc 3 */}
-        <Cell
-          photo={p[11]}
-          className="[grid-column:10/13] [grid-row:5/7]"
-        />
+        <Cell photo={p[0]}  className="[grid-column:1/7] [grid-row:1/3]" />
+        <Cell photo={p[1]}  className="[grid-column:7/10] [grid-row:1/2]" />
+        <Cell photo={p[2]}  className="[grid-column:10/13] [grid-row:1/2]" />
+        <Cell photo={p[3]}  className="[grid-column:7/13] [grid-row:2/3]" />
+        <Cell photo={p[4]}  className="[grid-column:1/4] [grid-row:3/4]" />
+        <Cell photo={p[5]}  className="[grid-column:1/4] [grid-row:4/5]" />
+        <Cell photo={p[6]}  className="[grid-column:4/7] [grid-row:3/5]" />
+        <Cell photo={p[7]}  className="[grid-column:7/13] [grid-row:3/5]" />
+        <Cell photo={p[8]}  className="[grid-column:1/7] [grid-row:5/7]" />
+        <Cell photo={p[9]}  className="[grid-column:7/10] [grid-row:5/6]" />
+        <Cell photo={p[10]} className="[grid-column:7/10] [grid-row:6/7]" />
+        <Cell photo={p[11]} className="[grid-column:10/13] [grid-row:5/7]" />
  
       </div>
     </section>
