@@ -1,75 +1,152 @@
-// app/formations/FormationRow.tsx
 "use client";
 
 import Image from "next/image";
+import { PortableText } from "@portabletext/react";
 import Button from "../src/components/ui/Button";
-import type { Formation } from "./formationData";
+import type { SanityFormationDetail } from "../src/lib/sanity/types";
+
+const ptComponents = {
+  block: {
+    h3: ({ children }: any) => (
+      <h3 className="font-bold text-neutral-900 mt-4">{children}</h3>
+    ),
+    h4: ({ children }: any) => (
+      <p className="text-red font-semibold mt-5">{children}</p>
+    ),
+    normal: ({ children }: any) => (
+      <p className=" text-neutral-700">{children}</p>
+    ),
+  },
+  marks: {
+    strong: ({ children }: any) => (
+      <strong className="font-bold text-neutral-900">{children}</strong>
+    ),
+    em: ({ children }: any) => <em>{children}</em>,
+  },
+  list: {
+    bullet: ({ children }: any) => (
+      <ul className="list-disc pl-5 space-y-1 leading-none">{children}</ul>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }: any) => <li>{children}</li>,
+  },
+};
 
 export default function FormationRow({
   f,
   isAlt,
 }: {
-  f: Formation;
+  f: SanityFormationDetail;
   isAlt: boolean;
 }) {
-  const bgClass = f.bg
-    ? f.bg === "gray"
-      ? "bg-gray"
-      : "bg-white"
-    : isAlt
-      ? "bg-gray"
-      : "bg-white";
+  const bgClass = isAlt ? "bg-gray" : "bg-white";
 
   return (
-    <article id={f.id} className={`${bgClass} w-full scroll-mt-28 py-14`}>
-      <div  className="mx-auto max-w-7xl px-6">
+    <article id={f._id} className={`${bgClass} w-full scroll-mt-28 py-14`}>
+      <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 md:grid-cols-[360px_1fr] md:gap-14">
           {/* POSTER */}
-<div className="w-full">
-  {/* Mobile: ratio naturel (pas de whitespace forcé) */}
-  <div className="block lg:hidden">
-    <Image
-      src={f.posterSrc}
-      alt={f.posterAlt}
-      width={1200}          // valeur “logique” (ex: largeur réelle de l'affiche si tu la connais)
-      height={1700}         // valeur “logique” (hauteur réelle)
-      className="w-full h-auto"
-      sizes="100vw"
-      priority={false}
-    />
-  </div>
-
-  {/* Desktop: tu peux garder ton rendu actuel si tu veux */}
-  <div className="hidden lg:block relative aspect-[3/4] w-full overflow-hidden">
-    <Image
-      src={f.posterSrc}
-      alt={f.posterAlt}
-      fill
-      className="object-contain"
-      sizes="360px"
-    />
-  </div>
-
-  {/* Texte en dessous */}
-  <div className="mt-4">
-    {/* ton texte */}
-  </div>
-</div>
+          {f.posterUrl && (
+            <div className="w-full">
+              <div className="block lg:hidden">
+                <Image
+                  src={f.posterUrl}
+                  alt={f.posterAlt ?? ""}
+                  width={1200}
+                  height={1700}
+                  className="w-full h-auto"
+                  sizes="100vw"
+                />
+              </div>
+              <div className="hidden lg:block relative aspect-3/4 w-full overflow-hidden">
+                <Image
+                  src={f.posterUrl}
+                  alt={f.posterAlt ?? ""}
+                  fill
+                  className="object-contain"
+                  sizes="360px"
+                />
+              </div>
+            </div>
+          )}
 
           {/* TEXTE */}
           <div className="flex flex-col justify-start pt-1">
             <p className="text-xl font-bold text-neutral-600">{f.dateLine}</p>
 
-            <h2 className=" text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">
-              {f.titleTop ? <span className="block">{f.titleTop}</span> : null}
-              <span className="block">{f.titleMain}</span>
+            <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">
+              {f.titreTop && <span className="block">{f.titreTop}</span>}
+              <span className="block">{f.titre}</span>
             </h2>
 
-            <div className="mt-5 max-w-2xl">{f.content}</div>
+            {f.horaires && (
+              <p className="mt-2 text-red font-semibold">
+                {[f.horaires.debut, f.horaires.fin].filter(Boolean).join(" → ")}
+                {f.horaires.notes && ` — ${f.horaires.notes}`}
+              </p>
+            )}
 
-            <div className="mt-5">
-              
-            </div>
+            {f.resume && (
+              <p className="mt-3 text-neutral-700">{f.resume}</p>
+            )}
+
+            {f.intervenants && f.intervenants.length > 0 && (
+              <div className="mt-4 space-y-1">
+                {f.intervenants.map((i, idx) => (
+                  <p key={idx} className="text-neutral-700">
+                    <strong>{i.nom}</strong>
+                    {i.titre ? `, ${i.titre}` : ""}
+                    {i.organisation ? ` — ${i.organisation}` : ""}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {f.programme && f.programme.length > 0 && (
+              <div className="mt-5 max-w-2xl ">
+                <PortableText value={f.programme} components={ptComponents} />
+              </div>
+            )}
+
+            {f.contacts && f.contacts.length > 0 && (
+              <div className="mt-5">
+                <p className="font-bold text-neutral-900">INSCRIPTION</p>
+                {f.contacts.map((c, idx) => (
+                  <p key={idx} className="mt-2 text-neutral-700">
+                    {c.nom}
+                    {c.role ? ` — ${c.role}` : ""}{" — "}
+                    {c.emailHref && (
+                      <a
+                        href={c.emailHref}
+                        className="hover:underline underline-offset-2"
+                      >
+                        {c.email}
+                      </a>
+                    )}
+                    {c.telephoneHref && (
+                      <>
+                        {" "}—{" "}
+                        <a
+                          href={c.telephoneHref}
+                          className="hover:underline underline-offset-2"
+                        >
+                          {c.telephone}
+                        </a>
+                      </>
+                    )}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {f.ctaLabel && f.ctaHref && (
+              <div className="mt-5">
+                <Button href={f.ctaHref} variant="gray">
+                  {f.ctaLabel}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>
