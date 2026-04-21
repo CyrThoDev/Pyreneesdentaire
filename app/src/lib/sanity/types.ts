@@ -152,6 +152,20 @@ export type SanityRealisation = {
   ordre?: number
 }
 
+export type SanityPageOffresProduits = {
+  titre: string
+  description: string
+}
+
+export type SanityOffreProduit = {
+  _id: string
+  title: string
+  subtitle?: string
+  leftVisual: { src: string; alt?: string }
+  rightVisual: { src: string; alt?: string }
+  downloadHref: string
+}
+
 export type SanityAccueilBonPlan = {
   subtitle: string
   description?: any[] 

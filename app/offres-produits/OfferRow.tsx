@@ -3,17 +3,13 @@
 
 import Image from "next/image";
 import Button from "../src/components/ui/Button";
-import type { OfferCardData, ProductImage } from "../src/lib/offers";
-
-function imgSrc(img: ProductImage) {
-  return img.kind === "local" ? img.src : "/images/placeholder.jpg";
-}
+import type { SanityOffreProduit } from "../src/lib/sanity/types";
 
 export default function OfferRow({
   offer,
   isAlt,
 }: {
-  offer: OfferCardData;
+  offer: SanityOffreProduit;
   isAlt: boolean;
 }) {
   const bgClass = isAlt ? "bg-gray" : "bg-white";
@@ -25,22 +21,20 @@ export default function OfferRow({
           {/* VISUELS (colonne gauche) */}
           <div className="w-full">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {/* visuel portrait */}
-              <div className="relative w-full bg-neutral-100 aspect-[3/4] overflow-hidden">
+              <div className="relative w-full bg-neutral-100 aspect-3/4 overflow-hidden">
                 <Image
-                  src={imgSrc(offer.leftVisual)}
-                  alt={offer.leftVisual.alt}
+                  src={offer.leftVisual.src}
+                  alt={offer.leftVisual.alt ?? ""}
                   fill
                   className="object-contain"
                   sizes="(max-width: 640px) 100vw, 180px"
                 />
               </div>
 
-              {/* dépliant */}
-              <div className="relative w-full bg-white border border-neutral-200 aspect-[3/4] overflow-hidden">
+              <div className="relative w-full bg-white border border-neutral-200 aspect-3/4 overflow-hidden">
                 <Image
-                  src={imgSrc(offer.rightVisual)}
-                  alt={offer.rightVisual.alt}
+                  src={offer.rightVisual.src}
+                  alt={offer.rightVisual.alt ?? ""}
                   fill
                   className="object-contain"
                   sizes="(max-width: 640px) 100vw, 180px"
@@ -51,7 +45,6 @@ export default function OfferRow({
 
           {/* TEXTE (colonne droite) */}
           <div className="flex flex-col justify-start pt-1">
-            {/* (optionnel) petite ligne façon dateLine */}
             <p className="text-lg text-neutral-600">Dépliant PDF</p>
 
             <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">
