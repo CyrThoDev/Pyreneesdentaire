@@ -65,13 +65,15 @@ function Cell({
 }
 
 export default function RealisationsGrid({ photos = DEFAULT_PHOTOS, realisations }: Props) {
-  const resolved: RealisationPhoto[] = realisations && realisations.length > 0
-    ? realisations.map((r) => ({
-        src: urlFor(r.image).width(1200).url(),
-        alt: r.alt ?? "Réalisation cabinet dentaire",
-      }))
-    : photos;
-  const p = resolved.slice(0, 12);
+  const fromSanity: RealisationPhoto[] = (realisations ?? [])
+    .filter((r) => r.image)
+    .map((r) => ({
+      src: urlFor(r.image).width(1200).url(),
+      alt: r.alt ?? "Réalisation cabinet dentaire",
+    }));
+  const base = fromSanity.length > 0 ? fromSanity : photos;
+  const padded = Array.from({ length: 12 }, (_, i) => base[i] ?? photos[i]);
+  const p = padded;
 
   return (
     <section className="max-w-7xl mx-auto lg:py-16">
