@@ -14,6 +14,8 @@ import {
   SanityRealisation,
   SanityOffreProduit,
   SanityPageOffresProduits,
+  SanityPageFormations,
+  SanityFormationDetail,
 } from "./types";
 
 export async function getFauteuils(): Promise<SanityFauteuil[]> {
@@ -117,6 +119,38 @@ export async function getRealisations(): Promise<SanityRealisation[]> {
   return sanityNoStoreFetch(`
     *[_type == "realisation"] | order(orderRank) {
       _id, title, image, alt, ordre
+    }
+  `);
+}
+
+export async function getPageFormations(): Promise<SanityPageFormations | null> {
+  return sanityNoStoreFetch(`
+    *[_type == "pageFormations" && _id == "pageFormations"][0] {
+      titre,
+      description
+    }
+  `);
+}
+
+export async function getFormationsDetail(): Promise<SanityFormationDetail[]> {
+  return sanityNoStoreFetch(`
+    *[_type == "formation"] | order(orderRank) {
+      _id,
+      titre,
+      titreTop,
+      dateLine,
+      startDate,
+      lieu,
+      statut,
+      "posterUrl": poster.asset->url,
+      "posterAlt": poster.alt,
+      horaires,
+      resume,
+      intervenants,
+      programme,
+      contacts,
+      ctaLabel,
+      ctaHref
     }
   `);
 }

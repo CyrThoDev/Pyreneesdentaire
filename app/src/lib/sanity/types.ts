@@ -157,6 +157,45 @@ export type SanityPageOffresProduits = {
   description: string
 }
 
+export type SanityPageFormations = {
+  titre: string
+  description?: any[]
+}
+
+export type SanityFormationContact = {
+  nom: string
+  role?: string
+  telephone?: string
+  telephoneHref?: string
+  email?: string
+  emailHref?: string
+}
+
+export type SanityFormationIntervenant = {
+  nom: string
+  titre?: string
+  organisation?: string
+}
+
+export type SanityFormationDetail = {
+  _id: string
+  titre: string
+  titreTop?: string
+  dateLine: string
+  startDate?: string
+  lieu?: string
+  statut?: 'publie' | 'annule' | 'complet'
+  posterUrl?: string
+  posterAlt?: string
+  horaires?: { debut?: string; fin?: string; notes?: string }
+  resume?: string
+  intervenants?: SanityFormationIntervenant[]
+  programme?: any[]
+  contacts?: SanityFormationContact[]
+  ctaLabel?: string
+  ctaHref?: string
+}
+
 export type SanityOffreProduit = {
   _id: string
   title: string
