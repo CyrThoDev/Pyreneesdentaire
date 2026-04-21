@@ -1,8 +1,9 @@
 import RealisationsGrid from "../src/components/realisations/RealisationsGrid";
+import { getRealisations } from "../src/lib/sanity/queries";
 
+export default async function Materiel() {
+  const realisations = await getRealisations();
 
-
-export default function Materiel() {
   return (
    
       <>
@@ -15,7 +16,7 @@ export default function Materiel() {
 Découvrez nos réalisations de cabinets dentaires conçus sur mesure. Chaque projet allie design, ergonomie et respect des normes afin d’offrir un cadre de travail optimal aux praticiens et une expérience agréable aux patients.    </p>
         </div>
       </section>
-      <RealisationsGrid /> 
+      <RealisationsGrid realisations={realisations} />
        
 </>
    

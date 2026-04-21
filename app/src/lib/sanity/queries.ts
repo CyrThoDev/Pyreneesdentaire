@@ -11,6 +11,7 @@ import {
   SanityPageSociete,
   SanityMembreEquipe,
   SanityFooterContact,
+  SanityRealisation,
 } from "./types";
 
 export async function getFauteuils(): Promise<SanityFauteuil[]> {
@@ -106,6 +107,14 @@ export async function getEquipe(): Promise<SanityMembreEquipe[]> {
   return sanityNoStoreFetch(`
     *[_type == "membreEquipe"] | order(orderRank) {
       _id, name, role, phone, email, photo
+    }
+  `);
+}
+
+export async function getRealisations(): Promise<SanityRealisation[]> {
+  return sanityNoStoreFetch(`
+    *[_type == "realisation"] | order(orderRank) {
+      _id, title, image, alt, ordre
     }
   `);
 }

@@ -144,6 +144,14 @@ export type SanityAccueilOffres = {
   offres: SanityOffreItem[]
 }
 
+export type SanityRealisation = {
+  _id: string
+  title?: string
+  image: SanityImageSource
+  alt?: string
+  ordre?: number
+}
+
 export type SanityAccueilBonPlan = {
   subtitle: string
   description?: any[] 
