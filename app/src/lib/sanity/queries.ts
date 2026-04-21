@@ -12,6 +12,8 @@ import {
   SanityMembreEquipe,
   SanityFooterContact,
   SanityRealisation,
+  SanityOffreProduit,
+  SanityPageOffresProduits,
 } from "./types";
 
 export async function getFauteuils(): Promise<SanityFauteuil[]> {
@@ -115,6 +117,27 @@ export async function getRealisations(): Promise<SanityRealisation[]> {
   return sanityNoStoreFetch(`
     *[_type == "realisation"] | order(orderRank) {
       _id, title, image, alt, ordre
+    }
+  `);
+}
+
+export async function getPageOffresProduits(): Promise<SanityPageOffresProduits> {
+  return sanityNoStoreFetch(`
+    *[_type == "pageOffresProduits" && _id == "pageOffresProduits"][0] {
+      titre, description
+    }
+  `);
+}
+
+export async function getOffresProduits(): Promise<SanityOffreProduit[]> {
+  return sanityNoStoreFetch(`
+    *[_type == "offreProduit"] | order(orderRank) {
+      _id,
+      title,
+      subtitle,
+      "leftVisual": { "src": leftVisual.asset->url, "alt": leftVisual.alt },
+      "rightVisual": { "src": rightVisual.asset->url, "alt": rightVisual.alt },
+      "downloadHref": fichierPdf.asset->url
     }
   `);
 }
