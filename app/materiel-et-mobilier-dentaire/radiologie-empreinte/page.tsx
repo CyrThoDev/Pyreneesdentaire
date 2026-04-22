@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { EnteteDePage } from "@/app/src/components/EnteteDePage"
 import { CategoryPage } from "@/app/src/components/products/CategoryPage"
 import { getProduits, getEnteteRadiologieEmpreinte, getPartenaires } from "@/app/src/lib/sanity/queries"

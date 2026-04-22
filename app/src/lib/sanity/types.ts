@@ -152,6 +152,22 @@ export type SanityRealisation = {
   ordre?: number
 }
 
+export type BlocPhoto = { src: string; alt: string }
+
+export type SanityBlocRealisation = {
+  _key: string
+  grandeCote: 'gauche' | 'droite'
+  disposition: 'carres-bandeau' | 'carres-vertical'
+  grande: BlocPhoto
+  photo2: BlocPhoto
+  photo3: BlocPhoto
+  photo4: BlocPhoto
+}
+
+export type SanityRealisationsPage = {
+  blocs: SanityBlocRealisation[]
+}
+
 export type SanityPageOffresProduits = {
   titre: string
   description: string
@@ -171,25 +187,14 @@ export type SanityFormationContact = {
   emailHref?: string
 }
 
-export type SanityFormationIntervenant = {
-  nom: string
-  titre?: string
-  organisation?: string
-}
-
 export type SanityFormationDetail = {
   _id: string
-  titre: string
-  titreTop?: string
   dateLine: string
-  startDate?: string
-  lieu?: string
-  statut?: 'publie' | 'annule' | 'complet'
+  titreTop?: string
+  titre: string
   posterUrl?: string
   posterAlt?: string
   horaires?: { debut?: string; fin?: string; notes?: string }
-  resume?: string
-  intervenants?: SanityFormationIntervenant[]
   programme?: any[]
   contacts?: SanityFormationContact[]
   ctaLabel?: string

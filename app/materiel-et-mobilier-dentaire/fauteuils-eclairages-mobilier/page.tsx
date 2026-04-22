@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/(site)/catalogue/page.tsx
 import { FauteuilSection } from "@/app/src/components/catalogue/FauteuilSection";
 import { EclairageSection } from "@/app/src/components/catalogue/EclairageSection";

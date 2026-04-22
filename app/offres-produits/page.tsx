@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 // app/offres-produits/page.tsx
 import OfferRow from "./OfferRow";
 import { getOffresProduits, getPageOffresProduits } from "../src/lib/sanity/queries";
