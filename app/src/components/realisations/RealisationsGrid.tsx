@@ -1,129 +1,151 @@
-// RealisationsGrid.tsx
-// Composant galerie réalisations — Pyrénées Dentaire
-// Stack : Next.js + Tailwind CSS
-//
-// Placer les 12 images dans /public/realisations/
-// renommées : realisation1.jpg … realisation12.jpg
-//
-// Layout desktop — grille 12 cols × 6 sous-rangées :
-//
-//  rows 1-2  │ p0 : col 1-7            │ p1 : col 8-10, row 1   │ p2 : col 11-13, row 1
-//            │                         │ p3 : col 8-13,  row 2
-//  rows 3-4  │ p4 : col 1-4,  row 3   │ p6 : col 4-7,  rows 3-4 │ p7 : col 7-13, rows 3-4
-//            │ p5 : col 1-4,  row 4   │
-//  rows 5-6  │ p8 : col 1-7,  rows 5-6 │ p9  : col 7-10, row 5   │ p11 : col 10-13, rows 5-6
-//            │                         │ p10 : col 7-10, row 6   │
-//
-// Mobile : enfilade flex column
-
 import Image from "next/image";
-import { SanityRealisation } from "@/app/src/lib/sanity/types";
-import { urlFor } from "@/app/src/lib/sanity/images";
+import type { CSSProperties } from "react";
+import type { SanityBlocRealisation, BlocPhoto } from "@/app/src/lib/sanity/types";
 
-export interface RealisationPhoto {
-  src: string;
-  alt: string;
-}
-
-const DEFAULT_PHOTOS: RealisationPhoto[] = [
-  { src: "/images/realisations/realisation7.png",  alt: "Cabinet dentaire – double salle avec cloison bois" },
-  { src: "/images/realisations/realisation11.jpg", alt: "Fauteuil beige sur sol bleu" },
-  { src: "/images/realisations/realisation6.png",  alt: "Cabinet gris avec lustre circulaire" },
-  { src: "/images/realisations/realisation2.jpeg", alt: "Plan de travail dentaire moderne" },
-  { src: "/images/realisations/realisation9.jpg",  alt: "Cabinet blanc avec fauteuil noir" },
-  { src: "/images/realisations/realisation1.jpg",  alt: "Cabinet dentaire – fauteuil bleu ciel" },
-  { src: "/images/realisations/realisation8.jpg",  alt: "Fauteuil bleu avec fresque murale" },
-  { src: "/images/realisations/realisation12.jpg", alt: "Cabinet avec plafond décoratif fleuri" },
-  { src: "/images/realisations/realisation5.jpg",  alt: "Fauteuil dentaire bleu marine" },
-  { src: "/images/realisations/realisation4.jpg",  alt: "Cabinet avec mobilier orange" },
-  { src: "/images/realisations/realisation10.jpg", alt: "Cabinet vert émeraude" },
-  { src: "/images/realisations/realisation3.jpg",  alt: "Salle de soins avec lustre annulaire" },
+const DEFAULT_BLOCS: SanityBlocRealisation[] = [
+  {
+    _key: "d1",
+    grandeCote: "gauche",
+    disposition: "carres-bandeau",
+    grande: { src: "/images/realisations/realisation7.png",  alt: "Cabinet dentaire – double salle avec cloison bois" },
+    photo2: { src: "/images/realisations/realisation11.jpg", alt: "Fauteuil beige sur sol bleu" },
+    photo3: { src: "/images/realisations/realisation6.png",  alt: "Cabinet gris avec lustre circulaire" },
+    photo4: { src: "/images/realisations/realisation2.jpeg", alt: "Plan de travail dentaire moderne" },
+  },
+  {
+    _key: "d2",
+    grandeCote: "droite",
+    disposition: "carres-vertical",
+    grande: { src: "/images/realisations/realisation12.jpg", alt: "Cabinet avec plafond décoratif fleuri" },
+    photo2: { src: "/images/realisations/realisation9.jpg",  alt: "Cabinet blanc avec fauteuil noir" },
+    photo3: { src: "/images/realisations/realisation1.jpg",  alt: "Cabinet dentaire – fauteuil bleu ciel" },
+    photo4: { src: "/images/realisations/realisation8.jpg",  alt: "Fauteuil bleu avec fresque murale" },
+  },
+  {
+    _key: "d3",
+    grandeCote: "gauche",
+    disposition: "carres-vertical",
+    grande: { src: "/images/realisations/realisation5.jpg",  alt: "Fauteuil dentaire bleu marine" },
+    photo2: { src: "/images/realisations/realisation4.jpg",  alt: "Cabinet avec mobilier orange" },
+    photo3: { src: "/images/realisations/realisation10.jpg", alt: "Cabinet vert émeraude" },
+    photo4: { src: "/images/realisations/realisation3.jpg",  alt: "Salle de soins avec lustre annulaire" },
+  },
 ];
 
-interface Props {
-  photos?: RealisationPhoto[];
-  realisations?: SanityRealisation[];
-}
+const ROW_HEIGHT = 280;
 
-function Cell({
-  photo,
-  className,
-}: {
-  photo: RealisationPhoto;
-  className: string;
-}) {
+function Cell({ photo, style }: { photo: BlocPhoto; style: CSSProperties }) {
   return (
-    <div className={`relative overflow-hidden group ${className}`}>
+    <div className="relative overflow-hidden" style={style}>
       <Image
         src={photo.src}
         alt={photo.alt}
         fill
-        className="object-cover transition-transform duration-500 ease-out "
+        className="object-cover transition-transform duration-500 ease-out"
       />
     </div>
   );
 }
 
-export default function RealisationsGrid({ photos = DEFAULT_PHOTOS, realisations }: Props) {
-  const fromSanity: RealisationPhoto[] = (realisations ?? [])
-    .filter((r) => r.image)
-    .map((r) => ({
-      src: urlFor(r.image).width(1200).url(),
-      alt: r.alt ?? "Réalisation cabinet dentaire",
-    }));
-  const base = fromSanity.length > 0 ? fromSanity : photos;
-  const padded = Array.from({ length: 12 }, (_, i) => base[i] ?? photos[i]);
-  const p = padded;
+/**
+ * 4 dispositions possibles selon grandeCote × disposition :
+ *
+ * GAUCHE + carres-bandeau        GAUCHE + carres-vertical
+ * ┌──────────┬─────┬─────┐      ┌──────────┬─────┬──────┐
+ * │          │  p2 │  p3 │      │          │  p2 │      │
+ * │  grande  ├─────┴─────┤      │  grande  ├─────┤  p4  │
+ * │          │    p4     │      │          │  p3 │      │
+ * └──────────┴───────────┘      └──────────┴─────┴──────┘
+ *
+ * DROITE + carres-bandeau        DROITE + carres-vertical
+ * ┌─────┬─────┬──────────┐      ┌──────┬─────┬──────────┐
+ * │  p2 │  p3 │          │      │      │  p2 │          │
+ * ├─────┴─────┤  grande  │      │  p4  ├─────┤  grande  │
+ * │    p4     │          │      │      │  p3 │          │
+ * └───────────┴──────────┘      └──────┴─────┴──────────┘
+ */
+function renderBloc(bloc: SanityBlocRealisation, i: number): React.ReactNode[] {
+  const r1 = 2 * i + 1;
+  const r2 = 2 * i + 2;
+  const r3 = 2 * i + 3;
+  const { grande, photo2, photo3, photo4, grandeCote, disposition } = bloc;
+
+  if (grandeCote === "gauche") {
+    const grandeStyle: CSSProperties = { gridColumn: "1/7", gridRow: `${r1}/${r3}` };
+
+    if (disposition === "carres-bandeau") {
+      return [
+        <Cell key={`${i}-g`}  photo={grande} style={grandeStyle} />,
+        <Cell key={`${i}-p2`} photo={photo2} style={{ gridColumn: "7/10",  gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p3`} photo={photo3} style={{ gridColumn: "10/13", gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p4`} photo={photo4} style={{ gridColumn: "7/13",  gridRow: `${r2}/${r3}` }} />,
+      ];
+    } else {
+      // carres-vertical
+      return [
+        <Cell key={`${i}-g`}  photo={grande} style={grandeStyle} />,
+        <Cell key={`${i}-p2`} photo={photo2} style={{ gridColumn: "7/10",  gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p3`} photo={photo3} style={{ gridColumn: "7/10",  gridRow: `${r2}/${r3}` }} />,
+        <Cell key={`${i}-p4`} photo={photo4} style={{ gridColumn: "10/13", gridRow: `${r1}/${r3}` }} />,
+      ];
+    }
+  } else {
+    // grande droite
+    const grandeStyle: CSSProperties = { gridColumn: "7/13", gridRow: `${r1}/${r3}` };
+
+    if (disposition === "carres-bandeau") {
+      return [
+        <Cell key={`${i}-p2`} photo={photo2} style={{ gridColumn: "1/4",  gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p3`} photo={photo3} style={{ gridColumn: "4/7",  gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p4`} photo={photo4} style={{ gridColumn: "1/7",  gridRow: `${r2}/${r3}` }} />,
+        <Cell key={`${i}-g`}  photo={grande} style={grandeStyle} />,
+      ];
+    } else {
+      // carres-vertical
+      return [
+        <Cell key={`${i}-p4`} photo={photo4} style={{ gridColumn: "1/4",  gridRow: `${r1}/${r3}` }} />,
+        <Cell key={`${i}-p2`} photo={photo2} style={{ gridColumn: "4/7",  gridRow: `${r1}/${r2}` }} />,
+        <Cell key={`${i}-p3`} photo={photo3} style={{ gridColumn: "4/7",  gridRow: `${r2}/${r3}` }} />,
+        <Cell key={`${i}-g`}  photo={grande} style={grandeStyle} />,
+      ];
+    }
+  }
+}
+
+interface Props {
+  blocs?: SanityBlocRealisation[];
+}
+
+export default function RealisationsGrid({ blocs }: Props) {
+  const data = blocs && blocs.length > 0 ? blocs : DEFAULT_BLOCS;
+
+  const gridTemplateRows = Array.from(
+    { length: data.length * 2 },
+    () => `${ROW_HEIGHT}px`
+  ).join(" ");
 
   return (
     <section className="max-w-7xl mx-auto lg:py-16">
 
-      {/* ── Mobile : enfilade ── */}
+      {/* Mobile : enfilade */}
       <div className="flex flex-col gap-1 md:hidden">
-        {p.map((photo, i) => (
-          <div key={i} className="relative w-full aspect-[4/3] overflow-hidden">
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ))}
+        {data.flatMap((bloc, i) =>
+          [bloc.grande, bloc.photo2, bloc.photo3, bloc.photo4].map((photo, j) => (
+            <div key={`${i}-${j}`} className="relative w-full aspect-[4/3] overflow-hidden">
+              <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
+            </div>
+          ))
+        )}
       </div>
 
-      {/* ── Desktop : grille CSS ── */}
-      {/*
-        12 colonnes égales, 6 rangées.
-        Chaque "bloc visuel" occupe 2 rangées.
-        Les hauteurs sont définies en px via grid-template-rows arbitraire.
-        gap-1 = 4px entre les cellules.
-      */}
-  <div
-        className="
-          hidden md:grid
-          grid-cols-12
-          gap-3
-          [grid-template-rows:300px_300px_260px_260px_280px_280px]
-        "
+      {/* Desktop : grille CSS dynamique */}
+      <div
+        className="hidden md:grid grid-cols-12 gap-3"
+        style={{ gridTemplateRows }}
       >
-        {/* ── Bloc 1 ── */}
- 
-        {/* p0 : grande gauche, pleine hauteur bloc 1 */}
-        <Cell photo={p[0]}  className="[grid-column:1/7] [grid-row:1/3]" />
-        <Cell photo={p[1]}  className="[grid-column:7/10] [grid-row:1/2]" />
-        <Cell photo={p[2]}  className="[grid-column:10/13] [grid-row:1/2]" />
-        <Cell photo={p[3]}  className="[grid-column:7/13] [grid-row:2/3]" />
-        <Cell photo={p[4]}  className="[grid-column:1/4] [grid-row:3/4]" />
-        <Cell photo={p[5]}  className="[grid-column:1/4] [grid-row:4/5]" />
-        <Cell photo={p[6]}  className="[grid-column:4/7] [grid-row:3/5]" />
-        <Cell photo={p[7]}  className="[grid-column:7/13] [grid-row:3/5]" />
-        <Cell photo={p[8]}  className="[grid-column:1/7] [grid-row:5/7]" />
-        <Cell photo={p[9]}  className="[grid-column:7/10] [grid-row:5/6]" />
-        <Cell photo={p[10]} className="[grid-column:7/10] [grid-row:6/7]" />
-        <Cell photo={p[11]} className="[grid-column:10/13] [grid-row:5/7]" />
- 
+        {data.flatMap((bloc, i) => renderBloc(bloc, i))}
       </div>
+
     </section>
   );
 }

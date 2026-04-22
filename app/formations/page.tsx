@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PortableText } from "@portabletext/react";
 import FormationRow from "./FormationRow";
 import { getPageFormations, getFormationsDetail } from "../src/lib/sanity/queries";

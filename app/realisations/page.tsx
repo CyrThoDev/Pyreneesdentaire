@@ -1,24 +1,22 @@
-import RealisationsGrid from "../src/components/realisations/RealisationsGrid";
-import { getRealisations } from "../src/lib/sanity/queries";
+export const dynamic = 'force-dynamic';
 
-export default async function Materiel() {
-  const realisations = await getRealisations();
+import RealisationsGrid from "../src/components/realisations/RealisationsGrid";
+import { getRealisationsPage } from "../src/lib/sanity/queries";
+
+export default async function Realisations() {
+  const page = await getRealisationsPage();
 
   return (
-   
-      <>
-         <section className="bg-red text-white font-barlow">
+    <>
+      <section className="bg-red text-white font-barlow">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8">
-          <h1 className="text-5xl ">
-            NOS RÉALISATIONS
-          </h1>
+          <h1 className="text-5xl">NOS RÉALISATIONS</h1>
           <p className="max-w-7xl text-lg leading-5 opacity-95">
-Découvrez nos réalisations de cabinets dentaires conçus sur mesure. Chaque projet allie design, ergonomie et respect des normes afin d’offrir un cadre de travail optimal aux praticiens et une expérience agréable aux patients.    </p>
+            Découvrez nos réalisations de cabinets dentaires conçus sur mesure. Chaque projet allie design, ergonomie et respect des normes afin d&apos;offrir un cadre de travail optimal aux praticiens et une expérience agréable aux patients.
+          </p>
         </div>
       </section>
-      <RealisationsGrid realisations={realisations} />
-       
-</>
-   
+      <RealisationsGrid blocs={page?.blocs} />
+    </>
   );
 }

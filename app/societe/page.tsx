@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PortableText } from '@portabletext/react'
 import { urlFor } from '../src/lib/sanity/images'
 import { getPageSociete, getEquipe, getPartenaires } from "@/app/src/lib/sanity/queries"

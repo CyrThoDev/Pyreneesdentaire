@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import PartnersSection from "@/app/src/components/Partenaires"
 import { ProductTile } from "@/app/src/components/products/ProductTile"
 import { EnteteDePage } from "@/app/src/components/EnteteDePage"

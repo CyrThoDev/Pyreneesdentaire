@@ -8,13 +8,13 @@ import type { SanityFormationDetail } from "../src/lib/sanity/types";
 const ptComponents = {
   block: {
     h3: ({ children }: any) => (
-      <h3 className="font-bold text-neutral-900 mt-4">{children}</h3>
+      <h3 className="font-bold text-neutral-500 mt-4">{children}</h3>
     ),
     h4: ({ children }: any) => (
       <p className="text-red font-semibold mt-5">{children}</p>
     ),
     normal: ({ children }: any) => (
-      <p className=" text-neutral-700">{children}</p>
+      <p className="text-neutral-700">{children}</p>
     ),
   },
   marks: {
@@ -46,7 +46,8 @@ export default function FormationRow({
     <article id={f._id} className={`${bgClass} w-full scroll-mt-28 py-14`}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-8 md:grid-cols-[360px_1fr] md:gap-14">
-          {/* POSTER */}
+
+          {/* AFFICHE */}
           {f.posterUrl && (
             <div className="w-full">
               <div className="block lg:hidden">
@@ -73,13 +74,17 @@ export default function FormationRow({
 
           {/* TEXTE */}
           <div className="flex flex-col justify-start pt-1">
+
+            {/* Date */}
             <p className="text-xl font-bold text-neutral-600">{f.dateLine}</p>
 
+            {/* Titre */}
             <h2 className="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl">
               {f.titreTop && <span className="block">{f.titreTop}</span>}
               <span className="block">{f.titre}</span>
             </h2>
 
+            {/* Horaires */}
             {f.horaires && (
               <p className="mt-2 text-red font-semibold">
                 {[f.horaires.debut, f.horaires.fin].filter(Boolean).join(" → ")}
@@ -87,59 +92,33 @@ export default function FormationRow({
               </p>
             )}
 
-            {f.resume && (
-              <p className="mt-3 text-neutral-700">{f.resume}</p>
-            )}
-
-            {f.intervenants && f.intervenants.length > 0 && (
-              <div className="mt-4 space-y-1">
-                {f.intervenants.map((i, idx) => (
-                  <p key={idx} className="text-neutral-700">
-                    <strong>{i.nom}</strong>
-                    {i.titre ? `, ${i.titre}` : ""}
-                    {i.organisation ? ` — ${i.organisation}` : ""}
-                  </p>
-                ))}
-              </div>
-            )}
-
+            {/* Programme */}
             {f.programme && f.programme.length > 0 && (
-              <div className="mt-5 max-w-2xl ">
+              <div className="mt-5 max-w-2xl">
                 <PortableText value={f.programme} components={ptComponents} />
               </div>
             )}
 
+            {/* Contacts */}
             {f.contacts && f.contacts.length > 0 && (
               <div className="mt-5">
                 <p className="font-bold text-neutral-900">INSCRIPTION</p>
                 {f.contacts.map((c, idx) => (
                   <p key={idx} className="mt-2 text-neutral-700">
                     {c.nom}
-                    {c.role ? ` — ${c.role}` : ""}{" — "}
+                    {c.role ? ` — ${c.role}` : ""}
                     {c.emailHref && (
-                      <a
-                        href={c.emailHref}
-                        className="hover:underline underline-offset-2"
-                      >
-                        {c.email}
-                      </a>
+                      <>{" — "}<a href={c.emailHref} className="hover:underline underline-offset-2">{c.email}</a></>
                     )}
                     {c.telephoneHref && (
-                      <>
-                        {" "}—{" "}
-                        <a
-                          href={c.telephoneHref}
-                          className="hover:underline underline-offset-2"
-                        >
-                          {c.telephone}
-                        </a>
-                      </>
+                      <>{" — "}<a href={c.telephoneHref} className="hover:underline underline-offset-2">{c.telephone}</a></>
                     )}
                   </p>
                 ))}
               </div>
             )}
 
+            {/* CTA */}
             {f.ctaLabel && f.ctaHref && (
               <div className="mt-5">
                 <Button href={f.ctaHref} variant="gray">
@@ -147,6 +126,7 @@ export default function FormationRow({
                 </Button>
               </div>
             )}
+
           </div>
         </div>
       </div>

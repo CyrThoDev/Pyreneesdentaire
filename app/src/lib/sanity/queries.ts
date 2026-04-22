@@ -12,6 +12,7 @@ import {
   SanityMembreEquipe,
   SanityFooterContact,
   SanityRealisation,
+  SanityRealisationsPage,
   SanityOffreProduit,
   SanityPageOffresProduits,
   SanityPageFormations,
@@ -123,6 +124,22 @@ export async function getRealisations(): Promise<SanityRealisation[]> {
   `);
 }
 
+export async function getRealisationsPage(): Promise<SanityRealisationsPage | null> {
+  return sanityNoStoreFetch(`
+    *[_type == "realisationsPage" && _id == "realisationsPage"][0] {
+      blocs[] {
+        _key,
+        grandeCote,
+        disposition,
+        "grande": { "src": grande.asset->url, "alt": grande.alt },
+        "photo2":  { "src": photo2.asset->url,  "alt": photo2.alt  },
+        "photo3":  { "src": photo3.asset->url,  "alt": photo3.alt  },
+        "photo4":  { "src": photo4.asset->url,  "alt": photo4.alt  },
+      }
+    }
+  `);
+}
+
 export async function getPageFormations(): Promise<SanityPageFormations | null> {
   return sanityNoStoreFetch(`
     *[_type == "pageFormations" && _id == "pageFormations"][0] {
@@ -136,17 +153,12 @@ export async function getFormationsDetail(): Promise<SanityFormationDetail[]> {
   return sanityNoStoreFetch(`
     *[_type == "formation"] | order(orderRank) {
       _id,
-      titre,
-      titreTop,
       dateLine,
-      startDate,
-      lieu,
-      statut,
+      titreTop,
+      titre,
       "posterUrl": poster.asset->url,
       "posterAlt": poster.alt,
       horaires,
-      resume,
-      intervenants,
       programme,
       contacts,
       ctaLabel,
