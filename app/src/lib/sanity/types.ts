@@ -180,11 +180,8 @@ export type SanityPageFormations = {
 
 export type SanityFormationContact = {
   nom: string
-  role?: string
-  telephone?: string
-  telephoneHref?: string
   email?: string
-  emailHref?: string
+  telephone?: string
 }
 
 export type SanityFormationDetail = {
