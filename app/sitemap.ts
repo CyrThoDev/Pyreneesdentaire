@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://pyreneesdentaires.fr";
+const BASE_URL = "https://www.pyreneesdentaire.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
