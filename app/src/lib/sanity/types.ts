@@ -170,7 +170,7 @@ export type SanityRealisationsPage = {
 
 export type SanityPageOffresProduits = {
   titre: string
-  description: string
+  description?: any[]
 }
 
 export type SanityPageFormations = {
