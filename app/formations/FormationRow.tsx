@@ -44,11 +44,11 @@ export default function FormationRow({
   return (
     <article id={f._id} className={`${bgClass} w-full scroll-mt-28 py-14`}>
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid gap-8 md:grid-cols-[360px_1fr] md:gap-14">
+        <div className="grid gap-8 md:grid-cols-[400px_1fr] md:gap-14 items-center">
 
           {/* AFFICHE */}
           {f.posterUrl && (
-            <div className="w-full">
+            <div className="w-full flex flex-col items-center">
               <div className="block lg:hidden">
                 <Image
                   src={f.posterUrl}
@@ -106,24 +106,17 @@ export default function FormationRow({
                   <p key={idx} className="mt-2 text-neutral-700">
                     {c.nom}
                     {c.email && (
-                      <>{" — "}<a href={`mailto:${c.email}`} className="underline underline-offset-2 hover:text-neutral-900">{c.email}</a></>
+                      <>{" — "}<a href={`mailto:${c.email}`} className="hover:underline underline-offset-2 hover:text-neutral-900">{c.email}</a></>
                     )}
                     {c.telephone && (
-                      <>{" — "}<a href={`tel:${c.telephone.replace(/\s/g, "")}`} className="underline underline-offset-2 hover:text-neutral-900">{c.telephone}</a></>
+                      <>{" — "}<a href={`tel:${c.telephone.replace(/\s/g, "")}`} className="hover:underline underline-offset-2 hover:text-neutral-900">{c.telephone}</a></>
                     )}
                   </p>
                 ))}
               </div>
             )}
 
-            {/* CTA */}
-            {f.ctaLabel && f.ctaHref && (
-              <div className="mt-5">
-                <a href={f.ctaHref} className="inline-block bg-neutral-800 text-white px-6 py-3 text-sm font-bold hover:bg-neutral-700 transition-colors">
-                  {f.ctaLabel}
-                </a>
-              </div>
-            )}
+           
 
           </div>
         </div>
