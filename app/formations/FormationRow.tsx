@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import Button from "../src/components/ui/Button";
 import type { SanityFormationDetail } from "../src/lib/sanity/types";
 
 const ptComponents = {
@@ -106,12 +105,11 @@ export default function FormationRow({
                 {f.contacts.map((c, idx) => (
                   <p key={idx} className="mt-2 text-neutral-700">
                     {c.nom}
-                    {c.role ? ` — ${c.role}` : ""}
-                    {c.emailHref && (
-                      <>{" — "}<a href={c.emailHref} className="hover:underline underline-offset-2">{c.email}</a></>
+                    {c.email && (
+                      <>{" — "}<a href={`mailto:${c.email}`} className="underline underline-offset-2 hover:text-neutral-900">{c.email}</a></>
                     )}
-                    {c.telephoneHref && (
-                      <>{" — "}<a href={c.telephoneHref} className="hover:underline underline-offset-2">{c.telephone}</a></>
+                    {c.telephone && (
+                      <>{" — "}<a href={`tel:${c.telephone.replace(/\s/g, "")}`} className="underline underline-offset-2 hover:text-neutral-900">{c.telephone}</a></>
                     )}
                   </p>
                 ))}
@@ -121,9 +119,9 @@ export default function FormationRow({
             {/* CTA */}
             {f.ctaLabel && f.ctaHref && (
               <div className="mt-5">
-                <Button href={f.ctaHref} variant="gray">
+                <a href={f.ctaHref} className="inline-block bg-neutral-800 text-white px-6 py-3 text-sm font-bold hover:bg-neutral-700 transition-colors">
                   {f.ctaLabel}
-                </Button>
+                </a>
               </div>
             )}
 
