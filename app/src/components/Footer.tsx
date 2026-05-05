@@ -71,7 +71,7 @@ export async function Footer() {
           <LegalLinks />
 
           <div className="mt-4 text-center text-xs text-white/85">
-            © PYRENNEES DENTAIRE - 5 route de l'Oussère - 64320 Idron - 05 59 02 28 46
+            © PYRENEES DENTAIRE - 5 route de l'Oussère - 64320 Idron - 05 59 02 28 46
           </div>
         </div>
       </div>
