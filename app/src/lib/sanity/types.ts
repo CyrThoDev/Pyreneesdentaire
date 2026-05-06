@@ -127,8 +127,7 @@ export type SanityFormation = {
 
 export type SanityAccueilFormations = {
   formations: SanityFormation[]
-  afficheUrl?: string
-  afficheAlt?: string
+  affiches?: { url: string; alt?: string }[]
 }
 
 // dans types.ts
