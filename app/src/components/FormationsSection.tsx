@@ -10,6 +10,7 @@ export default function FormationsSection({ data }: Props) {
   if (!data) return null
 
   const { formations, affiches } = data
+  const nbAffiches = affiches?.length ?? 0
 
   return (
     <section
@@ -22,65 +23,96 @@ export default function FormationsSection({ data }: Props) {
       }}
     >
       <div className="mx-auto w-full max-w-7xl px-6 py-14 lg:py-16">
-        <Title />
 
-        {affiches && affiches.length === 1 ? (
-          /* 1 photo : textes côte à côte + photo à droite */
-          <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr_280px] lg:gap-10 items-center">
-            {formations.map((f, i) => <FormationCard key={i} f={f} />)}
-            <a
-              href={affiches[0].url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full cursor-zoom-in"
-            >
-              <div className="overflow-hidden rounded-sm shadow-2xl">
-                <Image
-                  src={affiches[0].url}
-                  alt={affiches[0].alt ?? "Affiche formation"}
-                  width={420}
-                  height={700}
-                  className="w-full h-auto object-cover"
-                  sizes="280px"
-                />
+        {nbAffiches === 1 ? (
+          <>
+            {/* MOBILE */}
+            <div className="grid gap-10 lg:hidden">
+              <Title />
+              {formations.map((f, i) => <FormationCard key={i} f={f} />)}
+              <Poster src={affiches![0].url} alt={affiches![0].alt} />
+            </div>
+
+            {/* DESKTOP — layout original : titre+formations à gauche, affiche à droite */}
+            <div className="hidden lg:grid lg:grid-cols-[3.5fr_1fr] lg:gap-4">
+              <div className="flex-1">
+                <Title />
+                <div className="mt-12 grid items-stretch gap-14 lg:grid-cols-[0.2fr_1fr_1fr]">
+                  <div />
+                  {formations.map((f, i) => <FormationCard key={i} f={f} />)}
+                </div>
               </div>
-            </a>
-          </div>
+              <a
+                href={affiches![0].url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full cursor-zoom-in"
+              >
+                <div className="h-full w-full overflow-hidden rounded-sm shadow-2xl">
+                  <Image
+                    src={affiches![0].url}
+                    alt={affiches![0].alt ?? "Affiche formation"}
+                    width={420}
+                    height={700}
+                    className="h-full w-full object-cover"
+                    sizes="(min-width: 1280px) 420px, 360px"
+                  />
+                </div>
+              </a>
+            </div>
+          </>
         ) : (
-          /* 2 photos : texte + photo alternés */
-          <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_280px_1fr_280px] lg:gap-10 items-center">
-            {formations.map((f, i) => {
-              const affiche = affiches?.[i]
-              return (
-                <>
-                  <FormationCard key={`text-${i}`} f={f} />
-                  {affiche ? (
-                    <a
-                      key={`img-${i}`}
-                      href={affiche.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full cursor-zoom-in"
-                    >
-                      <div className="overflow-hidden rounded-sm shadow-2xl">
-                        <Image
-                          src={affiche.url}
-                          alt={affiche.alt ?? "Affiche formation"}
-                          width={420}
-                          height={700}
-                          className="w-full h-auto object-cover"
-                          sizes="280px"
-                        />
-                      </div>
-                    </a>
-                  ) : (
-                    <div key={`empty-${i}`} />
-                  )}
-                </>
-              )
-            })}
-          </div>
+          <>
+            {/* MOBILE */}
+            <div className="grid gap-10 lg:hidden">
+              <Title />
+              {formations.map((f, i) => (
+                <div key={i} className="grid gap-6">
+                  <FormationCard f={f} />
+                  {affiches?.[i] && <Poster src={affiches[i].url} alt={affiches[i].alt} />}
+                </div>
+              ))}
+            </div>
+
+            {/* DESKTOP — 2 photos : texte + photo alternés sur une ligne */}
+            <div className="hidden lg:block">
+              <Title />
+              <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_280px_1fr_280px] lg:gap-10 items-center">
+                {formations.map((f, i) => {
+                  const affiche = affiches?.[i]
+                  return (
+                    <>
+                      <FormationCard key={`text-${i}`} f={f} />
+                      {affiche ? (
+                        <a
+                          key={`img-${i}`}
+                          href={affiche.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full cursor-zoom-in"
+                        >
+                          <div className="overflow-hidden rounded-sm shadow-2xl">
+                            <Image
+                              src={affiche.url}
+                              alt={affiche.alt ?? "Affiche formation"}
+                              width={420}
+                              height={700}
+                              className="w-full object-contain max-h-72"
+                              sizes="280px"
+                            />
+                          </div>
+                        </a>
+                      ) : (
+                        <div key={`empty-${i}`} />
+                      )}
+                    </>
+                  )
+                })}
+              </div>
+            </div>
+          </>
         )}
+
       </div>
     </section>
   );
@@ -96,7 +128,7 @@ function Title() {
 
 function FormationCard({ f }: { f: SanityFormation }) {
   return (
-    <article className="flex flex-col leading-none">
+    <article className="flex h-full flex-col leading-none">
       <div>
         <p className="text-2xl font-extrabold">{f.dayLabel}</p>
         <h3 className="mt-3 text-4xl font-black leading-[1.05]">{f.title}</h3>
@@ -108,8 +140,7 @@ function FormationCard({ f }: { f: SanityFormation }) {
           ))}
         </div>
       </div>
-
-      <div className="mt-6">
+      <div className="mt-auto pt-4">
         <div className="space-y-1 text-base leading-none text-white/80">
           <p>{f.dateLine}</p>
           <p>{f.placeLine}</p>
@@ -122,5 +153,19 @@ function FormationCard({ f }: { f: SanityFormation }) {
         </Link>
       </div>
     </article>
+  );
+}
+
+function Poster({ src, alt }: { src: string; alt?: string }) {
+  return (
+    <div className="w-full overflow-hidden rounded-sm shadow-2xl">
+      <Image
+        src={src}
+        alt={alt ?? "Affiche formation"}
+        width={800}
+        height={1100}
+        className="h-auto w-full object-cover"
+      />
+    </div>
   );
 }
