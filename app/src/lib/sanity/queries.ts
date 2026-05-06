@@ -229,8 +229,7 @@ export const formationsQuery = `*[_type == "accueilFormations" && _id == "accuei
     placeLine,
     href
   },
-  "afficheUrl": affiche.asset->url,
-  "afficheAlt": affiche.alt
+  "affiches": affiches[]{ "url": asset->url, "alt": alt }
 }`
 
 export const offresQuery = `*[_type == "accueilOffres" && _id == "accueilOffres"][0]{
