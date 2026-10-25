@@ -257,6 +257,9 @@ export const bonPlanQuery = `*[_type == "accueilBonPlan" && _id == "accueilBonPl
   oldPriceValue,
   ctaLabel,
   ctaHref,
-  "imageSrc": image.asset->url,
-  "imageAlt": image.alt
+  "ficheTechniqueHref": ficheTechnique.asset->url,
+  "images": images[]{
+    "src": asset->url,
+    "alt": alt
+  }
 }`
